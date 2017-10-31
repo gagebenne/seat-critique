@@ -15,6 +15,11 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ //change slate to whatever style you want to use
+ // Import slate variables
+@import "bootswatch/slate/variables";
+// And finally bootswatch style itself
+@import "bootswatch/slate/bootswatch";
 
  .navbar {
      -webkit-border-radius: 0;
