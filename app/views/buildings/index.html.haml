@@ -1,12 +1,13 @@
 .container
-  %h1 Buildings#Index Page
+  %h1 Buildings
 
   = link_to "Create New Building", new_building_path, :class => 'btn btn-primary'
 
-  %table.col-xs-12
+  .separator
+
+  %table{:class => "table table-striped table-hover"}
     %thead
       %tr
-        %th{:style => "width:10%;"} ID
         %th{:style => "width:20%;"} Name
         %th{:style => "width:40%;"} Address
         %th{:style => "width:30%;"} Actions
@@ -14,12 +15,10 @@
       - @buildings.each do |building|
         %tr
           %td
-            = building.id
-          %td
             = building.name
           %td
             = building.address
           %td
-            = link_to "Show", building_path(building), :class => 'btn'
-            = link_to "Edit", edit_building_path(building), :class => 'btn'
+            = link_to "Show", building_path(building), :class => 'btn btn-default'
+            = link_to "Edit", edit_building_path(building), :class => 'btn btn-default'
             = link_to "Destroy", building_path(building), :class => 'btn btn-danger', method: :delete, :data => {confirm: 'Are you sure you want to delete this building?'}
