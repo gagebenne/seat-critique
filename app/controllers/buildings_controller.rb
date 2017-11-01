@@ -1,11 +1,10 @@
 class BuildingsController < ApplicationController
-
   def index
     @buildings = Building.all
   end
 
   def show
-    @building = Building.find(params['id'])
+    @building = Building.find(params[:id])
   end
 
   def new
@@ -17,13 +16,32 @@ class BuildingsController < ApplicationController
     if @building.save
       redirect_to(buildings_path)
     else
-      redirect_to(buildings_new_path)
+      render :new
     end
   end
 
-  private
+  def edit
+    @building = Building.find(params[:id])
+  end
+  
+  def update
+    @building = Building.find(params[:id])
+    if @building.update(building_params)
+      redirect_to(buildings_path)
+    else
+      render :edit
+    end
+  end
 
+  def destroy
+    @building = Building.find(params[:id])
+    @building.destroy
+    redirect_to(buildings_path)
+  end
+  
+  private
+  
   def building_params
-    params.require(:building).permit(:name,:address)
+    params.require(:building).permit(:name, :address)
   end
 end
