@@ -1,2 +1,10 @@
-%h1 Bathrooms#new
-%p Find me in app/views/bathrooms/new.html.erb
+.container
+  %h1 Bathrooms#new
+  %h2 Building: #{@building.name}
+
+  = simple_form_for @bathroom, url: building_bathrooms_path(@building) do |f|
+    = f.input :gender
+    = f.input :floor
+    = f.input :location
+
+    = f.button :submit, :class => 'btn btn-primary'
