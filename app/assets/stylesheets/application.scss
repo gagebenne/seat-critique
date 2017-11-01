@@ -26,3 +26,29 @@
      -moz-border-radius: 0;
      border-radius: 0;
  }
+
+ .navbar-default {
+	margin : 0 !important;
+}
+
+ .dropdown-menu > li > p {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #c8c8c8;
+  white-space: nowrap;
+}
+
+.nav > input {
+	padding-top: 5px;
+}
+
+.login {
+	margin-right: 10px;
+}
+
+body {
+  padding-top: 50px;
+}
