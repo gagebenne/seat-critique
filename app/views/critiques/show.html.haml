@@ -1,0 +1,31 @@
+.container
+  %h1 Critiques#show
+  %h2 Building: #{@building.name}
+  %h3 Bathroom: Floor #{@bathroom.floor} at #{@bathroom.location}
+
+  %table{:style => 'width:100%;'}
+    %thead
+      %tr
+        %th Category
+        %th Rating
+    %tbody
+      %tr
+        %td Overall
+        %td #{@critique.overall_rating}
+      %tr
+        %td Toilet
+        %td #{@critique.toilet_rating}
+      %tr
+        %td Sink
+        %td #{@critique.sink_rating}
+      %tr
+        %td Cleanliness
+        %td #{@critique.cleanliness_rating}
+      %tr
+        %td Smell
+        %td #{@critique.smell_rating}
+      %tr
+        %td Privacy
+        %td #{@critique.privacy_rating}
+
+  = link_to "Go Back", building_bathroom_critiques_path(@building,@bathroom), :class => 'btn'
