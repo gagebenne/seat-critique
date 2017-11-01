@@ -34,6 +34,13 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use for user/login system
+gem 'devise'
+# Use for more efficient html coding
+gem 'haml'
+# Use for easier form generation
+gem 'simple_form'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

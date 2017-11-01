@@ -1,0 +1,22 @@
+%h1 Buildings#Index Page
+
+= link_to "Create New Building", new_building_path
+
+%table{:style => "width:500px;"}
+  %thead
+    %tr
+      %th{:style => "width:10%;"} ID
+      %th{:style => "width:30%;"} Name
+      %th{:style => "width:40%;"} Address
+      %th{:style => "width:20%;"} Show Page
+  %tbody
+    - @buildings.each do |building|
+      %tr
+        %td
+          = building.id
+        %td
+          = building.name
+        %td
+          = building.address
+        %td
+          = link_to "Show", building_path(building)
