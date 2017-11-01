@@ -1,9 +1,14 @@
-%h1 Buildings#show Page
+.container
+  %h1 Buildings#show Page
 
-%h3 Name
-= @building.name
+  %h3 Name
+  = @building.name
 
-%h3 Address
-= @building.address
+  %h3 Address
+  = @building.address
 
-= link_to "Bathrooms", building_bathrooms_path(@building)
+  %br
+  = link_to "Bathrooms", building_bathrooms_path(@building)
+  %br
+
+  = link_to "Go Back", buildings_path, :class => 'btn'
