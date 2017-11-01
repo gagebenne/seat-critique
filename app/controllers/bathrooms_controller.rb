@@ -16,7 +16,7 @@ class BathroomsController < ApplicationController
   def create
     @bathroom = @building.bathrooms.new(bathroom_params)
     if @bathroom.save
-      redirect_to(building_path(@building))
+      redirect_to(building_bathrooms_path(@building))
     else
       render :new
     end
@@ -29,16 +29,16 @@ class BathroomsController < ApplicationController
   def update
     @bathroom = @building.bathrooms.find(params[:id])
     if @bathroom.update(bathroom_params)
-      redirect_to(building_path(@building))
+      redirect_to(building_bathrooms_path(@building))
     else
       redirect_to :edit
     end
   end
 
   def destroy
-    @bathroom = @building.bathrooms.(building_id: params[:building_id])
+    @bathroom = @building.bathrooms.find(params[:id])
     @bathroom.destroy
-    redirect_to(building_path(@building))
+    redirect_to(building_bathrooms_path(@building))
   end
   
   private
