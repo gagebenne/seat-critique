@@ -31,7 +31,7 @@ class BathroomsController < ApplicationController
     if @bathroom.update(bathroom_params)
       redirect_to(building_bathrooms_path(@building))
     else
-      redirect_to :edit
+      render :edit
     end
   end
 
@@ -51,5 +51,3 @@ class BathroomsController < ApplicationController
     @building = Building.find(params[:building_id])
   end
 end
-
-
