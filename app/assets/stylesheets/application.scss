@@ -19,6 +19,7 @@
 @import "bootstrap";
 // And finally bootswatch style itself
 @import "bootswatch/cerulean/bootswatch";
+@import url("forms.scss");
 
  .navbar {
      -webkit-border-radius: 0;
