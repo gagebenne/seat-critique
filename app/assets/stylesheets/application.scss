@@ -31,7 +31,13 @@
 	margin : 0 !important;
 }
 
- .dropdown-menu > li > p {
+.footer {
+  align-items: center;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.dropdown-menu > li > p {
   display: block;
   padding: 3px 20px;
   clear: both;
