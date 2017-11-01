@@ -1,2 +1,18 @@
-%h1 Bathrooms#show
-%p Find me in app/views/bathrooms/show.html.erb
+.container
+  %h1 Bathrooms#show Page
+  %h2 Building: #{@building.name}
+
+  %h3 Gender
+  = @bathroom.gender
+
+  %h3 Floor
+  = @bathroom.floor
+
+  %h3 Location
+  = @bathroom.location
+
+  %br
+  = link_to "Rate Me", building_bathroom_critiques_path(@building,@bathroom), :class => 'btn btn-primary'
+  %br
+
+  = link_to "Go Back", building_bathrooms_path(@building), :class => 'btn'

@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   root 'buildings#index'
 
   resources :buildings do
-    resources :bathrooms
+    resources :bathrooms do
+      resources :critiques
+    end
   end
-
-  devise_for :users
 
 end
