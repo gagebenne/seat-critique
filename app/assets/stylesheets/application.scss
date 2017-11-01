@@ -14,12 +14,12 @@
  *= require_self
  */
  @import "bootstrap-sprockets";
- @import "bootstrap";
- //change slate to whatever style you want to use
- // Import slate variables
-@import "bootswatch/slate/variables";
+// Import slate variables
+@import "bootswatch/cerulean/variables";
+@import "bootstrap";
 // And finally bootswatch style itself
-@import "bootswatch/slate/bootswatch";
+@import "bootswatch/cerulean/bootswatch";
+@import url("forms.scss");
 
  .navbar {
      -webkit-border-radius: 0;
@@ -31,7 +31,13 @@
 	margin : 0 !important;
 }
 
- .dropdown-menu > li > p {
+.footer {
+  align-items: center;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.dropdown-menu > li > p {
   display: block;
   padding: 3px 20px;
   clear: both;
@@ -51,4 +57,12 @@
 
 body {
   padding-top: 50px;
+}
+
+.separator {
+	height:10px;
+}
+
+td p {
+	vertical-align: middle;
 }
