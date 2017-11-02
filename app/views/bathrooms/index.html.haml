@@ -28,6 +28,6 @@
             %td
               = bathroom.location
             %td
-              = link_to "Show", building_bathroom_path(@building,bathroom), :class => 'btn'
-              = link_to "Edit", edit_building_bathroom_path(@building,bathroom), :class => 'btn'
+              = link_to "Show", building_bathroom_path(@building,bathroom), :class => 'btn btn-default'
+              = link_to "Edit", edit_building_bathroom_path(@building,bathroom), :class => 'btn btn-default'
               = link_to "Destroy", building_bathroom_path(@building,bathroom), :class => 'btn btn-danger', method: :delete, :data => {confirm: 'Are you sure you want to delete this bathroom?'}
