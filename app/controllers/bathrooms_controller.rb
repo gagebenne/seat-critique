@@ -1,8 +1,8 @@
 class BathroomsController < ApplicationController
   before_action :get_building
-  
+
   def index
-    @bathrooms = @building.bathrooms
+    @bathrooms = @building.bathrooms.sort_by{|bathroom| bathroom.floor}
   end
 
   def show
@@ -40,13 +40,13 @@ class BathroomsController < ApplicationController
     @bathroom.destroy
     redirect_to(building_bathrooms_path(@building))
   end
-  
+
   private
-  
+
   def bathroom_params
     params.require(:bathroom).permit(:floor, :location, :gender)
   end
-  
+
   def get_building
     @building = Building.find(params[:building_id])
   end
