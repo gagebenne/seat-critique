@@ -45,6 +45,7 @@ class Building < ApplicationRecord
       self.errors[:base] << "Building name cannot be empty"
     elsif Building.exists? name: self.name.strip
       oldName = Building.find(self.id).name
+      #change to casecmp?
       if self.name.strip != oldName
         self.errors[:base] << self.name.strip + " already exists"
       end
