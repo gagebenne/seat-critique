@@ -1,0 +1,18 @@
+.container
+  %h1 Bathrooms#edit
+  %h2 Building: #{@building.name}
+
+  - if @bathroom.errors.any?
+    %h3
+      = pluralize(@bathroom.errors.count, "error")
+      prevented this building from being added:
+    %ul
+      - @bathroom.errors.full_messages.each do |msg|
+        %li= msg
+
+  = simple_form_for @bathroom, url: building_bathroom_path(@building,@bathroom) do |f|
+    = f.input :gender
+    = f.input :floor
+    = f.input :location
+
+    = f.button :submit, :class => 'btn btn-primary'

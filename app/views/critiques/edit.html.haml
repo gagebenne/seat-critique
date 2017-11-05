@@ -1,0 +1,22 @@
+.container
+  %h1 Critiques#edit
+  %h2 Building: #{@building.name}
+  %h3 Bathroom: Floor #{@bathroom.floor} at #{@bathroom.location}
+
+  - if @critique.errors.any?
+    %h3
+      = pluralize(@critique.errors.count, "error")
+      prevented this building from being added:
+    %ul
+      - @critique.errors.full_messages.each do |msg|
+        %li= msg
+
+  = simple_form_for @critique, url: building_bathroom_critique_path(@building,@bathroom) do |f|
+    = f.input :overall_rating,      min: 1, max: 10
+    = f.input :toilet_rating,       min: 1, max: 10
+    = f.input :sink_rating,         min: 1, max: 10
+    = f.input :cleanliness_rating,  min: 1, max: 10
+    = f.input :smell_rating,        min: 1, max: 10
+    = f.input :privacy_rating,      min: 1, max: 10
+
+    = f.button :submit, :class => 'btn btn-primary'
