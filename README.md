@@ -1,6 +1,6 @@
 # SeatCritique
 
-Project 3 prototype
+Seat Critique is an all-in-one restroom app which lets users find and critique restrooms near them.
 
 ### Team Members
 
