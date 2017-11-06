@@ -1,24 +1,27 @@
-# README
+# SeatCritique
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Prototype
 
-Things you may want to cover:
+### Team Members
 
-* Ruby version
+[Gage Benne](https://github.com/gagebenne) 
 
-* System dependencies
+[Zachary Bruennig](https://github.com/zbruennig)
 
-* Configuration
+[Andy Monroe](https://github.com/andrew-monroe)
 
-* Database creation
+[Mason Wilde](https://github.com/masonwilde)
 
-* Database initialization
+### Works Cited/Libraries Used:
 
-* How to run the test suite
+[Rails](http://rubyonrails.org/)
 
-* Services (job queues, cache servers, search engines, etc.)
+[Bootstrap](http://getbootstrap.com/)
 
-* Deployment instructions
+[Bootswatch](https://bootswatch.com/)
 
-* ...
+[Gemfile Gems](https://github.com/GitGud-KU/Skeddit/blob/master/Gemfile)
+
+[Devise](https://github.com/plataformatec/devise)
+
+[Simple Form](https://github.com/plataformatec/simple_form)
