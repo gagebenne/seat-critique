@@ -1,6 +1,6 @@
 # SeatCritique
 
-Prototype
+Project 3 prototype
 
 ### Team Members
 
