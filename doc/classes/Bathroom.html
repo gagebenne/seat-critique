@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Bathroom</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            Bathroom
+            
+                <span class="parent">&lt;
+                    
+                    <a href="ApplicationRecord.html">ApplicationRecord</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/bathroom_rb.html">app/models/bathroom.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-format_input">format_input</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-gender_options">gender_options</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-is_number-3F">is_number?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-unify_gender">unify_gender</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-valid_floor">valid_floor</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-validate_location">validate_location</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-format_input">
+            
+              <b>format_input</b>()
+            
+            <a href="../classes/Bathroom.html#method-i-format_input" name="method-i-format_input" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>removes spaces, tabs, etc from beginning and end of input</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-format_input_source')" id="l_method-i-format_input_source">show</a>
+                
+              </p>
+              <div id="method-i-format_input_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">format_input</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gender</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gender</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">floor</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">floor</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">upcase</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">location</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">strip</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-gender_options">
+            
+              <b>gender_options</b>()
+            
+            <a href="../classes/Bathroom.html#method-i-gender_options" name="method-i-gender_options" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Forces gender to be from a prespecified set of allowed inputs Validation
+makes sure it&#39;s on this list</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-gender_options_source')" id="l_method-i-gender_options_source">show</a>
+                
+              </p>
+              <div id="method-i-gender_options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">gender_options</span>
+  <span class="ruby-identifier">input</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gender</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-identifier">inList</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-comment">#specifically avoids plurals since we will check for that too</span>
+  <span class="ruby-identifier">allowed</span> = <span class="ruby-constant">Array</span>[<span class="ruby-string">&quot;Men&quot;</span>,<span class="ruby-string">&quot;Male&quot;</span>,<span class="ruby-string">&quot;M&quot;</span>,<span class="ruby-string">&quot;Boy&quot;</span>,<span class="ruby-string">&quot;Guy&quot;</span>,<span class="ruby-string">&quot;Man&quot;</span>,
+  <span class="ruby-string">&quot;Women&quot;</span>,<span class="ruby-string">&quot;Female&quot;</span>,<span class="ruby-string">&quot;F&quot;</span>,<span class="ruby-string">&quot;Girl&quot;</span>,<span class="ruby-string">&quot;Lady&quot;</span>,<span class="ruby-string">&quot;Ladie&quot;</span>,<span class="ruby-string">&quot;Woman&quot;</span>]
+  <span class="ruby-identifier">allowed</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">==</span> <span class="ruby-number">0</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">input</span>).<span class="ruby-identifier">casecmp</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;s&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+      <span class="ruby-identifier">inList</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span>(<span class="ruby-operator">!</span><span class="ruby-identifier">inList</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Gender not recognized; please use Male or Female&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-is_number-3F">
+            
+              <b>is_number?</b>(obj)
+            
+            <a href="../classes/Bathroom.html#method-i-is_number-3F" name="method-i-is_number-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-is_number-3F_source')" id="l_method-i-is_number-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-is_number-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">is_number?</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">to_i</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-unify_gender">
+            
+              <b>unify_gender</b>()
+            
+            <a href="../classes/Bathroom.html#method-i-unify_gender" name="method-i-unify_gender" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Converts all allowable gender inputs into either &#39;Male&#39; or
+&#39;Female&#39;</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-unify_gender_source')" id="l_method-i-unify_gender_source">show</a>
+                
+              </p>
+              <div id="method-i-unify_gender_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">unify_gender</span>
+  <span class="ruby-identifier">gender</span> = <span class="ruby-string">&quot;nil&quot;</span>
+  <span class="ruby-identifier">input</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gender</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-identifier">male</span> = [<span class="ruby-string">&quot;Men&quot;</span>,<span class="ruby-string">&quot;Male&quot;</span>,<span class="ruby-string">&quot;M&quot;</span>,<span class="ruby-string">&quot;Boy&quot;</span>,<span class="ruby-string">&quot;Guy&quot;</span>,<span class="ruby-string">&quot;Man&quot;</span>]
+  <span class="ruby-identifier">female</span> = [<span class="ruby-string">&quot;Women&quot;</span>,<span class="ruby-string">&quot;Female&quot;</span>,<span class="ruby-string">&quot;F&quot;</span>,<span class="ruby-string">&quot;Girl&quot;</span>,<span class="ruby-string">&quot;Lady&quot;</span>,<span class="ruby-string">&quot;Ladie&quot;</span>,<span class="ruby-string">&quot;Woman&quot;</span>]
+  <span class="ruby-identifier">male</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">==</span> <span class="ruby-number">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;s&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+      <span class="ruby-identifier">gender</span> = <span class="ruby-string">&quot;Male&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">female</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">==</span> <span class="ruby-number">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;s&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+      <span class="ruby-identifier">gender</span> = <span class="ruby-string">&quot;Female&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gender</span> = <span class="ruby-identifier">gender</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-valid_floor">
+            
+              <b>valid_floor</b>()
+            
+            <a href="../classes/Bathroom.html#method-i-valid_floor" name="method-i-valid_floor" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-valid_floor_source')" id="l_method-i-valid_floor_source">show</a>
+                
+              </p>
+              <div id="method-i-valid_floor_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">valid_floor</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">floor</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Must provide a floor number&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">is_number?</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-string">&quot;L&quot;</span>) <span class="ruby-operator">!=</span> <span class="ruby-number">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-string">&quot;LL&quot;</span>) <span class="ruby-operator">!=</span> <span class="ruby-number">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-string">&quot;B&quot;</span>) <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Invalid floor&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_location">
+            
+              <b>validate_location</b>()
+            
+            <a href="../classes/Bathroom.html#method-i-validate_location" name="method-i-validate_location" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-validate_location_source')" id="l_method-i-validate_location_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_location_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_location</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">strip</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Must specify a location&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>

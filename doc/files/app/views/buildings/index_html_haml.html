@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>index.html.haml</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            index.html.haml
+        </h1>
+        <ul class="files">
+            <li>app/views/buildings/index.html.haml</li>
+            <li>Last modified: 2017-12-01 12:19:39 -0600</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>.container</p>
+
+<pre><code>%h1 Buildings
+
+= link_to &quot;Create New Building&quot;, new_building_path, :class =&gt; &#39;btn btn-primary&#39;
+
+.separator
+
+- if @buildings.empty?
+  %div{:class =&gt; &quot;panel panel-warning&quot;}
+    .panel-heading{ :style =&gt; &quot;text-align:center;&quot;}
+      = &quot;There are no buildings.&quot;
+- else
+  %table{:class =&gt; &quot;table table-striped table-hover&quot;}
+    %thead
+      %tr
+        %th{:style =&gt; &quot;width:20%;&quot;} Name
+        %th{:style =&gt; &quot;width:40%;&quot;} Address
+        %th{:style =&gt; &quot;width:30%;&quot;} Actions
+    %tbody
+      - @buildings.each do |building|
+        %tr
+          %td
+            = building.name
+          %td
+            = building.address
+          %td
+            = link_to &quot;Show&quot;, building_path(building), :class =&gt; &#39;btn btn-default&#39;
+            = link_to &quot;Edit&quot;, edit_building_path(building), :class =&gt; &#39;btn btn-default&#39;
+            = link_to &quot;Destroy&quot;, building_path(building), :class =&gt; &#39;btn btn-danger&#39;, method: :delete, :data =&gt; {confirm: &#39;Are you sure you want to delete this building?&#39;}</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>
