@@ -16,7 +16,7 @@ class BathroomsController < ApplicationController
   def create
     @bathroom = @building.bathrooms.new(bathroom_params)
     if @bathroom.save
-      redirect_to(building_bathrooms_path(@building))
+      redirect_to(building_path(@building))
     else
       render :new
     end
