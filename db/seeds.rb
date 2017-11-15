@@ -67,12 +67,13 @@ Building.create([
   { name: 'Kansas Memorial Union', address: '1301 Jayhawk Boulevard Lawrence, KS 66045-7548' }, 
   { name: 'Krehbiel Scholarship Hall', address: '1301 Ohio St Lawrence, KS 66044-3436' }, 
   { name: 'Kurata Thermodynamics Lab', address: '2330 Crowell Drive Lawrence, KS 66047-3714' }, 
-  { name: 'Learned Hall', address: '1530 W. 15th St Lawrence, KS 66045-7618' }, 
+  { name: 'Learned Hall', address: '1530 W. 15th St Lawrence, KS 66045-7618' },
+  { name: 'LEEP2', address: '1536 West 15th Street Lawrence, KS 66045' }, 
   { name: 'Library Annex', address: '1880 Westbrooke Lawrence, KS 66044-4313' }, 
   { name: 'Lied Center', address: '1600 Stewart Drive Lawrence, KS 66045-7544' }, 
   { name: 'Lindley Hall', address: '1475 Jayhawk Boulevard Lawrence, KS 66045-7575' }, 
   { name: 'Lippincott Hall', address: '1410 Jayhawk Boulevard Lawrence, KS 66045-7537' }, 
-  { name: 'M2 Sec/Leep2/Spahr', address: '1536 West 15th Street Lawrence, KS 66045' }, 
+  { name: 'M2SEC', address: '1536 West 15th Street Lawrence, KS 66045' }, 
   { name: 'Malott Hall', address: '1251 Wescoe Hall Drive Lawrence, KS 66045-7572' }, 
   { name: 'Marvin Hall', address: '1465 Jayhawk Boulevard Lawrence, KS 66045-7594' }, 
   { name: 'Marvin Studios', address: '1400 Hoch Auditoria Drive Lawrence, KS 66045-7591' }, 
@@ -104,7 +105,8 @@ Building.create([
   { name: 'Slawson Hall', address: '1420 Naismith Drive Lawrence, KS 66045' }, 
   { name: 'Smissman Labs', address: '2099 Constant Avenue Lawrence, KS 66047-3729' }, 
   { name: 'Smith Hall', address: '1300 Oread Ave Lawrence, KS 66045-7603' }, 
-  { name: 'Snow Hall', address: '1460 Jayhawk Boulevard Lawrence, KS 66045-7514' }, 
+  { name: 'Snow Hall', address: '1460 Jayhawk Boulevard Lawrence, KS 66045-7514' },
+  { name: 'Spahr Library', address: '1532 W 15th St # 1210, Lawrence, KS 66045' }, 
   { name: 'Spencer Museum Of Art', address: '1301 Mississippi Street Lawrence, KS 66045-7500' }, 
   { name: 'Spencer Research Library', address: '1450 Poplar Lane Lawrence, KS 66045-7596' }, 
   { name: 'Spooner Hall', address: '1340 Jayhawk Boulevard Lawrence, KS 66045-7533' }, 
@@ -124,4 +126,52 @@ Building.create([
   { name: 'Wescoe Hall', address: '1445 Jayhawk Boulevard Lawrence, KS 66045-7535' }, 
   { name: 'West District Greenhouse', address: '2107 Constant Lawrence, KS 66045' }, 
   { name: 'Youngberg Hall', address: '2385 Irving Hill Rd Lawrence, KS 66045-7568' }
+])
+
+@eaton = Building.find_by name: 'Eaton Hall'
+@eaton.bathrooms.create([
+  { floor: '1', location: 'Central', gender: 'Male'},
+  { floor: '2', location: 'Central', gender: 'Male'},
+  { floor: '3', location: 'Central', gender: 'Male'},
+  { floor: '1', location: 'Central', gender: 'Female'},
+  { floor: '2', location: 'Central', gender: 'Female'},
+  { floor: '3', location: 'Central', gender: 'Female'}
+])
+
+@learned = Building.find_by name: 'Learned Hall'
+@learned.bathrooms.create([
+  { floor: '1', location: 'Far West', gender: 'Male'},
+  { floor: '1', location: 'West', gender: 'Male'},
+  { floor: '1', location: 'West', gender: 'Female'},
+  { floor: '1', location: 'Central', gender: 'Female'},
+  { floor: '2', location: 'West', gender: 'Male'},
+  { floor: '2', location: 'West', gender: 'Female'},
+  { floor: '2', location: 'Central', gender: 'Male'},
+  { floor: '2', location: 'East', gender: 'Male'},
+  { floor: '3', location: 'West', gender: 'Male'},
+  { floor: '3', location: 'West', gender: 'Female'},
+  { floor: '3', location: 'East', gender: 'Female'},
+  { floor: '4', location: 'Central', gender: 'Male'},
+  { floor: '4', location: 'Central', gender: 'Female'},
+  { floor: '4', location: 'East', gender: 'Male'}
+])
+
+@leep2 = Building.find_by name: 'LEEP2'
+@leep2.bathrooms.create([
+  { floor: 'G', location: 'Near Elevator', gender: 'Unisex'},
+  { floor: 'G', location: 'Near Staircase', gender: 'Male'},
+  { floor: 'G', location: 'Near Staircase', gender: 'Female'},
+  { floor: '1', location: 'Near Jaybreak', gender: 'Unisex'},
+  { floor: '1', location: 'Near Jaybreak', gender: 'Male'},
+  { floor: '1', location: 'Near Jaybreak', gender: 'Female'},
+  { floor: '2', location: 'Above Jaybreak', gender: 'Male'},
+  { floor: '2', location: 'Above Jaybreak', gender: 'Female'}
+])
+
+@m2sec = Building.find_by name: 'M2SEC'
+@m2sec.bathrooms.create([
+  { floor: 'G', location: 'Near Hallway to LEEP2', gender: 'Male'},
+  { floor: 'G', location: 'Near Hallway to LEEP2', gender: 'Female'},
+  { floor: '1', location: 'Near Hallway to LEEP2', gender: 'Male'},
+  { floor: '1', location: 'Near Hallway to LEEP2', gender: 'Female'},
 ])
