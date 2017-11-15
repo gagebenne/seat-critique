@@ -11,6 +11,7 @@ class BathroomsController < ApplicationController
 
   def new
     @bathroom = @building.bathrooms.new(params[:id])
+    @genders = ['Male','Female','Unisex']
   end
 
   def create
@@ -24,6 +25,7 @@ class BathroomsController < ApplicationController
 
   def edit
     @bathroom = @building.bathrooms.find(params[:id])
+    @genders = ['Male','Female','Unisex']
   end
 
   def update
