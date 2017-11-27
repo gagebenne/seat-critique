@@ -2,7 +2,9 @@ class Bathroom < ApplicationRecord
   belongs_to :building
   has_many :critiques
 
-  validate :gender_options, :valid_floor, :validate_location
+  validate :gender_options, :valid_floor
+
+  validates :gender, :floor, :location, presence: true
 
   before_save :format_input, :unify_gender
 
@@ -18,58 +20,39 @@ class Bathroom < ApplicationRecord
   #Converts all allowable gender inputs into either
   #'Male' or 'Female'
   def unify_gender
-    gender = "nil"
-    input = self.gender.strip
-    male = ["Men","Male","M","Boy","Guy","Man"]
-    female = ["Women","Female","F","Girl","Lady","Ladie","Woman"]
-    male.each do |name|
-      if input.casecmp(name) == 0 || input.casecmp(name+"s") == 0
-        gender = "Male"
-      end
+    input = self.gender.downcase
+    male = ["man","men","male","males","m","boy","boys","guy","guys"]
+    female = ["woman","women","female","females","f","girl","girls","lady","ladies"]
+    unisex = ["unisex","nonbinary","non-binary"]
+    if male.include?(input)
+      self.gender = "Male"
+    elsif female.inlcude?(input)
+      self.gender = "Female"
+    elsif unisex.include?(input)
+      self.gender = "Unisex"
     end
-    female.each do |name|
-      if input.casecmp(name) == 0 || input.casecmp(name+"s") == 0
-        gender = "Female"
-      end
-    end
-    self.gender = gender
   end
 
   #Forces gender to be from a prespecified set of allowed inputs
   #Validation makes sure it's on this list
   def gender_options
-    input = self.gender.strip
-    inList = false
-    #specifically avoids plurals since we will check for that too
-    allowed = Array["Men","Male","M","Boy","Guy","Man",
-    "Women","Female","F","Girl","Lady","Ladie","Woman"]
-    allowed.each do |name|
-      if input.casecmp(name) == 0 || (input).casecmp(name+"s") == 0
-        inList = true
-      end
-    end
-    if(!inList)
-      self.errors[:base] << "Gender not recognized; please use Male or Female"
+    recognized_genders = ["men","male","males","m","boy","boys","guy","guys","man",
+      "woman","women","female","females","f","girl","girls","lady","ladies",
+      "unisex","nonbinary","non-binary"]
+    unless recognized_genders.include?(self.gender.downcase)
+      self.errors[:base] << "Gender not recognized; please use Male, Female, or Unisex"
     end
   end
 
   def valid_floor
-    name = self.floor.strip
-    if name == ""
-      self.errors[:base] << "Must provide a floor number"
-    elsif !is_number?(name) && name.casecmp("L") != 0 && name.casecmp("LL") != 0 && name.casecmp("B") != 0
+    floor = self.floor
+    if !is_number?(floor) && floor.casecmp("L") != 0 && floor.casecmp("LL") != 0 && floor.casecmp("B") != 0
       self.errors[:base] << "Invalid floor"
     end
   end
 
   def is_number?(obj)
-    return obj.to_s == obj.to_i.to_s
-  end
-
-  def validate_location
-    if self.location.strip == ""
-      self.errors[:base] << "Must specify a location"
-    end
+    return obj.is_a? Integer
   end
 
 end

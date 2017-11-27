@@ -11,7 +11,7 @@
         %li= msg
 
   = simple_form_for @bathroom, url: building_bathroom_path(@building,@bathroom) do |f|
-    = f.input :gender
+    = f.input :gender, collection: @genders
     = f.input :floor
     = f.input :location
 

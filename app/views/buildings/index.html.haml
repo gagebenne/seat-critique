@@ -19,7 +19,7 @@
           %th{:style => "width:40%;"} Longitude
           %th{:style => "width:30%;"} Actions
       %tbody
-        - @buildings.each do |building|
+        - @buildings.order(:name).each do |building|
           %tr
             %td
               = building.name
