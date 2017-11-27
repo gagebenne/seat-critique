@@ -15,6 +15,8 @@
         %tr
           %th{:style => "width:20%;"} Name
           %th{:style => "width:40%;"} Address
+          %th{:style => "width:40%;"} Latitude
+          %th{:style => "width:40%;"} Longitude
           %th{:style => "width:30%;"} Actions
       %tbody
         - @buildings.each do |building|
@@ -23,6 +25,10 @@
               = building.name
             %td
               = building.address
+            %td
+              = building.latitude
+            %td
+              = building.longitude
             %td
               = link_to "Show", building_path(building), :class => 'btn btn-default'
               = link_to "Edit", edit_building_path(building), :class => 'btn btn-default'
