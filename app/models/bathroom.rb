@@ -18,14 +18,14 @@ class Bathroom < ApplicationRecord
   end
 
   def valid_floor
-    floor = self.floor
+    floor = self.floor.to_s
     if !is_number?(floor) && floor.casecmp("L") != 0 && floor.casecmp("LL") != 0 && floor.casecmp("B") != 0
       self.errors[:base] << "Invalid floor"
     end
   end
 
   def is_number?(obj)
-    return obj.is_a? Integer
+    return obj.to_s == obj.to_i.to_s
   end
 
 end
