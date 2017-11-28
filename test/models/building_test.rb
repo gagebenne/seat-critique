@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class BuildingTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "cannot save empty building" do
+    building = Building.new
+    assert_not building.save
+  end
+  
 end

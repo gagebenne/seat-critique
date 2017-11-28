@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class CritiqueTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "cannot save empty critique" do
+    critique = Critique.new
+    assert_not critique.save
+  end
+  
 end
