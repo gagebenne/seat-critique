@@ -12,11 +12,11 @@
         %li= msg
 
   = simple_form_for @critique, url: building_bathroom_critiques_path(@building,@bathroom) do |f|
-    = f.input :overall_rating,      min: 1, max: 10
-    = f.input :toilet_rating,       min: 1, max: 10
-    = f.input :sink_rating,         min: 1, max: 10
-    = f.input :cleanliness_rating,  min: 1, max: 10
-    = f.input :smell_rating,        min: 1, max: 10
-    = f.input :privacy_rating,      min: 1, max: 10
+    = f.input :overall_rating,      min: 1, max: 5
+    = f.input :toilet_rating,       min: 1, max: 5
+    = f.input :sink_rating,         min: 1, max: 5
+    = f.input :cleanliness_rating,  min: 1, max: 5
+    = f.input :smell_rating,        min: 1, max: 5
+    = f.input :privacy_rating,      min: 1, max: 5
 
     = f.button :submit, :class => 'btn btn-primary'
