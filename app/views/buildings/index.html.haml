@@ -1,5 +1,11 @@
+%script{:src => "//maps.google.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API']}"}
+%script{:src => "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
+%script{:src => "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js", :type => "text/javascript"}
+
 .container
   %h1 Buildings
+  
+  #map{:style => "height:400px; width:600px;"}
 
   = link_to "Create New Building", new_building_path, :class => 'btn btn-primary'
 
@@ -15,6 +21,8 @@
         %tr
           %th{:style => "width:20%;"} Name
           %th{:style => "width:40%;"} Address
+          %th{:style => "width:40%;"} Latitude
+          %th{:style => "width:40%;"} Longitude
           %th{:style => "width:30%;"} Actions
       %tbody
         - @buildings.order(:name).each do |building|
@@ -24,6 +32,24 @@
             %td
               = building.address
             %td
+              = building.latitude
+            %td
+              = building.longitude
+            %td
               = link_to "Show", building_path(building), :class => 'btn btn-default'
               = link_to "Edit", edit_building_path(building), :class => 'btn btn-default'
-              = link_to "Destroy", building_path(building), :class => 'btn btn-danger', method: :delete, :data => {confirm: 'Are you sure you want to delete this building?'}
+              = link_to "Destroy", building_path(building), :class => 'btn btn-danger', method: :delete, :data => {confirm: 'Are you sure you want to delete this building?'}  
+
+:javascript
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(#{raw @hash.to_json});
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+
+
+
+
+
+
