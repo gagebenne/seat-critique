@@ -6,5 +6,10 @@ class BathroomTest < ActiveSupport::TestCase
     bathroom = Bathroom.new
     assert_not bathroom.save
   end
+
+  test 'can save normal men\'s bathroom' do
+    b = bathrooms(:mens)
+    assert b.save
+  end
   
 end
