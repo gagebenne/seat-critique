@@ -48,9 +48,8 @@
 
 - @buildings.order(:name).each do |building|
   :javascript
-    console.log("test")
     var infowindow = new google.maps.InfoWindow({
-      content: "HELLO!!!"
+      content: contentstring
     })
 
     var marker = new google.maps.Marker({
