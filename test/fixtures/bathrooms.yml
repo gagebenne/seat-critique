@@ -1,11 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  floor: MyString
-  location: MyString
-  gender: MyString
+sample_building:
+  floor: 1
+  location: Over there
+  gender: Male
 
-two:
-  floor: MyString
-  location: MyString
-  gender: MyString

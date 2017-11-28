@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class BathroomTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "cannot save empty bathroom" do
+    bathroom = Bathroom.new
+    assert_not bathroom.save
+  end
+  
 end
