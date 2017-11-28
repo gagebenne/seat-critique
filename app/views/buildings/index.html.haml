@@ -1,4 +1,4 @@
-%script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBzgOXa__YmyVP22NhipWI_1nAo0FpFvU8&callback=initMap"}
+%script{:src => "https://maps.googleapis.com/maps/api/js?key=API_KEY_HERE&callback=initMap"}
 
 .container
   %h1 Buildings
@@ -40,7 +40,7 @@
 :javascript
   function initMap() {
     var center = {lat: 38.957570, lng: -95.252722}
-    var thismap = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 16,
       center: center
     })  
@@ -49,7 +49,7 @@
 - @buildings.order(:name).each do |building|
   :javascript
     var infowindow = new google.maps.InfoWindow({
-      content: contentstring
+      content: "contentstring"
     })
 
     var marker = new google.maps.Marker({
@@ -59,5 +59,5 @@
     })
   
     marker.addListener('click', function() {
-      infowindow.open(map, marker)
+      infowindow.open(thismap, marker)
     })
