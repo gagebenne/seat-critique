@@ -4,6 +4,7 @@ class BuildingsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@buildings) do |building, marker|
       marker.lat building.latitude
       marker.lng building.longitude
+      marker.infowindow render_to_string(:partial => "layouts/infowindow", :locals => { :building => building})
     end
   end
 
