@@ -5,7 +5,7 @@ class CritiquesController < ApplicationController
   def index
     @critiques = @bathroom.critiques
     @current_user_critiques = @critiques.select{ |c| c.user == current_user }
-    @other_user_criqitues = @critiques.reject{ |c| c.user == current_user }
+    @other_user_critiques = @critiques.reject{ |c| c.user == current_user }
   end
 
   def show
