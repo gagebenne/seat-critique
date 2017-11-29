@@ -4,15 +4,17 @@
 
 .container
   %h1 Buildings
-  
-  #map{:style => "height:400px; width:600px;"}
+
+  #map
+
+  .separator
 
   = link_to "Create New Building", new_building_path, :class => 'btn btn-primary'
 
   .separator
 
   - if @buildings.empty?
-    %div{:class => "panel panel-warning"}
+    .panel.panel-warning
       .panel-heading{ :style => "text-align:center;"}
         = "There are no buildings."
   - else
@@ -38,7 +40,7 @@
             %td
               = link_to "Show", building_path(building), :class => 'btn btn-default'
               = link_to "Edit", edit_building_path(building), :class => 'btn btn-default'
-              = link_to "Destroy", building_path(building), :class => 'btn btn-danger', method: :delete, :data => {confirm: 'Are you sure you want to delete this building?'}  
+              = link_to "Destroy", building_path(building), :class => 'btn btn-danger', method: :delete, :data => {confirm: 'Are you sure you want to delete this building?'}
 
 :javascript
   let mapStyles = [
@@ -127,9 +129,3 @@
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   });
-
-
-
-
-
-

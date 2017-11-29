@@ -34,7 +34,8 @@
 .footer {
   align-items: center;
   text-align: center;
-  padding-bottom: 15px;
+  margin-top:15px;
+  margin-bottom: 15px;
 }
 
 .dropdown-menu > li > p {
@@ -65,4 +66,22 @@ body {
 
 td p {
 	vertical-align: middle;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+div#map {
+  border-radius:5px;
+  width: 100%;
+  height: 70%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.container {
+  height:100%;
+  width:100%;
 }
