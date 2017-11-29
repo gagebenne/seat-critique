@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-mens:
-  floor: 1
-  location: Over there
-  gender: Male
+one:
+  name: MyString
+  bathroom_id: 1
 
+two:
+  name: MyString
+  bathroom_id: 1

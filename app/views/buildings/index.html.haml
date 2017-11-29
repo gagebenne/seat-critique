@@ -19,11 +19,11 @@
     %table{:class => "table table-striped table-hover"}
       %thead
         %tr
-          %th{:style => "width:20%;"} Name
-          %th{:style => "width:40%;"} Address
-          %th{:style => "width:40%;"} Latitude
-          %th{:style => "width:40%;"} Longitude
-          %th{:style => "width:30%;"} Actions
+          %th{:style => "width:25%;"} Name
+          %th{:style => "width:30%;"} Address
+          %th{:style => "width:10%;"} Latitude
+          %th{:style => "width:10%;"} Longitude
+          %th{:style => "width:25%;"} Actions
       %tbody
         - @buildings.order(:name).each do |building|
           %tr
