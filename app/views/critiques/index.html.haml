@@ -24,23 +24,23 @@
           %th Actions
       %tbody
         - @current_user_critiques.each do |critique|
-            %tr
-              %td
-                = critique.overall_rating
-              %td
-                = critique.toilet_rating
-              %td
-                = critique.sink_rating
-              %td
-                = critique.cleanliness_rating
-              %td
-                = critique.smell_rating
-              %td
-                = critique.privacy_rating
-              %td
-                /= link_to "Show", building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn'
-                = link_to "Edit", edit_building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn'
-                = link_to "Remove", building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn btn-danger', method: :delete, :data => {confirm: 'Are you sure you want to delete this critique?'}
+          %tr
+            %td
+              = critique.overall_rating
+            %td
+              = critique.toilet_rating
+            %td
+              = critique.sink_rating
+            %td
+              = critique.cleanliness_rating
+            %td
+              = critique.smell_rating
+            %td
+              = critique.privacy_rating
+            %td
+              /= link_to "Show", building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn'
+              = link_to "Edit", edit_building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn'
+              = link_to "Remove", building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn btn-danger', method: :delete, :data => {confirm: 'Are you sure you want to delete this critique?'}
 
   .separator
 
