@@ -1,11 +1,13 @@
 class Building < ApplicationRecord
   has_many :bathrooms
-  
+
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
   before_save :strip_input
 
+  validates :name, length: { maximum: 50 }
+  validates :address, length: { maximum: 65 }
   validates_presence_of :name, :address
   validates_uniqueness_of :name
 

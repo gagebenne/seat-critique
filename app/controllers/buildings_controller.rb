@@ -5,6 +5,11 @@ class BuildingsController < ApplicationController
       marker.lat building.latitude
       marker.lng building.longitude
       marker.infowindow render_to_string(:partial => "layouts/infowindow", :locals => { :building => building})
+      marker.picture({
+        :url => ActionController::Base.helpers.asset_path("emoticon-poop.png"),
+        :width => 36,
+        :height => 36
+        })
     end
   end
 

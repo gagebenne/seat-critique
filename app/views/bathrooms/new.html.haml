@@ -11,8 +11,8 @@
         %li= msg
 
   = simple_form_for @bathroom, url: building_bathrooms_path(@building) do |f|
-    = f.input :gender, collection: @genders
-    = f.input :floor
-    = f.input :location
+    = f.input :gender, collection: @genders, :error => false
+    = f.input :floor, :error => false
+    = f.input :location, :error => false
 
     = f.button :submit, :class => 'btn btn-primary'
