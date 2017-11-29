@@ -6,7 +6,7 @@
   %h1 Buildings
 
   #map
-  
+
   .separator
 
   = link_to "Create New Building", new_building_path, :class => 'btn btn-primary'
@@ -14,7 +14,7 @@
   .separator
 
   - if @buildings.empty?
-    %div{:class => "panel panel-warning"}
+    .panel.panel-warning
       .panel-heading{ :style => "text-align:center;"}
         = "There are no buildings."
   - else
