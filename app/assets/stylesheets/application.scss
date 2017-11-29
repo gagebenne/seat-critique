@@ -66,3 +66,20 @@ body {
 td p {
 	vertical-align: middle;
 }
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+div#map {
+  width: 90%;
+  height: 70%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.container {
+  height:100%;
+  width:100%;
+}
