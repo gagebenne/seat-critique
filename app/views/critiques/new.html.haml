@@ -5,7 +5,7 @@
   - if @critique.errors.any?
     %h3
       = pluralize(@critique.errors.count, "error")
-      prevented this building from being added:
+      prevented this critique from being added:
     %ul
       - @critique.errors.full_messages.each do |msg|
         %li= msg

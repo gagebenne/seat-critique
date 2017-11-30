@@ -4,7 +4,7 @@
   - if @bathroom.errors.any?
     %h3
       = pluralize(@bathroom.errors.count, "error")
-      prevented this building from being added:
+      prevented this bathroom from being modified:
     %ul
       - @bathroom.errors.full_messages.each do |msg|
         %li= msg

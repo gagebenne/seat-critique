@@ -2,49 +2,16 @@ class Critique < ApplicationRecord
   belongs_to :user
   belongs_to :bathroom
 
-  validate :in_range
+  validates_presence_of :overall_rating, :toilet_rating, :sink_rating,
+  :cleanliness_rating, :smell_rating, :privacy_rating
+  validates :overall_rating, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 5}
+  validates :toilet_rating, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 5}
+  validates :sink_rating, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 5}
+  validates :cleanliness_rating, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 5}
+  validates :smell_rating, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 5}
+  validates :privacy_rating, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 5}
 
   #Simple forms will validate that only integers are accepted
   #We do not need to check for that.
-
-  private
-
-  def in_range
-    if self.overall_rating == nil
-      self.errors[:base] << "Must give an overall rating"
-    elsif self.overall_rating < 1 || self.overall_rating > 5
-      self.errors[:base] << "Overall rating must be between 1 and 5"
-    end
-
-    if self.toilet_rating == nil
-      self.errors[:base] << "Must give a toilet rating"
-    elsif self.toilet_rating < 1 || self.toilet_rating > 5
-      self.errors[:base] << "Toilet rating must be between 1 and 5"
-    end
-
-    if self.sink_rating == nil
-      self.errors[:base] << "Must give a sink rating"
-    elsif self.sink_rating < 1 || self.sink_rating > 5
-      self.errors[:base] << "Sink rating must be between 1 and 5"
-    end
-
-    if self.cleanliness_rating == nil
-      self.errors[:base] << "Must give a cleanliness rating"
-    elsif self.cleanliness_rating < 1 || self.cleanliness_rating > 5
-      self.errors[:base] << "Cleanliness rating must be between 1 and 5"
-    end
-
-    if self.smell_rating == nil
-      self.errors[:base] << "Must give a smell rating"
-    elsif self.smell_rating < 1 || self.smell_rating > 5
-      self.errors[:base] << "Smell rating must be between 1 and 5"
-    end
-
-    if self.privacy_rating == nil
-      self.errors[:base] << "Must give a privacy rating"
-    elsif self.privacy_rating < 1 || self.privacy_rating > 5
-      self.errors[:base] << "Privacy rating must be between 1 and 5"
-    end
-  end
 
 end
