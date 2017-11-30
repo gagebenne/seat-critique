@@ -61,6 +61,6 @@ class BuildingsController < ApplicationController
     building.name+"\r"+
     "<br>\r"+
     building.address+"\r"+
-    "<a class=\"btn btn-default\" href=\"/buildings/#{building.id}/bathrooms/new\">Show</a>"
+    "<a class=\"btn btn-default\" href=\"/buildings/#{building.id}\">Show</a>"
   end
 end
