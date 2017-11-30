@@ -8,8 +8,8 @@
     %ul
       - @bathroom.errors.full_messages.each do |msg|
         %li= msg
-
-  = simple_form_for @bathroom, url: building_bathrooms_path(@building) do |f|
+  .col-xs-12.col-md-4
+  = simple_form_for @bathroom, url: building_bathrooms_path(@building), html: {class: 'form-horizontal'} do |f|
     = f.input :gender, collection: @genders, :error => false
     = f.input :floor, :error => false
     = f.input :location, :error => false
