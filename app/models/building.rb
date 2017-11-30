@@ -10,7 +10,9 @@ class Building < ApplicationRecord
 
   private
 
-  #removes spaces, tabs, etc from beginning and end of input
+  # Removes spaces, tabs, etc from beginning and end of input
+  # PRE: All inputs are successfully validated
+  # POST: Inputs are formatted to the webpage's style
   def strip_input
     self.name = self.name.to_s.strip
     self.address = self.address.to_s.strip

@@ -19,7 +19,6 @@ Building.create([
   { name: 'Blake Hall', address: '1541 Lilac Lane Lawrence, KS 66045-3129', latitude: '38.956105', longitude: '-95.2436328' },
   { name: 'Bridwell Research Laboratory', address: '2031 Constant Avenue Lawrence, KS 66047-3729', latitude: '38.9484442', longitude: '-95.2627311' },
   { name: 'Budig Hall/Hoch Auditoria', address: '1455 Jayhawk Boulevard Lawrence, KS 66045-7573', latitude: '38.958103', longitude: '-95.2492083' },
-  { name: 'Burge Student Union', address: '1565 Irving Hill Road Lawrence, KS 66045', latitude: '38.9559151', longitude: '-95.2535503' },
   { name: 'Campanile', address: '1450 Memorial Drive Lawrence, KS 66045', latitude: '38.9593092', longitude: '-95.2480297' },
   { name: 'Capitol Federal Hall', address: '1654 Naismith Drive Lawrence, KS 66045', latitude: '', longitude: '' },
   { name: 'Carruth O\'Leary', address: '1246 W. Campus Rd Lawrence, KS 66045-7521', latitude: '38.9611331', longitude: '-95.2507953' },
