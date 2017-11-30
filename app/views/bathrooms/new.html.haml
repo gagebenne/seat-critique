@@ -1,18 +1,17 @@
 .container
-  %h1 Bathrooms#new
   %h2 Building: #{@building.name}
 
   - if @bathroom.errors.any?
     %h3
       = pluralize(@bathroom.errors.count, "error")
-      prevented this building from being added:
+      prevented this bathroom from being added:
     %ul
       - @bathroom.errors.full_messages.each do |msg|
         %li= msg
-
-  = simple_form_for @bathroom, url: building_bathrooms_path(@building) do |f|
-    = f.input :gender, collection: @genders
-    = f.input :floor
-    = f.input :location
+  .col-xs-12.col-md-4
+  = simple_form_for @bathroom, url: building_bathrooms_path(@building), html: {class: 'form-horizontal'} do |f|
+    = f.input :gender, collection: @genders, :error => false
+    = f.input :floor, :error => false
+    = f.input :location, :error => false
 
     = f.button :submit, :class => 'btn btn-primary'

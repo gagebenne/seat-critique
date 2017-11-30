@@ -1,22 +1,21 @@
 .container
-  %h1 Critiques#new
   %h2 Building: #{@building.name}
   %h3 Bathroom: Floor #{@bathroom.floor} at #{@bathroom.location}
 
   - if @critique.errors.any?
     %h3
       = pluralize(@critique.errors.count, "error")
-      prevented this building from being added:
+      prevented this critique from being added:
     %ul
       - @critique.errors.full_messages.each do |msg|
         %li= msg
 
   = simple_form_for @critique, url: building_bathroom_critiques_path(@building,@bathroom) do |f|
-    = f.input :overall_rating,      min: 1, max: 5
-    = f.input :toilet_rating,       min: 1, max: 5
-    = f.input :sink_rating,         min: 1, max: 5
-    = f.input :cleanliness_rating,  min: 1, max: 5
-    = f.input :smell_rating,        min: 1, max: 5
-    = f.input :privacy_rating,      min: 1, max: 5
+    = f.input :overall_rating,      input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
+    = f.input :toilet_rating,       input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
+    = f.input :sink_rating,         input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
+    = f.input :cleanliness_rating,  input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
+    = f.input :smell_rating,        input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
+    = f.input :privacy_rating,      input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
 
     = f.button :submit, :class => 'btn btn-primary'

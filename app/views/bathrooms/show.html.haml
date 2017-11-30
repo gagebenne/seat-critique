@@ -1,60 +1,51 @@
 .container
-  %h1 Bathroom
-  %h2 Building: #{@building.name}
 
-  .well.well-sm
+  %h3 Gender
+  = render partial: 'gender_picture', locals: { bathroom: @bathroom }
 
-    %h3 Gender
-    = @bathroom.gender
+  %h3 Building
+  = @building.name
 
-    %h3 Floor
-    = @bathroom.floor
-
-    %h3 Location
-    = @bathroom.location
+  %h3 Location
+  = @bathroom.floor + " Floor, " + @bathroom.location
 
   %h3 Ratings
   - if @bathroom.critiques.empty?
     .panel.panel-warning
       .panel-heading
-        = "This bathroom has not been rated."
+        This bathroom has not been rated.
   - else
+    %h3 Overall: #{@bathroom.average_overall_rating}
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
-          = "Overall"
+          Toilet
         .panel-body
-          = @bathroom.critiques.inject(0){ |sum, el| sum + el.overall_rating }.to_f / @bathroom.critiques.size
+          = @bathroom.average_toilet_rating
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
-          = "Toilet"
+          Sink
         .panel-body
-          = @bathroom.critiques.inject(0){ |sum, el| sum + el.toilet_rating }.to_f / @bathroom.critiques.size
+          = @bathroom.average_sink_rating
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
-          = "Sink"
+          Cleanliness
         .panel-body
-          = @bathroom.critiques.inject(0){ |sum, el| sum + el.sink_rating }.to_f / @bathroom.critiques.size
+          = @bathroom.average_cleanliness_rating
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
-          = "Cleanliness"
+          Smell
         .panel-body
-          = @bathroom.critiques.inject(0){ |sum, el| sum + el.cleanliness_rating }.to_f / @bathroom.critiques.size
+          = @bathroom.average_smell_rating
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
-          = "Smell"
+          Privacy
         .panel-body
-          = @bathroom.critiques.inject(0){ |sum, el| sum + el.smell_rating }.to_f / @bathroom.critiques.size
-    .col-xs-4.col-md-2
-      .panel.panel-primary
-        .panel-heading
-          = "Privacy"
-        .panel-body
-          = @bathroom.critiques.inject(0){ |sum, el| sum + el.privacy_rating }.to_f / @bathroom.critiques.size
+          = @bathroom.average_privacy_rating
 
     %br
   = link_to "Rate Me", building_bathroom_critiques_path(@building,@bathroom), :class => 'btn btn-primary'
