@@ -1,14 +1,13 @@
+
+.container{:style => 'height:350px;padding-top:20px;'}
+  .col-xs-4
+    = render partial: 'gender_picture', locals: { bathroom: @bathroom }
+  .col-xs-8
+    %p{:style => 'font-size:40px;'}= @building.name
+    %p{:style => 'font-size:40px;'}= 'Floor ' + @bathroom.floor
+    %p{:style => 'font-size:40px;'}= @bathroom.location
+
 .container
-
-  %h3 Gender
-  = render partial: 'gender_picture', locals: { bathroom: @bathroom }
-
-  %h3 Building
-  = @building.name
-
-  %h3 Location
-  = @bathroom.floor + " Floor, " + @bathroom.location
-
   %h3 Ratings
   - if @bathroom.critiques.empty?
     .panel.panel-warning
