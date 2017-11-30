@@ -35,4 +35,18 @@ class BuildingTest < ActiveSupport::TestCase
     assert_not building2.save
   end
 
+  test 'strip_input works as expected' do
+    building = buildings(:spaces)
+    building.strip_input
+    assert_equal building.name, 'Cooler Building'
+    assert_equal building.address, '123 Fake Street'
+  end
+
+  test 'strip_input does nothing to a properly formatted building' do
+    building = buildings(:normal)
+    building.strip_input
+    assert_equal building.name, 'Cool Building'
+    assert_equal building.address, '123 Main St'
+  end
+
 end

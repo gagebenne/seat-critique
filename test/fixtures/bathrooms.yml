@@ -2,6 +2,10 @@
 
 mens:
   floor: 1
-  location: Over there
-  gender: Male
+  location: 'Over there'
+  gender: 'Male'
 
+badfloor:
+  floor: 'Jay Leno'
+  location: 'Hollywood'
+  gender: 'Unisex'

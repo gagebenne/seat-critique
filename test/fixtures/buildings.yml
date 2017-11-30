@@ -19,3 +19,7 @@ nameless:
 addressless:
   name: 'Cool Building'
   address: ''
+
+spaces:
+  name: '   Cooler Building    '
+  address: '  123 Fake Street  '

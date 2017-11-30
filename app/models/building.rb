@@ -11,8 +11,6 @@ class Building < ApplicationRecord
   validates_presence_of :name, :address
   validates_uniqueness_of :name
 
-  private
-
   # Removes spaces, tabs, etc from beginning and end of input
   # PRE: All inputs are successfully validated
   # POST: Inputs are formatted to the webpage's style
