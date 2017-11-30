@@ -30,13 +30,20 @@
         - else
           %p.navbar-btn.login
             = link_to('Login', new_user_session_path, class: "btn btn-default")
-      %form.navbar-form.navbar-right{:action => 'javascript:shiftFocus(query.value)'}
-        .form-group
-          %input.form-control{:placeholder => "Search", :type => "text", :name => 'query'}/
-        %button.btn.btn-default{:type => "submit"} Submit
+      - if current_page?(buildings_path) || current_page?(root_path)
+        %form.navbar-form.navbar-right{:action => 'javascript:shiftFocus()'}
+          .form-group
+            %input.form-control{:placeholder => "Search", :type => "text", :id => 'query'}/
+          %button.btn.btn-default{:type => "submit"} Submit
 
 :javascript
-  function shiftFocus(query) {
-    query = query.toLowerCase();
-    
+  function shiftFocus() {
+    query = document.getElementById("query").value.toLowerCase();
+    my_marker = markers.find(marker => marker.serviceObject.title.includes(query));
+    if (typeof my_marker !== 'undefined') {
+      my_marker.panTo();
+      if (handler.getMap().getZoom() < 18) { handler.getMap().setZoom(18); }
+    } else {
+      alert('No results found.');
+    }
   }

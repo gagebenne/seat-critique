@@ -1,11 +1,14 @@
-
-.container{:style => 'height:350px;padding-top:20px;'}
-  .col-xs-4
-    = render partial: 'gender_picture', locals: { bathroom: @bathroom }
-  .col-xs-8
-    %p{:style => 'font-size:40px;'}= @building.name
-    %p{:style => 'font-size:40px;'}= 'Floor ' + @bathroom.floor
-    %p{:style => 'font-size:40px;'}= @bathroom.location
+.container-fluid{:style => 'padding-top:20px;'}
+  .col-xs-12.col-sm-4
+    .gender-image
+      = render partial: 'gender_picture', locals: { bathroom: @bathroom }
+  .brnodisplay
+    %br
+  .col-xs-12.col-sm-8
+    .bathroom-text
+      %p{:style => 'font-size:40px;'}= @building.name
+      %p{:style => 'font-size:40px;'}= 'Floor ' + @bathroom.floor
+      %p{:style => 'font-size:40px;'}= @bathroom.location
 
 .container
   %h3 Ratings
