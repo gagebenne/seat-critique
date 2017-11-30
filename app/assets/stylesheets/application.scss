@@ -85,6 +85,7 @@ div#map {
 
 .row {
   margin: 5px;
+  height:90%;
 }
 .card {
   margin-top: 15px;
@@ -93,4 +94,17 @@ div#map {
   background-color: #f0f0f0;
   border: 1px solid rgba(0,0,0,.125);
   border-radius: .25rem;
+  align-items: center;
+  vertical-align:center;
+  height:95%;
+}
+
+.card-block{
+  align-items: center;
+  vertical-align: center;
+  text-align: center;
+  height:100%;
+}
+div.card-block>img {
+  height:100px;
 }
