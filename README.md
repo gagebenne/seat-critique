@@ -4,7 +4,7 @@ Seat Critique is an all-in-one restroom app which lets users find and critique r
 
 ### Team Members
 
-[Gage Benne](https://github.com/gagebenne) 
+[Gage Benne](https://github.com/gagebenne)
 
 [Zachary Bruennig](https://github.com/zbruennig)
 
@@ -30,9 +30,9 @@ Be sure that Docker is running then run '`docker-compose build` to build the pro
 
 Next, to setup the database: `docker-compose run web rake db:create`.
 
-Finally, run `rake db:create` then `rake db:migrate`, all with `docker-compose run web` preceeding the command.
+Finally, run `rake db:create`, `rake db:seed`, then `rake db:migrate`, all with `docker-compose run web` preceeding the command.
 
-With the databse set up, docker running, Seat Critique should be ready to run! Type `docker-compose up` to launch the app.  Also, try running the application detached `docker-compose up -d` to avoid server.pid issues.
+With the database set up, docker running, Seat Critique should be ready to run! Type `docker-compose up` to launch the app.  Also, try running the application detached `docker-compose up -d` to avoid server.pid issues.
 
 ### Works Cited/Libraries Used:
 
@@ -42,7 +42,7 @@ With the databse set up, docker running, Seat Critique should be ready to run! T
 
 [Bootswatch](https://bootswatch.com/)
 
-[Gemfile Gems](https://github.com/GitGud-KU/Skeddit/blob/master/Gemfile)
+[Gemfile Gems](https://github.com/GitGud-KU/seat-critique/blob/master/Gemfile)
 
 [Devise](https://github.com/plataformatec/devise)
 

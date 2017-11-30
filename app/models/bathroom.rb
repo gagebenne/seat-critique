@@ -10,6 +10,36 @@ class Bathroom < ApplicationRecord
   
   before_save :format_input
 
+  def average_overall_rating
+    critiques = self.critiques
+    critiques.reduce(0){ |sum, el| sum + el.overall_rating }.to_f / critiques.size
+  end
+
+  def average_toilet_rating
+    critiques = self.critiques
+    critiques.reduce(0){ |sum, el| sum + el.toilet_rating }.to_f / critiques.size
+  end
+
+  def average_sink_rating
+    critiques = self.critiques
+    critiques.reduce(0){ |sum, el| sum + el.sink_rating }.to_f / critiques.size
+  end
+
+  def average_cleanliness_rating
+    critiques = self.critiques
+    critiques.reduce(0){ |sum, el| sum + el.cleanliness_rating }.to_f / critiques.size
+  end
+
+  def average_smell_rating
+    critiques = self.critiques
+    critiques.reduce(0){ |sum, el| sum + el.smell_rating }.to_f / critiques.size
+  end
+
+  def average_privacy_rating
+    critiques = self.critiques
+    critiques.reduce(0){ |sum, el| sum + el.privacy_rating }.to_f / critiques.size
+  end
+
   private
 
   # Removes spaces, tabs, etc from beginning and end of input

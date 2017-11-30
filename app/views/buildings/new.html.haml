@@ -9,8 +9,8 @@
       - @building.errors.full_messages.each do |msg|
         %li= msg
 
-
-  = simple_form_for @building do |f|
+  .col-xs-12.col-md-4
+  = simple_form_for @building, html: {class: 'form-horizontal'} do |f|
     = f.input :name, :error => false
     = f.input :address, :error => false
 
