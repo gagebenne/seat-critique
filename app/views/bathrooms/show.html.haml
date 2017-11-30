@@ -1,7 +1,7 @@
 .container
 
   %h3 Gender
-  = @bathroom.gender
+  = render partial: 'gender_picture', locals: { bathroom: @bathroom }
 
   %h3 Building
   = @building.name
