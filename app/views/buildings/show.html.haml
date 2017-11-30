@@ -12,35 +12,32 @@
   /Begin Bathroom Module
   %h3 Bathrooms
 
-  = link_to "Add New Bathroom", new_building_bathroom_path(@building), :class => 'btn btn-primary'
-
   .separator
 
-  %table{:style => "width:100%;", :class => "table table-striped"}
     - if @bathrooms.empty?
       %div{:class => "panel panel-warning"}
         .panel-heading{ :style => "text-align:center;"}
           = "There are no bathrooms for this building."
     - else
-      %thead
-        %tr
-          %th Gender
-          %th Floor
-          %th Location
-          %th Actions
-      %tbody
-        - @bathrooms.each do |bathroom|
-          %tr
-            %td
-              = bathroom.gender
-            %td
-              = bathroom.floor
-            %td
-              = bathroom.location
-            %td
-              = link_to "Show", building_bathroom_path(@building,bathroom), :class => 'btn btn-default'
-              = link_to "Edit", edit_building_bathroom_path(@building,bathroom), :class => 'btn btn-default'
-              = link_to "Remove", building_bathroom_path(@building,bathroom), :class => 'btn btn-danger', method: :delete, :data => {confirm: 'Are you sure you want to delete this bathroom?'}
-  /End Bathroom module
-
-  = link_to "Go Back", buildings_path, :class => 'btn btn-default'
+      .container
+        .row
+          - @bathrooms.each do |bathroom|
+            .col-sm-4
+              .card
+                .card-block
+                  = render partial: 'gender_picture', locals: { bathroom: bathroom }
+                  %h3.card-title
+                    = bathroom.floor
+                    = bathroom.location
+                  %p.card-text
+                    = bathroom.gender
+                  %br
+                    - if bathroom.average_overall_rating.nan?
+                      Hello
+                    -else
+                      - bathroom.average_overall_rating.to_i.times do
+                        ★
+                    %br
+                    = link_to "Show", building_bathroom_path(@building,bathroom), :class => 'btn btn-default'
+/End Bathroom module
+.separator
