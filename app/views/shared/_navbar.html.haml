@@ -42,7 +42,7 @@
     my_marker = markers.find(marker => marker.serviceObject.title.includes(query));
     if (typeof my_marker !== 'undefined') {
       my_marker.panTo();
-      handler.getMap().setZoom(18);
+      if (handler.getMap().getZoom() < 18) { handler.getMap().setZoom(18); }
     } else {
       alert('No results found.');
     }
