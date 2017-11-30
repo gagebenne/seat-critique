@@ -2,6 +2,12 @@ require 'test_helper'
 
 class BuildingTest < ActiveSupport::TestCase
 
+  test 'should have the necessary required validators' do
+    building = Building.new
+    assert_not building.valid?
+    assert_equal [:name, :address], building.errors.keys
+  end
+
   test 'cannot save empty building' do
     building = Building.new
     assert_not building.save
@@ -28,5 +34,5 @@ class BuildingTest < ActiveSupport::TestCase
     building.save
     assert_not building2.save
   end
-  
+
 end
