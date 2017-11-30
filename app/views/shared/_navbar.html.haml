@@ -30,3 +30,13 @@
         - else
           %p.navbar-btn.login
             = link_to('Login', new_user_session_path, class: "btn btn-default")
+      %form.navbar-form.navbar-right{:action => 'javascript:shiftFocus(query.value)'}
+        .form-group
+          %input.form-control{:placeholder => "Search", :type => "text", :name => 'query'}/
+        %button.btn.btn-default{:type => "submit"} Submit
+
+:javascript
+  function shiftFocus(query) {
+    query = query.toLowerCase();
+    
+  }
