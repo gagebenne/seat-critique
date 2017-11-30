@@ -14,30 +14,30 @@
 
   .separator
 
-    - if @bathrooms.empty?
-      %div{:class => "panel panel-warning"}
-        .panel-heading{ :style => "text-align:center;"}
-          = "There are no bathrooms for this building."
-    - else
-      .container
-        .row
-          - @bathrooms.each do |bathroom|
-            .col-sm-4
-              .card
-                .card-block
-                  = render partial: 'gender_picture', locals: { bathroom: bathroom }
-                  %h3.card-title
-                    = bathroom.floor
-                    = bathroom.location
-                  %p.card-text
-                    = bathroom.gender
+  - if @bathrooms.empty?
+    %div{:class => "panel panel-warning"}
+      .panel-heading{ :style => "text-align:center;"}
+        = "There are no bathrooms for this building."
+  - else
+    .container
+      .row
+        - @bathrooms.each do |bathroom|
+          .col-xs-12.col-sm-4
+            .card
+              .card-block
+                = render partial: 'gender_picture', locals: { bathroom: bathroom }
+                %h3.card-title
+                  = bathroom.floor
+                  = bathroom.location
+                %p.card-text
+                  = bathroom.gender
                   %br
-                    - if bathroom.average_overall_rating.nan?
-                      Hello
-                    -else
-                      - bathroom.average_overall_rating.to_i.times do
-                        ★
-                    %br
-                    = link_to "Show", building_bathroom_path(@building,bathroom), :class => 'btn btn-default'
+                  - if bathroom.average_overall_rating.nan?
+                    No Critiques
+                  -else
+                    - bathroom.average_overall_rating.to_i.times do
+                      ★
+                %div
+                  = link_to "Show", building_bathroom_path(@building,bathroom), :class => 'btn btn-default'
 /End Bathroom module
 .separator
