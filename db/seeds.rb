@@ -66,7 +66,7 @@ Building.create([
   { name: 'Krehbiel Scholarship Hall', address: '1301 Ohio St Lawrence, KS 66044-3436', latitude: '38.9596638', longitude: '-95.2408879' },
   { name: 'Kurata Thermodynamics Lab', address: '2330 Crowell Drive Lawrence, KS 66047-3714', latitude: '38.9492557', longitude: '-95.2651143' },
   { name: 'Learned Hall', address: '1530 W. 15th St Lawrence, KS 66045-7618', latitude: '38.9579726', longitude: '-95.2534135' },
-  { name: 'LEEP2', address: '1536 West 15th Street Lawrence, KS 66045', latitude: '38.9574172', longitude: '-95.2540253' },
+  { name: 'LEEP2', address: '1536 West 15th Street Lawrence, KS 66045', latitude: '38.9577172', longitude: '-95.2540253' },
   { name: 'Library Annex', address: '1880 Westbrooke Lawrence, KS 66044-4313', latitude: '38.9506752', longitude: '-95.2713809' },
   { name: 'Lied Center', address: '1600 Stewart Drive Lawrence, KS 66045-7544', latitude: '38.9549947', longitude: '-95.2628078' },
   { name: 'Lindley Hall', address: '1475 Jayhawk Boulevard Lawrence, KS 66045-7575', latitude: '38.9589385', longitude: '-95.2506111' },
