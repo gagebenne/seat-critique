@@ -5,16 +5,17 @@ class BuildingsController < ApplicationController
   # POST: The map is displayed, and markers are on the buildings' coordinates
   def index
     @buildings = Building.all
-    @hash = Gmaps4rails.build_markers(@buildings) do |building, marker|
+    @markers_hash = Gmaps4rails.build_markers(@buildings) do |building, marker|
       marker.lat building.latitude
       marker.lng building.longitude
-      marker.infowindow render_to_string(:partial => "layouts/infowindow", :locals => { :building => building})
+      marker.infowindow info_window_html(building)
       marker.picture({
         :url => ActionController::Base.helpers.asset_path("emoticon-poop.png"),
         :width => 36,
         :height => 36
         })
     end
+    @markers_as_json = @markers_hash.to_json
   end
 
   # Displays a specific building.
@@ -79,5 +80,12 @@ class BuildingsController < ApplicationController
   # POST: None
   def building_params
     params.require(:building).permit(:name, :address)
+  end
+
+  def info_window_html(building)
+    building.name+"\r"+
+    "<br>\r"+
+    building.address+"\r"+
+    "<a class=\"btn btn-default\" href=\"/buildings/#{building.id}\">Show</a>"
   end
 end
