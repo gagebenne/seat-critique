@@ -36,7 +36,10 @@
         %button.btn.btn-default{:type => "submit"} Submit
 
 :javascript
-  function shiftFocus(query) {
-    query = query.toLowerCase();
-    
+  function shiftFocus(queryText) {
+    query = queryText.toLowerCase;
+    my_marker = markers.find(marker => marker.serviceObject.title == query);
+    if (typeof my_marker !== 'undefined') {
+      my_marker.panTo();
+    }
   }
