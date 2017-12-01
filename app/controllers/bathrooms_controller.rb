@@ -89,8 +89,14 @@ class BathroomsController < ApplicationController
   def tag_options
     [ 'Only Blow-Driers',
       'Automatic Toilets',
+      'Automatic Sinks',
       'Handicap Accessible',
-      'Push-Button Sinks']
+      'Push-Button Sinks',
+      'Doors Don\'t Lock',
+      'Single Occupant',
+      'Has Shower',
+      'Bidet',
+      'No Urinal Dividers']
   end
 
   #An array of restroom options.
