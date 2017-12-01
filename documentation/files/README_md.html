@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>README.md</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            README.md
+        </h1>
+        <ul class="files">
+            <li>README.md</li>
+            <li>Last modified: 2017-11-30 23:02:24 -0600</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h1 id="label-Seat+Critique">Seat <a href="../classes/Critique.html">Critique</a></h1>
+
+<p>Seat <a href="../classes/Critique.html">Critique</a> is an all-in-one
+restroom app which lets users find and critique restrooms near them.</p>
+
+<h3 id="label-Team+Members">Team Members</h3>
+
+<p>{Gage Benne}[https://github.com/gagebenne]<br> {Zachary
+Bruennig}[https://github.com/zbruennig]<br> {Andy
+Monroe}[https://github.com/andrew-monroe]<br> <a
+href="https://github.com/masonwilde">Mason Wilde</a></p>
+
+<h3 id="label-Prerequisites">Prerequisites</h3>
+
+<p>Seat <a href="../classes/Critique.html">Critique</a> was built with Ruby
+2.4.1, Rails 5.1.4, Postgres 9.6.5, and Docker 17.09.0-ce.<br> To set up
+Rails with Postgres, follow {this
+guide}[https://www.digitalocean.com/community/tutorials/how-to-setup-ruby-on-rails-with-postgres].<br>
+To set up Docker with Rails, follow <a
+href="https://docs.docker.com/compose/rails/">this guide</a></p>
+
+<h3 id="label-Configuration">Configuration</h3>
+
+<p>Once your Rails environment is set up, clone this repository by typing
+<code>git clone https://github.com/GitGud-KU/seat-critique.git</code> into
+your terminal.<br></p>
+
+<p>Then, add your database settings into the config/database.yml file.</p>
+
+<p>Be sure that Docker is running then run &#39;<code>docker-compose
+build</code> to build the project.</p>
+
+<p>Next, to setup the database: <code>docker-compose run web rake
+db:create</code>.</p>
+
+<p>Finally, run <code>rake db:create</code>, <code>rake db:seed</code>, then
+<code>rake db:migrate</code>, all with <code>docker-compose run web</code>
+preceeding the command. Alternatively, try running <code>rake
+db:fix</code>, which should run all three of them at once.</p>
+
+<p>With the database set up, docker running, Seat <a
+href="../classes/Critique.html">Critique</a> should be ready to run! Type
+<code>docker-compose up</code> to launch the app. Also, try running the
+application detached <code>docker-compose up -d</code> to avoid server.pid
+issues.</p>
+
+<h3 id="label-Works+Cited-2FLibraries+Used-3A">Works Cited/Libraries Used:</h3>
+
+<p>{Rails}[http://rubyonrails.org/]<br>
+{Bootstrap}[http://getbootstrap.com/]<br>
+{Bootswatch}[https://bootswatch.com/]<br>
+{Devise}[https://github.com/plataformatec/devise]<br> {Simple
+Form}[https://github.com/plataformatec/simple_form]<br> {Simple Form Star
+Styling}[https://codepen.io/lsirivong/pen/ekBxI]<br>
+{Gmaps4rails}[https://apneadiving.github.io/]<br> {Gemfile
+Gems}[https://github.com/GitGud-KU/seat-critique/blob/master/Gemfile]<br></p>
+
+<h3 id="label-Testing">Testing</h3>
+
+<p>All of our tests are located within the <strong>test</strong> folder.<br>
+Our tests can be run through terminal. Within the project directory,
+run<br> <code>docker-compose run web rake test</code>.<br> Successful tests
+will show up as green dots, while failed tests show up as a red F with the
+error message underneath it.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

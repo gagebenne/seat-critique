@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>forms.scss</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            forms.scss
+        </h1>
+        <ul class="files">
+            <li>app/assets/stylesheets/forms.scss</li>
+            <li>Last modified: 2017-11-30 21:24:34 -0600</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>//Adapted from <a
+href="https://codepen.io/lsirivong/pen/ekBxI">codepen.io/lsirivong/pen/ekBxI</a></p>
+
+<p>$unchecked-star: &#39;2606&#39;; $unchecked-color: #888; $checked-star:
+&#39;2605&#39;; $checked-color: #FFD700;</p>
+
+<p>.star-cb-group {</p>
+
+<pre><code>   remove inline-block whitespace   
+font-size: 0;
+  {
+  font-size: 3rem;
+}
+   flip the order so we can use the + and ~ combinators   
+unicode-bidi: bidi-override;
+direction: rtl;
+&amp; &gt; input {
+  display: none;
+  &amp; + label {
+    /* only enough room for the star */
+    display: inline-block;
+    overflow: hidden;
+    text-indent: 9999px;
+    width: 1em;
+    white-space: nowrap;
+    cursor: pointer;
+    &amp;:before {
+      display: inline-block;
+      text-indent: -9999px;
+      content: $unchecked-star;
+      color: $unchecked-color;
+    }
+  }
+  &amp;:checked ~ label:before,
+    &amp; + label:hover ~ label:before,
+    &amp; + label:hover:before {
+    content: $checked-star;
+    color: #FFD700;
+    text-shadow: 0 0 1px #333;
+  }
+}
+
+/* the hidden clearer */
+&amp; &gt; .star-cb-clear + label {
+  text-indent: -9999px;
+  width: .5em;
+  margin-left: -.5em;
+}
+&amp; &gt; .star-cb-clear + label:before {
+  width: .5em;
+}
+
+&amp;:hover &gt; input + label:before {
+  content: $unchecked-star;
+  color: $unchecked-color;
+  text-shadow: none;
+}
+&amp;:hover &gt; input + label:hover ~ label:before,
+&amp;:hover &gt; input + label:hover:before {
+  content: $checked-star;
+  color: $checked-color;
+  text-shadow: 0 0 1px #333;
+}</code></pre>
+
+<p>}</p>
+
+<p>fieldset {</p>
+
+<pre><code>border: 0;
+// background: #f0f0f0;
+width: 12em;
+border-radius: 1px;
+padding: 1em;
+margin: 1em;</code></pre>
+
+<p>}</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

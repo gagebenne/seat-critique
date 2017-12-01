@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>map.coffee</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            map.coffee
+        </h1>
+        <ul class="files">
+            <li>app/assets/javascripts/gmaps/google/builders/map.coffee</li>
+            <li>Last modified: 2017-11-28 21:38:06 -0600</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>class @Gmaps.Google.Builders.Map extends Gmaps.Objects.BaseBuilder</p>
+
+<pre><code># options:
+#   internal:
+#     id: dom id of your map container
+#   provider: are any options from google: https://developers.google.com/maps/documentation/javascript/reference?hl=fr#MapOptions
+# onMapLoad is the callback triggered once map is loaded
+constructor: (options, onMapLoad)-&gt;
+  @before_init()
+  provider_options  = _.extend @default_options(), options.provider
+  @internal_options = options.internal
+  @serviceObject    = new(@primitives().map)(document.getElementById(@internal_options.id), provider_options)
+  @on_map_load onMapLoad
+  @after_init()
+
+build: -&gt;
+  new(@model_class())(@serviceObject, @primitives())
+
+on_map_load: (onMapLoad)-&gt;
+  @primitives().addListenerOnce @serviceObject, &#39;idle&#39;, onMapLoad
+
+default_options: -&gt;
+  {
+    mapTypeId: @primitives().mapTypes(&#39;ROADMAP&#39;) # HYBRID, ROADMAP, SATELLITE, TERRAIN
+    center:    new(@primitives().latLng)(0, 0)
+    zoom:      8
+  }</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

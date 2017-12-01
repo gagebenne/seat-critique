@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>marker.coffee</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            marker.coffee
+        </h1>
+        <ul class="files">
+            <li>app/assets/javascripts/gmaps/google/builders/marker.coffee</li>
+            <li>Last modified: 2017-11-28 21:38:06 -0600</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>class @Gmaps.Google.Builders.Marker extends Gmaps.Objects.BaseBuilder</p>
+
+<pre><code>@CURRENT_INFOWINDOW: undefined
+@CACHE_STORE: {}
+
+# args:
+#   lat
+#   lng
+#   infowindow
+#   marker_title
+#   picture
+#     anchor: [x,y]
+#     url
+#     width
+#     height
+#   shadow
+#     anchor: [x,y]
+#     url
+#     width
+#     height
+# provider options:
+#   https://developers.google.com/maps/documentation/javascript/reference?hl=fr#MarkerOptions
+# internal_options
+#   singleInfowindow: true/false
+#   maxRandomDistance: null / int in meters
+constructor: (@args, @provider_options = {}, @internal_options = {})-&gt;
+  @before_init()
+  @create_marker()
+  @create_infowindow_on_click()
+  @after_init()
+
+build: -&gt;
+  @marker = new(@model_class())(@serviceObject)
+
+create_marker: -&gt;
+  @serviceObject = new(@primitives().marker)(@marker_options())
+
+create_infowindow: -&gt;
+  return null unless _.isString @args.infowindow
+  new(@primitives().infowindow)({content: @args.infowindow })
+
+marker_options: -&gt;
+  coords = @_randomized_coordinates()
+  base_options =
+    title:    @args.marker_title
+    position: new(@primitives().latLng)(coords[0], coords[1])
+    icon:     @_get_picture(&#39;picture&#39;)
+    shadow:   @_get_picture(&#39;shadow&#39;)
+  _.extend @provider_options, base_options
+
+create_infowindow_on_click: -&gt;
+  @addListener &#39;click&#39;, @infowindow_binding
+
+infowindow_binding: =&gt;
+  @constructor.CURRENT_INFOWINDOW.close() if @_should_close_infowindow()
+  @marker.panTo()
+  @infowindow ?= @create_infowindow()
+
+  return unless @infowindow?
+
+  @infowindow.open( @getServiceObject().getMap(), @getServiceObject())
+  @marker.infowindow ?= @infowindow
+  @constructor.CURRENT_INFOWINDOW = @infowindow
+
+_get_picture: (picture_name)-&gt;
+  return null if !_.isObject(@args[picture_name]) || !_.isString(@args[picture_name].url)
+  @_create_or_retrieve_image @_picture_args(picture_name)
+
+_create_or_retrieve_image: (picture_args) -&gt;
+  if @constructor.CACHE_STORE[picture_args.url] is undefined
+    @constructor.CACHE_STORE[picture_args.url] = new(@primitives().markerImage)(picture_args.url, picture_args.size, picture_args.origin, picture_args.anchor , picture_args.scaledSize)
+
+  @constructor.CACHE_STORE[picture_args.url]
+
+_picture_args: (picture_name)-&gt;
+  {
+    url:        @args[picture_name].url
+    anchor:     @_createImageAnchorPosition @args[picture_name].anchor
+    size:       new(@primitives().size)(@args[picture_name].width, @args[picture_name].height)
+    scaledSize: null
+    origin:     null
+  }
+
+_createImageAnchorPosition : (anchorLocation) -&gt;
+  return null unless _.isArray anchorLocation
+  new(@primitives().point)(anchorLocation[0], anchorLocation[1])
+
+_should_close_infowindow: -&gt;
+  @internal_options.singleInfowindow and @constructor.CURRENT_INFOWINDOW?
+
+_randomized_coordinates: -&gt;
+  return [@args.lat, @args.lng] unless _.isNumber(@internal_options.maxRandomDistance)
+
+  #gives a value between -1 and 1
+  random = -&gt; (Math.random() * 2 - 1)
+  dx  = @internal_options.maxRandomDistance * random()
+  dy  = @internal_options.maxRandomDistance * random()
+  Lat = parseFloat(@args.lat) + (180/Math.PI)*(dy/6378137)
+  Lng = parseFloat(@args.lng) + ( 90/Math.PI)*(dx/6378137)/Math.cos(@args.lat)
+  return [Lat, Lng]</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

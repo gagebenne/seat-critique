@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Bathroom</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            Bathroom
+            
+                <span class="parent">&lt;
+                    
+                    <a href="ApplicationRecord.html">ApplicationRecord</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/bathroom_rb.html">app/models/bathroom.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-average_cleanliness_rating">average_cleanliness_rating</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-average_overall_rating">average_overall_rating</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-average_privacy_rating">average_privacy_rating</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-average_sink_rating">average_sink_rating</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-average_smell_rating">average_smell_rating</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-average_toilet_rating">average_toilet_rating</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-format_input">format_input</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-is_number-3F">is_number?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-valid_floor">valid_floor</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-average_cleanliness_rating">
+            
+              <b>average_cleanliness_rating</b>()
+            
+            <a href="../classes/Bathroom.html#method-i-average_cleanliness_rating" name="method-i-average_cleanliness_rating" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Calculates the average cleanliness rating PRE: At least one rating exists
+POST: The average is computed</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-average_cleanliness_rating_source')" id="l_method-i-average_cleanliness_rating_source">show</a>
+                
+              </p>
+              <div id="method-i-average_cleanliness_rating_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">average_cleanliness_rating</span>
+  <span class="ruby-identifier">critiques</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">critiques</span>
+  <span class="ruby-identifier">critiques</span>.<span class="ruby-identifier">reduce</span>(<span class="ruby-number">0</span>){ <span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, <span class="ruby-identifier">el</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">el</span>.<span class="ruby-identifier">cleanliness_rating</span> }.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">critiques</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-average_overall_rating">
+            
+              <b>average_overall_rating</b>()
+            
+            <a href="../classes/Bathroom.html#method-i-average_overall_rating" name="method-i-average_overall_rating" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Calculates the average overall rating PRE: At least one rating exists POST:
+The average is computed</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-average_overall_rating_source')" id="l_method-i-average_overall_rating_source">show</a>
+                
+              </p>
+              <div id="method-i-average_overall_rating_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">average_overall_rating</span>
+  <span class="ruby-identifier">critiques</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">critiques</span>
+  <span class="ruby-identifier">critiques</span>.<span class="ruby-identifier">reduce</span>(<span class="ruby-number">0</span>){ <span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, <span class="ruby-identifier">el</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">el</span>.<span class="ruby-identifier">overall_rating</span> }.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">critiques</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-average_privacy_rating">
+            
+              <b>average_privacy_rating</b>()
+            
+            <a href="../classes/Bathroom.html#method-i-average_privacy_rating" name="method-i-average_privacy_rating" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Calculates the average privacy rating PRE: At least one rating exists POST:
+The average is computed</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-average_privacy_rating_source')" id="l_method-i-average_privacy_rating_source">show</a>
+                
+              </p>
+              <div id="method-i-average_privacy_rating_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">average_privacy_rating</span>
+  <span class="ruby-identifier">critiques</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">critiques</span>
+  <span class="ruby-identifier">critiques</span>.<span class="ruby-identifier">reduce</span>(<span class="ruby-number">0</span>){ <span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, <span class="ruby-identifier">el</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">el</span>.<span class="ruby-identifier">privacy_rating</span> }.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">critiques</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-average_sink_rating">
+            
+              <b>average_sink_rating</b>()
+            
+            <a href="../classes/Bathroom.html#method-i-average_sink_rating" name="method-i-average_sink_rating" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Calculates the average sink rating PRE: At least one rating exists POST:
+The average is computed</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-average_sink_rating_source')" id="l_method-i-average_sink_rating_source">show</a>
+                
+              </p>
+              <div id="method-i-average_sink_rating_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">average_sink_rating</span>
+  <span class="ruby-identifier">critiques</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">critiques</span>
+  <span class="ruby-identifier">critiques</span>.<span class="ruby-identifier">reduce</span>(<span class="ruby-number">0</span>){ <span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, <span class="ruby-identifier">el</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">el</span>.<span class="ruby-identifier">sink_rating</span> }.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">critiques</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-average_smell_rating">
+            
+              <b>average_smell_rating</b>()
+            
+            <a href="../classes/Bathroom.html#method-i-average_smell_rating" name="method-i-average_smell_rating" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Calculates the average smell rating PRE: At least one rating exists POST:
+The average is computed</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-average_smell_rating_source')" id="l_method-i-average_smell_rating_source">show</a>
+                
+              </p>
+              <div id="method-i-average_smell_rating_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">average_smell_rating</span>
+  <span class="ruby-identifier">critiques</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">critiques</span>
+  <span class="ruby-identifier">critiques</span>.<span class="ruby-identifier">reduce</span>(<span class="ruby-number">0</span>){ <span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, <span class="ruby-identifier">el</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">el</span>.<span class="ruby-identifier">smell_rating</span> }.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">critiques</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-average_toilet_rating">
+            
+              <b>average_toilet_rating</b>()
+            
+            <a href="../classes/Bathroom.html#method-i-average_toilet_rating" name="method-i-average_toilet_rating" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Calculates the average toilet rating PRE: At least one rating exists POST:
+The average is computed</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-average_toilet_rating_source')" id="l_method-i-average_toilet_rating_source">show</a>
+                
+              </p>
+              <div id="method-i-average_toilet_rating_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">average_toilet_rating</span>
+  <span class="ruby-identifier">critiques</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">critiques</span>
+  <span class="ruby-identifier">critiques</span>.<span class="ruby-identifier">reduce</span>(<span class="ruby-number">0</span>){ <span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, <span class="ruby-identifier">el</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">el</span>.<span class="ruby-identifier">toilet_rating</span> }.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">critiques</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-format_input">
+            
+              <b>format_input</b>()
+            
+            <a href="../classes/Bathroom.html#method-i-format_input" name="method-i-format_input" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Removes spaces, tabs, etc from beginning and end of input PRE: All inputs
+are successfully validated POST: Inputs are formatted to the webpage&#39;s
+style</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-format_input_source')" id="l_method-i-format_input_source">show</a>
+                
+              </p>
+              <div id="method-i-format_input_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">format_input</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gender</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gender</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">floor</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">floor</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">upcase</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">location</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">strip</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-is_number-3F">
+            
+              <b>is_number?</b>(obj)
+            
+            <a href="../classes/Bathroom.html#method-i-is_number-3F" name="method-i-is_number-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Checks if a string can be parsed to an integer PRE: None POST: None</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-is_number-3F_source')" id="l_method-i-is_number-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-is_number-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">is_number?</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">to_i</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-valid_floor">
+            
+              <b>valid_floor</b>()
+            
+            <a href="../classes/Bathroom.html#method-i-valid_floor" name="method-i-valid_floor" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Checks if the floor number input is a valid PRE: None POST: If invalid,
+pushes an error to the page</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-valid_floor_source')" id="l_method-i-valid_floor_source">show</a>
+                
+              </p>
+              <div id="method-i-valid_floor_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/bathroom.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">valid_floor</span>
+  <span class="ruby-identifier">floor</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">floor</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">is_number?</span>(<span class="ruby-identifier">floor</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">floor</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-string">&quot;L&quot;</span>) <span class="ruby-operator">!=</span> <span class="ruby-number">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">floor</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-string">&quot;LL&quot;</span>) <span class="ruby-operator">!=</span> <span class="ruby-number">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">floor</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-string">&quot;B&quot;</span>) <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Invalid floor&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>
