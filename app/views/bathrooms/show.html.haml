@@ -20,46 +20,51 @@
       .panel-heading
         This bathroom has not been rated.
   - else
-    %h3 Overall Rating: #{@bathroom.average_overall_rating}
+    %h3 Overall Rating: #{'★' * @bathroom.average_overall_rating.to_i}
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
           Toilet
         .panel-body
-          = @bathroom.average_toilet_rating
+          - @bathroom.average_toilet_rating.to_i.times do
+            ★
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
           Sink
         .panel-body
-          = @bathroom.average_sink_rating
+          - @bathroom.average_sink_rating.to_i.times do
+            ★
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
           Cleanliness
         .panel-body
-          = @bathroom.average_cleanliness_rating
+          - @bathroom.average_cleanliness_rating.to_i.times do
+            ★
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
           Smell
         .panel-body
-          = @bathroom.average_smell_rating
+          - @bathroom.average_smell_rating.to_i.times do
+            ★
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
           Privacy
         .panel-body
-          = @bathroom.average_privacy_rating
+          - @bathroom.average_privacy_rating.to_i.times do
+            ★
 
-  %br
-  - if user_signed_in?
-    - if critique = current_user.critiques.find_by(bathroom_id: @bathroom.id)
-      = link_to "Edit Critique", edit_building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn btn-primary'
-    - else
-      = link_to "New Critique", new_building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn btn-primary'
+%br
+- if user_signed_in?
+  - if critique = current_user.critiques.find_by(bathroom_id: @bathroom.id)
+    = link_to "Edit Critique", edit_building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn btn-primary'
   - else
     = link_to "New Critique", new_building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn btn-primary'
-  %br
+- else
+  = link_to "New Critique", new_building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn btn-primary'
+%br
 
-  = link_to "Go Back", building_path(@building), :class => 'btn'
+= link_to "Go Back", building_path(@building), :class => 'btn'
