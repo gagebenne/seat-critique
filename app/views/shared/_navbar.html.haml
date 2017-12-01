@@ -63,22 +63,17 @@
     }
   }
   function showPosition(position) {
-    console.log(position.coords.latitude)
     currentlocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
     //change to for each
     for(i=0; i < markers.length; i++) {
       markerlocation = new google.maps.LatLng(markers[i].serviceObject.getPosition().lat(), markers[i].serviceObject.getPosition().lng())
-      console.log(markerlocation)
       var distance = google.maps.geometry.spherical.computeDistanceBetween(currentlocation, markerlocation)
-      console.log(distance)
       var closest;
     if( !closest || closest.distance > distance ) {
       closest = {marker: markers[i], distance: distance}
     }
     }
     if (closest) {
-      console.log(closest.marker.serviceObject.getPosition().lat())
-      handler.addMarker({title: "you", lat: position.coords.latitude, lng: position.coords.longitude, infowindow: "<h>You</h>"})
       closest.marker.panTo()
       if (handler.getMap().getZoom() < 18) { handler.getMap().setZoom(18); }
       google.maps.event.trigger(closest.marker.getServiceObject(), 'click')
