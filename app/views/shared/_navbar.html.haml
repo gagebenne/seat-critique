@@ -35,7 +35,7 @@
       - if current_page?(buildings_path) || current_page?(root_path)
         %form.navbar-form.navbar-right{:action => 'javascript:shiftFocus()'}
           .form-group
-            %input.form-control{:placeholder => "Search", :type => "text", :id => 'query'}/
+            %input#query.form-control{:autocomplete => "off", :placeholder => "Search", :type => "text"}/
           %button.btn.btn-default{:type => "submit"} Submit
         %form.navbar-form.navbar-right{:action => 'javascript:getLocation()'}
           .form-group
