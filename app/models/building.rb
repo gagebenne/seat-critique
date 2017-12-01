@@ -2,7 +2,7 @@ class Building < ApplicationRecord
   has_many :bathrooms
 
   #geocoded_by :address
-  after_validation :geocode, if: :address_changed?
+  #after_validation :geocode, if: :address_changed?
 
   before_save :strip_input
 
