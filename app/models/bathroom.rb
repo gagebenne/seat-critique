@@ -7,6 +7,7 @@ class Bathroom < ApplicationRecord
   validates :gender, :floor, :location, presence: true
   validates :location, length: { maximum: 50 }
   validates :floor, length: { maximum: 10 }
+  validates_uniqueness_of :location, :scope => [:floor, :building_id]
 
   before_save :format_input
 
