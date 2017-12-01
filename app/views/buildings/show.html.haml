@@ -24,7 +24,7 @@
           .col-xs-12.col-sm-4
             .card
               .card-block
-                = render partial: 'gender_picture', locals: { bathroom: bathroom }
+                = render partial: 'shared/gender_picture', locals: { bathroom: bathroom }
                 %h5{:style => 'margin-bottom:5px;'}
                   = 'Floor ' + bathroom.floor.to_s
                 %h3.card-title{:style => 'margin-top:0px;margin-bottom:5px;'}

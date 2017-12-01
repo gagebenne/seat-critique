@@ -18,8 +18,8 @@ class BathroomsController < ApplicationController
   # POST: None
   def new
     @bathroom = @building.bathrooms.new(params[:id])
-    @genders = ['Male','Female','Unisex']
-    @tags = bathroom_tag_options
+    @genders = gender_options
+    @tags = tag_options
   end
 
   # Creates and stores a new bathroom in the database
@@ -40,8 +40,8 @@ class BathroomsController < ApplicationController
   # POST: None
   def edit
     @bathroom = @building.bathrooms.find(params[:id])
-    @genders = ['Male','Female','Unisex']
-    @tags = bathroom_tag_options
+    @genders = gender_options
+    @tags = tag_options
   end
 
   # Updates a given bathroom
@@ -79,11 +79,15 @@ class BathroomsController < ApplicationController
     params[:bathroom][:tag_ids].reject{ |t| t.empty? }.map{ |t| {name: t} }
   end
 
-  def bathroom_tag_options
+  def tag_options
     [ 'Only Blow-Driers',
       'Automatic Toilets',
       'Handicap Accessible',
       'Push-Button Sinks']
+  end
+
+  def gender_options
+    ['Male','Female','Gender-Neutral']
   end
 
   # Finds the specific building with the id
