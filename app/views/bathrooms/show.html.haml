@@ -53,7 +53,13 @@
           = @bathroom.average_privacy_rating
 
   %br
-  = link_to "Rate Me", building_bathroom_critiques_path(@building,@bathroom), :class => 'btn btn-primary'
+  - if user_signed_in?
+    - if critique = current_user.critiques.find_by(bathroom_id: @bathroom.id)
+      = link_to "Edit Critique", edit_building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn btn-primary'
+    - else
+      = link_to "New Critique", new_building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn btn-primary'
+  - else
+    = link_to "New Critique", new_building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn btn-primary'
   %br
 
   = link_to "Go Back", building_path(@building), :class => 'btn'
