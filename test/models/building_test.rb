@@ -10,22 +10,22 @@ class BuildingTest < ActiveSupport::TestCase
 
   test 'cannot save empty building' do
     building = Building.new
-    assert_not building.save
+    assert_not building.valid?
   end
 
-  test 'can save normal building' do
+  test 'normal building has no errors' do
     building = buildings(:normal)
-    assert building.save
+    assert_equal [], building.errors.keys
   end
 
   test 'can\'t save building without name' do
     building = buildings(:nameless)
-    assert_not building.save
+    assert_not building.valid?
   end
 
   test 'can\'t save building without address' do
     building = buildings(:addressless)
-    assert_not building.save
+    assert_not building.valid?
   end
 
   test 'can\'t save two buildings with the same name' do

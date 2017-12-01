@@ -18,8 +18,8 @@ class BathroomsController < ApplicationController
   # POST: None
   def new
     @bathroom = @building.bathrooms.new(params[:id])
-    @genders = ['Male','Female','Unisex']
-    @tags = ['one','two']
+    @genders = gender_options
+    @tags = tag_options
   end
 
   # Creates and stores a new bathroom in the database
@@ -27,9 +27,8 @@ class BathroomsController < ApplicationController
   # POST: A new bathroom is saved in the database
   def create
     @bathroom = @building.bathrooms.new(bathroom_params)
-    @tag = Tag.new(name: "hello")
-    @bathroom.tags << @tag
     if @bathroom.save
+      @bathroom.tags.create(tags_hash)
       redirect_to(building_path(@building))
     else
       render :new
@@ -41,8 +40,8 @@ class BathroomsController < ApplicationController
   # POST: None
   def edit
     @bathroom = @building.bathrooms.find(params[:id])
-    @genders = ['Male','Female','Unisex']
-    @tags = ['one','two']
+    @genders = gender_options
+    @tags = tag_options
   end
 
   # Updates a given bathroom
@@ -51,7 +50,8 @@ class BathroomsController < ApplicationController
   def update
     @bathroom = @building.bathrooms.find(params[:id])
     if @bathroom.update(bathroom_params)
-      redirect_to(building_bathrooms_path(@building))
+      @bathroom.tags.update(tags_hash)
+      redirect_to(building_path(@building))
     else
       render :edit
     end
@@ -72,7 +72,31 @@ class BathroomsController < ApplicationController
   # PRE: None
   # POST: None
   def bathroom_params
-    params.require(:bathroom).permit(:floor, :location, :gender, :tags)
+    params.require(:bathroom).permit(:floor, :location, :gender)
+  end
+
+
+  def tags_hash
+    unless params[:bathroom][:tag_ids].nil?
+      params[:bathroom][:tag_ids].reject{ |t| t.empty? }.map{ |t| {name: t} }
+    else
+      {}
+    end
+  end
+
+  def tag_options
+    [ 'Only Blow-Driers',
+      'Automatic Toilets',
+      'Handicap Accessible',
+      'Push-Button Sinks']
+  end
+
+  #An array of restroom options.
+  #Users registered as male only see Male and Gender-Neutral restrooms
+  #Users registered as female only see Female and Gender-Neutral restrooms
+  #Users registered as gender-neutral only see Gender-Neutral restrooms
+  def gender_options
+    ['Male','Female','Gender-Neutral']
   end
 
   # Finds the specific building with the id

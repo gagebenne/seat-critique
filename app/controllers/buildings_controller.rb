@@ -24,7 +24,11 @@ class BuildingsController < ApplicationController
   # POST: We display info about that building
   def show
     @building = Building.find(params[:id])
-    @bathrooms = @building.bathrooms
+    if user_signed_in?
+      @bathrooms = @building.bathrooms.select{ |br| br.gender.downcase == current_user.gender.to_s.downcase || br.gender == 'Gender-Neutral'}
+    else
+      @bathrooms = @building.bathrooms
+    end
   end
 
   # Redirects to a page for creation of a building
@@ -83,6 +87,9 @@ class BuildingsController < ApplicationController
     params.require(:building).permit(:name, :address)
   end
 
+  # Generates the info window to use with Google Maps
+  # PRE: Current building exists
+  # POST: The window pops up on the map
   def info_window_html(building)
     "<h4>"+building.name+"</h4>"+
     "<br>\r"+

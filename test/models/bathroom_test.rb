@@ -15,9 +15,9 @@ class BathroomTest < ActiveSupport::TestCase
     assert_not bathroom.save
   end
 
-  test 'can save normal men\'s bathroom' do
+  test 'normal men\'s bathroom has no errors' do
     b = bathrooms(:mens)
-    assert b.save
+    assert_equal [], b.errors.keys
   end
 
   test 'can\'t save invalid floor' do

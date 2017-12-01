@@ -29,8 +29,9 @@
               %li.divider
               %li= link_to('Logout', destroy_user_session_path, method: :delete)
         - else
-          %p.navbar-btn.login
-            = link_to('Login', new_user_session_path, class: "btn btn-default")
+          %li
+            .p
+              = link_to('Login', new_user_session_path, class: "btn btn-default", style: "margin-left:15px;margin-right:15px;")
       - if current_page?(buildings_path) || current_page?(root_path)
         %form.navbar-form.navbar-right{:action => 'javascript:shiftFocus()'}
           .form-group
