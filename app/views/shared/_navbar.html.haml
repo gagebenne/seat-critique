@@ -1,4 +1,3 @@
-%script{:src => "http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"}
 
 /
   The following navbar is modelled after the Bootstrap navbar examples
@@ -31,7 +30,7 @@
               %li= link_to('Logout', destroy_user_session_path, method: :delete)
         - else
           %li
-            .p
+            %p{style: "margin-top:5px;"}
               = link_to('Login', new_user_session_path, class: "btn btn-default", style: "margin-left:15px;margin-right:15px;")
       - if current_page?(buildings_path) || current_page?(root_path)
         %form.navbar-form.navbar-right{:action => 'javascript:shiftFocus()'}
@@ -64,22 +63,17 @@
     }
   }
   function showPosition(position) {
-    console.log(position.coords.latitude)
     currentlocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
     //change to for each
     for(i=0; i < markers.length; i++) {
       markerlocation = new google.maps.LatLng(markers[i].serviceObject.getPosition().lat(), markers[i].serviceObject.getPosition().lng())
-      console.log(markerlocation) 
       var distance = google.maps.geometry.spherical.computeDistanceBetween(currentlocation, markerlocation)
-      console.log(distance)
       var closest;
     if( !closest || closest.distance > distance ) {
       closest = {marker: markers[i], distance: distance}
     }
     }
     if (closest) {
-      console.log(closest.marker.serviceObject.getPosition().lat())
-      handler.addMarker({title: "you", lat: position.coords.latitude, lng: position.coords.longitude, infowindow: "<h>You</h>"})
       closest.marker.panTo()
       if (handler.getMap().getZoom() < 18) { handler.getMap().setZoom(18); }
       google.maps.event.trigger(closest.marker.getServiceObject(), 'click')

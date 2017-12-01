@@ -85,6 +85,7 @@ class BathroomsController < ApplicationController
     end
   end
 
+  #An array of tags. These will be boolean options that the bathroom has or does not
   def tag_options
     [ 'Only Blow-Driers',
       'Automatic Toilets',
