@@ -11,12 +11,12 @@
         %li= msg
   %br
   = simple_form_for @critique, url: building_bathroom_critiques_path(@building,@bathroom) do |f|
-    = f.input :overall_rating,      input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
-    = f.input :toilet_rating,       input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
-    = f.input :sink_rating,         input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
-    = f.input :cleanliness_rating,  input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
-    = f.input :smell_rating,        input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
-    = f.input :privacy_rating,      input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
+    -# = f.input :overall_rating,      input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
+    -# = f.input :toilet_rating,       input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
+    -# = f.input :sink_rating,         input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
+    -# = f.input :cleanliness_rating,  input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
+    -# = f.input :smell_rating,        input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
+    -# = f.input :privacy_rating,      input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
     -# Star system based on https://stackoverflow.com/questions/17190111/simple-forms-collection-radio-button-and-custom-label-class
     %h4 Overall Rating
     %fieldset
