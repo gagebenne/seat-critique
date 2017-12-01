@@ -84,7 +84,7 @@ class BuildingsController < ApplicationController
   end
 
   def info_window_html(building)
-    "<h4>"+building.name+"</h4>\r"+
+    "<h4>"+building.name+"</h4>"+
     "<br>\r"+
     building.bathrooms.count.to_s+"\r"+
     "<a class=\"btn btn-default\" href=\"/buildings/#{building.id}\">Show</a>"
