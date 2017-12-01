@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>application.scss</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            application.scss
+        </h1>
+        <ul class="files">
+            <li>app/assets/stylesheets/application.scss</li>
+            <li>Last modified: 2017-11-30 22:49:51 -0600</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<pre><code>  This is a manifest file that&#39;ll be compiled into application.css, which will include all the files
+  listed below.
+
+  Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+  or any plugin&#39;s vendor/assets/stylesheets directory can be referenced here using a relative path.
+
+  You&#39;re free to add application-wide styles to this file and they&#39;ll appear at the bottom of the
+  compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+  files in this directory. Styles in this file should be added after the last require_* statement.
+  It is generally better to create a new file per style scope.
+
+ = require_tree .
+ = require_self
+
+@import &quot;bootstrap-sprockets&quot;;</code></pre>
+
+<p>// Import slate variables @import “bootswatch/cerulean/variables”; @import
+“bootstrap”; // And finally bootswatch style itself @import
+“bootswatch/cerulean/bootswatch”; @import url(“forms.scss”);</p>
+
+<p>// Small tablets and large smartphones (landscape view) $screen-sm-min:
+0px;</p>
+
+<p>// Small tablets (portrait view) $screen-md-min: 768px;</p>
+
+<p>// Tablets and small desktops $screen-lg-min: 992px;</p>
+
+<p>// Large tablets and desktops $screen-xl-min: 1200px;</p>
+
+<p>// Small devices @mixin sm {</p>
+
+<pre><code>@media (min-width: #{$screen-sm-min}) {
+    @content;
+}</code></pre>
+
+<p>}</p>
+
+<p>// Medium devices @mixin md {</p>
+
+<pre><code>@media (min-width: #{$screen-md-min}) {
+    @content;
+}</code></pre>
+
+<p>}</p>
+
+<p>// Large devices @mixin lg {</p>
+
+<pre><code>@media (min-width: #{$screen-lg-min}) {
+    @content;
+}</code></pre>
+
+<p>}</p>
+
+<p>// Extra large devices @mixin xl {</p>
+
+<pre><code>@media (min-width: #{$screen-xl-min}) {
+    @content;
+}</code></pre>
+
+<p>}</p>
+
+<pre><code>.navbar {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.navbar-default {
+       margin : 0 !important;</code></pre>
+
+<p>}</p>
+
+<p>.footer {</p>
+
+<pre><code>align-items: center;
+text-align: center;
+margin-top:15px;
+margin-bottom: 15px;</code></pre>
+
+<p>}</p>
+
+<p>.dropdown-menu &gt; li &gt; p {</p>
+
+<pre><code>display: block;
+padding: 3px 20px;
+clear: both;
+font-weight: normal;
+line-height: 1.42857143;
+color: #c8c8c8;
+white-space: nowrap;</code></pre>
+
+<p>}</p>
+
+<p>.nav &gt; input {</p>
+
+<pre><code>padding-top: 5px;</code></pre>
+
+<p>}</p>
+
+<p>.login {</p>
+
+<pre><code>margin-right: 10px;</code></pre>
+
+<p>}</p>
+
+<p>body {</p>
+
+<pre><code>padding-top: 50px;</code></pre>
+
+<p>}</p>
+
+<p>.separator {</p>
+
+<pre><code>height:10px;</code></pre>
+
+<p>}</p>
+
+<p>td p {</p>
+
+<pre><code>vertical-align: middle;</code></pre>
+
+<p>}</p>
+
+<p>body, html {</p>
+
+<pre><code>height: 100%;
+width: 100%;</code></pre>
+
+<p>}</p>
+
+<p>div#map {</p>
+
+<pre><code>width: 100%;
+height: 80%;</code></pre>
+
+<p>}</p>
+
+<p>.container {</p>
+
+<pre><code>height:100%;
+width:100%;</code></pre>
+
+<p>}</p>
+
+<p>.row {</p>
+
+<pre><code>margin: 5px;
+height:90%;</code></pre>
+
+<p>} .card {</p>
+
+<pre><code>margin-top: 15px;
+margin-bottom: 15px;
+padding: 15px;
+background-color: #f0f0f0;
+border: 1px solid rgba(0,0,0,.125);
+border-radius: .25rem;
+align-items: center;
+vertical-align:center;
+height:95%;</code></pre>
+
+<p>}</p>
+
+<p>.card-block{</p>
+
+<pre><code>align-items: center;
+vertical-align: center;
+text-align: center;
+height:100%;</code></pre>
+
+<p>} div.card-block&gt;img {</p>
+
+<pre><code>height:100px;</code></pre>
+
+<p>} .gender-image{</p>
+
+<pre><code>align-items: center;
+vertical-align: center;
+text-align: center;</code></pre>
+
+<p>} div.gender-image&gt;img {</p>
+
+<pre><code>@include sm {
+  height:100px;
+  margin:auto;
+}
+@include md {
+  height:220px;
+}</code></pre>
+
+<p>} .brnodisplay{</p>
+
+<pre><code>@include md {
+  display: none;
+}</code></pre>
+
+<p>}</p>
+
+<p>.bathroom-text{</p>
+
+<pre><code>@include sm {
+  align-items: center;
+  vertical-align: center;
+  text-align: center;
+}
+@include md {
+  align-items: left;
+  vertical-align: left;
+  text-align: left;
+}</code></pre>
+
+<p>}</p>
+
+<p>showbutton {</p>
+
+<pre><code>margin-left: auto;
+margin-right: auto;</code></pre>
+
+<p>}</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+
+/
+  The following navbar is modelled after the Bootstrap navbar examples
+  available at https://v4-alpha.getbootstrap.com/components/navbar/
+  (accessed on 2017-09-16)
+%nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+  / We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns.
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#collapsible", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to "Seat Critique", root_path, class: "navbar-brand"
+    #collapsible.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "events", :role => "button"}
+              Account
+              %span.caret
+            %ul.dropdown-menu{:role => "menu"}
+              %li
+                %p
+                  Logged in as: #{current_user.email}
+              %li.divider
+              %li= link_to('Edit registration', edit_user_registration_path)
+              %li.divider
+              %li= link_to('Logout', destroy_user_session_path, method: :delete)
+        - else
+          %li
+            %p{style: "margin-top:5px;"}
+              = link_to('Login', new_user_session_path, class: "btn btn-default", style: "margin-left:15px;margin-right:15px;")
+      - if current_page?(buildings_path) || current_page?(root_path)
+        %form.navbar-form.navbar-right{:action => 'javascript:shiftFocus()'}
+          .form-group
+            %input.form-control{:placeholder => "Search", :type => "text", :id => 'query'}/
+          %button.btn.btn-default{:type => "submit"} Submit
+        %form.navbar-form.navbar-right{:action => 'javascript:getLocation()'}
+          .form-group
+            %button.btn.btn-default{:type => "submit"} SeatSeek™
+
+:javascript
+  function shiftFocus() {
+    query = document.getElementById("query").value.toLowerCase();
+    my_marker = markers.find(marker => marker.serviceObject.title.includes(query));
+    if (typeof my_marker !== 'undefined') {
+      my_marker.panTo();
+      if (handler.getMap().getZoom() < 18) { handler.getMap().setZoom(18); }
+      google.maps.event.trigger(my_marker.getServiceObject(), 'click')
+    } else {
+      alert('No results found.');
+    }
+  }
+
+:javascript
+  function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition)
+    } else {
+        alert("Geolocation is not supported by this browser.")
+    }
+  }
+  function showPosition(position) {
+    currentlocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+    //change to for each
+    for(i=0; i < markers.length; i++) {
+      markerlocation = new google.maps.LatLng(markers[i].serviceObject.getPosition().lat(), markers[i].serviceObject.getPosition().lng())
+      var distance = google.maps.geometry.spherical.computeDistanceBetween(currentlocation, markerlocation)
+      var closest;
+    if( !closest || closest.distance > distance ) {
+      closest = {marker: markers[i], distance: distance}
+    }
+    }
+    if (closest) {
+      closest.marker.panTo()
+      if (handler.getMap().getZoom() < 18) { handler.getMap().setZoom(18); }
+      google.maps.event.trigger(closest.marker.getServiceObject(), 'click')
+    }
+  }

@@ -21,6 +21,46 @@
 @import "bootswatch/cerulean/bootswatch";
 @import url("forms.scss");
 
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 0px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+// Small devices
+@mixin sm {
+   @media (min-width: #{$screen-sm-min}) {
+       @content;
+   }
+}
+
+// Medium devices
+@mixin md {
+   @media (min-width: #{$screen-md-min}) {
+       @content;
+   }
+}
+
+// Large devices
+@mixin lg {
+   @media (min-width: #{$screen-lg-min}) {
+       @content;
+   }
+}
+
+// Extra large devices
+@mixin xl {
+   @media (min-width: #{$screen-xl-min}) {
+       @content;
+   }
+}
+
  .navbar {
      -webkit-border-radius: 0;
      -moz-border-radius: 0;
@@ -34,7 +74,8 @@
 .footer {
   align-items: center;
   text-align: center;
-  padding-bottom: 15px;
+  margin-top:15px;
+  margin-bottom: 15px;
 }
 
 .dropdown-menu > li > p {
@@ -65,4 +106,82 @@ body {
 
 td p {
 	vertical-align: middle;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+div#map {
+  width: 100%;
+  height: 80%;
+}
+
+.container {
+  height:100%;
+  width:100%;
+}
+
+.row {
+  margin: 5px;
+  height:90%;
+}
+.card {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  align-items: center;
+  vertical-align:center;
+  height:95%;
+}
+
+.card-block{
+  align-items: center;
+  vertical-align: center;
+  text-align: center;
+  height:100%;
+}
+div.card-block>img {
+  height:100px;
+}
+.gender-image{
+  align-items: center;
+  vertical-align: center;
+  text-align: center;
+}
+div.gender-image>img {
+  @include sm {
+    height:100px;
+    margin:auto;
+  }
+  @include md {
+    height:220px;
+  }
+}
+.brnodisplay{
+  @include md {
+    display: none;
+  }
+}
+
+.bathroom-text{
+  @include sm {
+    align-items: center;
+    vertical-align: center;
+    text-align: center;
+  }
+  @include md {
+    align-items: left;
+    vertical-align: left;
+    text-align: left;
+  }
+}
+
+#showbutton {
+  margin-left: auto;
+  margin-right: auto;
 }

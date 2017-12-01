@@ -1,63 +1,70 @@
-.container
-  %h1 Bathroom
-  %h2 Building: #{@building.name}
-
-  .well.well-sm
-
-    %h3 Gender
-    = @bathroom.gender
-
-    %h3 Floor
-    = @bathroom.floor
-
-    %h3 Location
-    = @bathroom.location
-
-  %h3 Ratings
+.container-fluid{:style => 'padding-top:20px;'}
+  .col-xs-12.col-sm-4
+    .gender-image
+      = render partial: 'shared/gender_picture', locals: { bathroom: @bathroom }
+  .brnodisplay
+    %br
+  .col-xs-12.col-sm-8
+    .bathroom-text
+      %p{:style => 'font-size:40px;'}= @building.name
+      %p{:style => 'font-size:20px;'}= 'Floor ' + @bathroom.floor
+      %p{:style => 'font-size:20px;'}= @bathroom.location
+      %p
+        - @bathroom.tags.each do |tag|
+          %div{class:"badge badge-pill badge-success"}
+            =tag.name
+%br
+.container-fluid
   - if @bathroom.critiques.empty?
     .panel.panel-warning
       .panel-heading
-        = "This bathroom has not been rated."
+        This bathroom has not been rated.
   - else
+    %h3 Overall Rating: #{'★' * @bathroom.average_overall_rating.round}
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
-          = "Overall"
+          Toilet
         .panel-body
-          = @bathroom.critiques.inject(0){ |sum, el| sum + el.overall_rating }.to_f / @bathroom.critiques.size
+          - @bathroom.average_toilet_rating.round.times do
+            ★
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
-          = "Toilet"
+          Sink
         .panel-body
-          = @bathroom.critiques.inject(0){ |sum, el| sum + el.toilet_rating }.to_f / @bathroom.critiques.size
+          - @bathroom.average_sink_rating.round.times do
+            ★
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
-          = "Sink"
+          Cleanliness
         .panel-body
-          = @bathroom.critiques.inject(0){ |sum, el| sum + el.sink_rating }.to_f / @bathroom.critiques.size
+          - @bathroom.average_cleanliness_rating.round.times do
+            ★
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
-          = "Cleanliness"
+          Smell
         .panel-body
-          = @bathroom.critiques.inject(0){ |sum, el| sum + el.cleanliness_rating }.to_f / @bathroom.critiques.size
+          - @bathroom.average_smell_rating.round.times do
+            ★
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
-          = "Smell"
+          Privacy
         .panel-body
-          = @bathroom.critiques.inject(0){ |sum, el| sum + el.smell_rating }.to_f / @bathroom.critiques.size
-    .col-xs-4.col-md-2
-      .panel.panel-primary
-        .panel-heading
-          = "Privacy"
-        .panel-body
-          = @bathroom.critiques.inject(0){ |sum, el| sum + el.privacy_rating }.to_f / @bathroom.critiques.size
+          - @bathroom.average_privacy_rating.round.times do
+            ★
 
-    %br
-  = link_to "Rate Me", building_bathroom_critiques_path(@building,@bathroom), :class => 'btn btn-primary'
-  %br
+%br
+- if user_signed_in?
+  - if critique = current_user.critiques.find_by(bathroom_id: @bathroom.id)
+    = link_to "Edit Critique", edit_building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn btn-primary'
+  - else
+    = link_to "New Critique", new_building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn btn-primary'
+- else
+  = link_to "New Critique", new_building_bathroom_critique_path(@building,@bathroom,critique), :class => 'btn btn-primary'
+%br
 
-  = link_to "Go Back", building_bathrooms_path(@building), :class => 'btn'
+= link_to "Go Back", building_path(@building), :class => 'btn'

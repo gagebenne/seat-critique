@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>show.html.haml</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            show.html.haml
+        </h1>
+        <ul class="files">
+            <li>app/views/buildings/show.html.haml</li>
+            <li>Last modified: 2017-11-30 22:49:51 -0600</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>.container</p>
+
+<pre><code>%h1
+  = @building.name
+
+%h3 Address
+= @building.address
+
+.separator
+
+%h3 Bathrooms
+
+.separator
+
+= link_to &quot;Create New Bathroom&quot;, new_building_bathroom_path(@building), :class =&gt; &#39;btn btn-primary&#39;
+
+- if @bathrooms.empty?
+  %div{:class =&gt; &quot;panel panel-warning&quot;}
+    .panel-heading{ :style =&gt; &quot;text-align:center;&quot;}
+      = &quot;There are no bathrooms for this building.&quot;
+- else
+  .container
+    .row
+      - @bathrooms.each do |bathroom|
+        .col-xs-12.col-sm-4
+          .card
+            .card-block
+              = render partial: &#39;shared/gender_picture&#39;, locals: { bathroom: bathroom }
+              %h5{:style =&gt; &#39;margin-bottom:5px;&#39;}
+                = &#39;Floor &#39; + bathroom.floor.to_s
+              %h3.card-title{:style =&gt; &#39;margin-top:0px;margin-bottom:5px;&#39;}
+                = bathroom.location
+              %p.card-text
+                - if bathroom.average_overall_rating.nan?
+                  No Critiques
+                -else
+                  - bathroom.average_overall_rating.round.times do
+                    ★
+              %div
+                = link_to &quot;Show&quot;, building_bathroom_path(@building,bathroom), :class =&gt; &#39;btn btn-default&#39;</code></pre>
+
+<p>.separator</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

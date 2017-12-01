@@ -1,75 +1,89 @@
 class Bathroom < ApplicationRecord
   belongs_to :building
   has_many :critiques
+  has_many :tags
 
-  validate :gender_options, :valid_floor, :validate_location
+  validate :valid_floor
+  validates :gender, :floor, :location, presence: true
+  validates :location, length: { maximum: 50 }
+  validates :floor, length: { maximum: 10 }
 
-  before_save :format_input, :unify_gender
+  before_save :format_input
+
+  # Calculates the average overall rating
+  # PRE: At least one rating exists
+  # POST: The average is computed
+  def average_overall_rating
+    critiques = self.critiques
+    critiques.reduce(0){ |sum, el| sum + el.overall_rating }.to_f / critiques.size
+  end
+
+  # Calculates the average toilet rating
+  # PRE: At least one rating exists
+  # POST: The average is computed
+  def average_toilet_rating
+    critiques = self.critiques
+    critiques.reduce(0){ |sum, el| sum + el.toilet_rating }.to_f / critiques.size
+  end
+
+  # Calculates the average sink rating
+  # PRE: At least one rating exists
+  # POST: The average is computed
+  def average_sink_rating
+    critiques = self.critiques
+    critiques.reduce(0){ |sum, el| sum + el.sink_rating }.to_f / critiques.size
+  end
+
+  # Calculates the average cleanliness rating
+  # PRE: At least one rating exists
+  # POST: The average is computed
+  def average_cleanliness_rating
+    critiques = self.critiques
+    critiques.reduce(0){ |sum, el| sum + el.cleanliness_rating }.to_f / critiques.size
+  end
+
+  # Calculates the average smell rating
+  # PRE: At least one rating exists
+  # POST: The average is computed
+  def average_smell_rating
+    critiques = self.critiques
+    critiques.reduce(0){ |sum, el| sum + el.smell_rating }.to_f / critiques.size
+  end
+
+  # Calculates the average privacy rating
+  # PRE: At least one rating exists
+  # POST: The average is computed
+  def average_privacy_rating
+    critiques = self.critiques
+    critiques.reduce(0){ |sum, el| sum + el.privacy_rating }.to_f / critiques.size
+  end
 
   private
 
-  #removes spaces, tabs, etc from beginning and end of input
+  # Removes spaces, tabs, etc from beginning and end of input
+  # PRE: All inputs are successfully validated
+  # POST: Inputs are formatted to the webpage's style
   def format_input
     self.gender = self.gender.strip
     self.floor = self.floor.strip.upcase
     self.location = self.location.strip
   end
 
-  #Converts all allowable gender inputs into either
-  #'Male' or 'Female'
-  def unify_gender
-    gender = "nil"
-    input = self.gender.strip
-    male = ["Men","Male","M","Boy","Guy","Man"]
-    female = ["Women","Female","F","Girl","Lady","Ladie","Woman"]
-    male.each do |name|
-      if input.casecmp(name) == 0 || input.casecmp(name+"s") == 0
-        gender = "Male"
-      end
-    end
-    female.each do |name|
-      if input.casecmp(name) == 0 || input.casecmp(name+"s") == 0
-        gender = "Female"
-      end
-    end
-    self.gender = gender
-  end
-
-  #Forces gender to be from a prespecified set of allowed inputs
-  #Validation makes sure it's on this list
-  def gender_options
-    input = self.gender.strip
-    inList = false
-    #specifically avoids plurals since we will check for that too
-    allowed = Array["Men","Male","M","Boy","Guy","Man",
-    "Women","Female","F","Girl","Lady","Ladie","Woman"]
-    allowed.each do |name|
-      if input.casecmp(name) == 0 || (input).casecmp(name+"s") == 0
-        inList = true
-      end
-    end
-    if(!inList)
-      self.errors[:base] << "Gender not recognized; please use Male or Female"
-    end
-  end
-
+  # Checks if the floor number input is a valid
+  # PRE: None
+  # POST: If invalid, pushes an error to the page
   def valid_floor
-    name = self.floor.strip
-    if name == ""
-      self.errors[:base] << "Must provide a floor number"
-    elsif !is_number?(name) && name.casecmp("L") != 0 && name.casecmp("LL") != 0 && name.casecmp("B") != 0
+    floor = self.floor.to_s
+    if !is_number?(floor) && floor.casecmp("L") != 0 && floor.casecmp("LL") != 0 && floor.casecmp("B") != 0
       self.errors[:base] << "Invalid floor"
     end
   end
 
+  # Checks if a string can be parsed to an integer
+  # PRE: None
+  # POST: None
   def is_number?(obj)
     return obj.to_s == obj.to_i.to_s
-  end
-
-  def validate_location
-    if self.location.strip == ""
-      self.errors[:base] << "Must specify a location"
-    end
   end
 
 end

@@ -4,8 +4,22 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+normal:
+  name: 'Cool Building'
+  address: '123 Main St'
+
+normal2:
+  name: 'Cool Building'
+  address: '123 Main St'
+
+nameless:
+  name: ''
+  address: '123 Main St'
+
+addressless:
+  name: 'Cool Building'
+  address: ''
+
+spaces:
+  name: '   Cooler Building    '
+  address: '  123 Fake Street  '

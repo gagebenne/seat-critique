@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>handler.coffee</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            handler.coffee
+        </h1>
+        <ul class="files">
+            <li>app/assets/javascripts/gmaps/objects/handler.coffee</li>
+            <li>Last modified: 2017-11-28 21:38:06 -0600</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>class @Gmaps.Objects.Handler</p>
+
+<pre><code># options:
+#   markers:
+#     maxRandomDistance: null / int in meters
+#     singleInfowindow:  true/false
+#     clusterer:         null or object with options if you want clusters
+#   models:   object, custom models   if you have some
+#   builders: object, custom builders if you have some
+#
+constructor: (@type, options = {})-&gt;
+  @setPrimitives options
+  @setOptions options
+  @_cacheAllBuilders()
+  @resetBounds()
+
+buildMap: (options, onMapLoad = -&gt;)-&gt;
+  @map = @_builder(&#39;Map&#39;).build options, =&gt;
+    @_createClusterer()
+    onMapLoad()
+
+# return array of marker objects
+addMarkers: (markers_data, provider_options)-&gt;
+  _.map markers_data, (marker_data)=&gt;
+    @addMarker marker_data, provider_options
+
+# return marker object
+addMarker: (marker_data, provider_options)-&gt;
+  marker = @_builder(&#39;Marker&#39;).build(marker_data, provider_options, @marker_options)
+  marker.setMap(@getMap())
+  @clusterer.addMarker marker
+  marker
+
+# return array of circle objects
+addCircles: (circles_data, provider_options)-&gt;
+  _.map circles_data, (circle_data)=&gt;
+    @addCircle circle_data, provider_options
+
+# return circle object
+addCircle: (circle_data, provider_options)-&gt;
+  @_addResource(&#39;circle&#39;, circle_data, provider_options)
+
+# return array of polyline objects
+addPolylines: (polylines_data, provider_options)-&gt;
+  _.map polylines_data, (polyline_data)=&gt;
+    @addPolyline polyline_data, provider_options
+
+# return polyline object
+addPolyline: (polyline_data, provider_options)-&gt;
+  @_addResource(&#39;polyline&#39;, polyline_data, provider_options)
+
+# return array of polygon objects
+addPolygons: (polygons_data, provider_options)-&gt;
+  _.map polygons_data, (polygon_data)=&gt;
+    @addPolygon polygon_data, provider_options
+
+# return polygon object
+addPolygon: (polygon_data, provider_options)-&gt;
+  @_addResource(&#39;polygon&#39;, polygon_data, provider_options)
+
+# return array of kml objects
+addKmls: (kmls_data, provider_options)-&gt;
+  _.map kmls_data, (kml_data)=&gt;
+    @addKml kml_data, provider_options
+
+# return kml object
+addKml: (kml_data, provider_options)-&gt;
+  @_addResource(&#39;kml&#39;, kml_data, provider_options)
+
+# removes markers from map
+removeMarkers: (gem_markers)-&gt;
+  _.map gem_markers, (gem_marker)=&gt;
+    @removeMarker gem_marker
+
+# removes marker from map
+removeMarker: (gem_marker)-&gt;
+  gem_marker.clear()
+  @clusterer.removeMarker(gem_marker)
+
+fitMapToBounds: -&gt;
+  @map.fitToBounds @bounds.getServiceObject()
+
+getMap: -&gt;
+  @map.getServiceObject()
+
+setOptions: (options)-&gt;
+  @marker_options = _.extend @_default_marker_options(), options.markers
+  @builders       = _.extend @_default_builders(),       options.builders
+  @models         = _.extend @_default_models(),         options.models
+
+resetBounds: -&gt;
+  @bounds = @_builder(&#39;Bound&#39;).build()
+
+setPrimitives: (options)-&gt;
+  @primitives = if options.primitives is undefined
+                  @_rootModule().Primitives()
+                else
+                  if _.isFunction(options.primitives) then options.primitives() else options.primitives
+
+currentInfowindow: -&gt;
+  @builders.Marker.CURRENT_INFOWINDOW
+
+_addResource: (resource_name, resource_data, provider_options)-&gt;
+  resource = @_builder(resource_name).build(resource_data, provider_options)
+  resource.setMap(@getMap())
+  resource
+
+_cacheAllBuilders: -&gt;
+  that = @
+  _.each [&#39;Bound&#39;, &#39;Circle&#39;,  &#39;Clusterer&#39;, &#39;Kml&#39;, &#39;Map&#39;, &#39;Marker&#39;, &#39;Polygon&#39;, &#39;Polyline&#39;], (kind)-&gt; that._builder(kind)
+
+_clusterize: -&gt;
+  _.isObject @marker_options.clusterer
+
+_createClusterer: -&gt;
+  @clusterer = @_builder(&#39;Clusterer&#39;).build({ map: @getMap() }, @marker_options.clusterer )
+
+_default_marker_options: -&gt;
+  _.clone {
+    singleInfowindow:  true
+    maxRandomDistance: 0
+    clusterer:
+      maxZoom:  5
+      gridSize: 50
+  }
+
+_builder: (name)-&gt;
+  name = @_capitalize(name)
+  @[&quot;__builder#{name}&quot;] ?= Gmaps.Objects.Builders(@builders[name], @models[name], @primitives)
+  @[&quot;__builder#{name}&quot;]
+
+_default_models: -&gt;
+  models = _.clone(@_rootModule().Objects)
+  if @_clusterize()
+    models
+  else
+    models.Clusterer = Gmaps.Objects.NullClusterer
+    models
+
+_capitalize: (string)-&gt;
+  string.charAt(0).toUpperCase() + string.slice(1)
+
+_default_builders: -&gt;
+  _.clone @_rootModule().Builders
+
+_rootModule: -&gt;
+  @__rootModule ?= Gmaps[@type]
+  @__rootModule</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

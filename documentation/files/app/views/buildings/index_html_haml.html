@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>index.html.haml</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            index.html.haml
+        </h1>
+        <ul class="files">
+            <li>app/views/buildings/index.html.haml</li>
+            <li>Last modified: 2017-11-30 22:07:30 -0600</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>%script{:src =&gt; “//maps.google.com/maps/api/js?key=#{<a
+href="'GOOGLE_MAPS_API'">ENV</a>}&amp;libraries=geometry”} %script{:src
+=&gt;
+“//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js”}
+%script{:src =&gt;
+“//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js”,
+:type =&gt; “text/javascript”}</p>
+
+<p>.container</p>
+
+<pre><code>%h1 Buildings
+
+#map
+
+.separator</code></pre>
+
+<p>:javascript</p>
+
+<pre><code>let mapStyles = [
+          {elementType: &#39;geometry&#39;, stylers: [{color: &#39;#242f3e&#39;}]},
+          {elementType: &#39;labels.text.stroke&#39;, stylers: [{color: &#39;#242f3e&#39;}]},
+          {elementType: &#39;labels.text.fill&#39;, stylers: [{color: &#39;#746855&#39;}]},
+          {
+            featureType: &#39;administrative.locality&#39;,
+            elementType: &#39;labels.text.fill&#39;,
+            stylers: [{color: &#39;#d59563&#39;}]
+          },
+          {
+            featureType: &#39;poi&#39;,
+            elementType: &#39;labels.text.fill&#39;,
+            stylers: [{color: &#39;#d59563&#39;}]
+          },
+          {
+            featureType: &#39;poi.park&#39;,
+            elementType: &#39;geometry&#39;,
+            stylers: [{color: &#39;#263c3f&#39;}]
+          },
+          {
+            featureType: &#39;poi.park&#39;,
+            elementType: &#39;labels.text.fill&#39;,
+            stylers: [{color: &#39;#6b9a76&#39;}]
+          },
+          {
+            featureType: &#39;road&#39;,
+            elementType: &#39;geometry&#39;,
+            stylers: [{color: &#39;#38414e&#39;}]
+          },
+          {
+            featureType: &#39;road&#39;,
+            elementType: &#39;geometry.stroke&#39;,
+            stylers: [{color: &#39;#212a37&#39;}]
+          },
+          {
+            featureType: &#39;road&#39;,
+            elementType: &#39;labels.text.fill&#39;,
+            stylers: [{color: &#39;#9ca5b3&#39;}]
+          },
+          {
+            featureType: &#39;road.highway&#39;,
+            elementType: &#39;geometry&#39;,
+            stylers: [{color: &#39;#746855&#39;}]
+          },
+          {
+            featureType: &#39;road.highway&#39;,
+            elementType: &#39;geometry.stroke&#39;,
+            stylers: [{color: &#39;#1f2835&#39;}]
+          },
+          {
+            featureType: &#39;road.highway&#39;,
+            elementType: &#39;labels.text.fill&#39;,
+            stylers: [{color: &#39;#f3d19c&#39;}]
+          },
+          {
+            featureType: &#39;transit&#39;,
+            elementType: &#39;geometry&#39;,
+            stylers: [{color: &#39;#2f3948&#39;}]
+          },
+          {
+            featureType: &#39;transit.station&#39;,
+            elementType: &#39;labels.text.fill&#39;,
+            stylers: [{color: &#39;#d59563&#39;}]
+          },
+          {
+            featureType: &#39;water&#39;,
+            elementType: &#39;geometry&#39;,
+            stylers: [{color: &#39;#17263c&#39;}]
+          },
+          {
+            featureType: &#39;water&#39;,
+            elementType: &#39;labels.text.fill&#39;,
+            stylers: [{color: &#39;#515c6d&#39;}]
+          },
+          {
+            featureType: &#39;water&#39;,
+            elementType: &#39;labels.text.stroke&#39;,
+            stylers: [{color: &#39;#17263c&#39;}]
+          }
+        ]
+handler = Gmaps.build(&#39;Google&#39;);
+handler.buildMap({ provider: { styles: mapStyles }, internal: {id: &#39;map&#39;}}, function(){
+  markers = handler.addMarkers(#{raw @markers_as_json});
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

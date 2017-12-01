@@ -1,22 +1,22 @@
 .container
-  %h1 Critiques#edit
   %h2 Building: #{@building.name}
   %h3 Bathroom: Floor #{@bathroom.floor} at #{@bathroom.location}
 
   - if @critique.errors.any?
     %h3
       = pluralize(@critique.errors.count, "error")
-      prevented this building from being added:
+      prevented this critique from being modified:
     %ul
       - @critique.errors.full_messages.each do |msg|
         %li= msg
-
+  %br
   = simple_form_for @critique, url: building_bathroom_critique_path(@building,@bathroom) do |f|
-    = f.input :overall_rating,      min: 1, max: 10
-    = f.input :toilet_rating,       min: 1, max: 10
-    = f.input :sink_rating,         min: 1, max: 10
-    = f.input :cleanliness_rating,  min: 1, max: 10
-    = f.input :smell_rating,        min: 1, max: 10
-    = f.input :privacy_rating,      min: 1, max: 10
-
+    -# Star system based on https://stackoverflow.com/questions/17190111/simple-forms-collection-radio-button-and-custom-label-class
+    - @rating_symbols.each do |rating_symbol|
+      %h4= rating_symbol.to_s.titleize
+      %fieldset
+        .star-cb-group
+          = f.collection_radio_buttons rating_symbol, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b|
+            = b.radio_button + b.label {''}
+    %br
     = f.button :submit, :class => 'btn btn-primary'
