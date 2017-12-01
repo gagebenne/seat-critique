@@ -74,7 +74,7 @@ class Bathroom < ApplicationRecord
   # POST: If invalid, pushes an error to the page
   def valid_floor
     floor = self.floor.to_s
-    if !is_number?(floor) && floor.casecmp("L") != 0 && floor.casecmp("LL") != 0 && floor.casecmp("B") != 0
+    if !is_number?(floor) && floor.casecmp("L") != 0 && floor.casecmp("LL") != 0 && floor.casecmp("B") != 0 && floor.casecmp("G") != 0
       self.errors[:base] << "Invalid floor"
     end
   end
