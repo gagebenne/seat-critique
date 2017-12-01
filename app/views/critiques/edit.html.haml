@@ -11,37 +11,12 @@
         %li= msg
   %br
   = simple_form_for @critique, url: building_bathroom_critique_path(@building,@bathroom) do |f|
-    -# = f.input :overall_rating,      input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
-    -# = f.input :toilet_rating,       input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
-    -# = f.input :sink_rating,         input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
-    -# = f.input :cleanliness_rating,  input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
-    -# = f.input :smell_rating,        input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
-    -# = f.input :privacy_rating,      input_html: {min: 1, max: 5, :style=> 'width: 50px'}, :error => false
     -# Star system based on https://stackoverflow.com/questions/17190111/simple-forms-collection-radio-button-and-custom-label-class
-    %h4 Overall Rating
-    %fieldset
-      .star-cb-group
-        = f.collection_radio_buttons :overall_rating, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b|
-          = b.radio_button + b.label {''}
-    %h4 Sink Rating
-    %fieldset
-      .star-cb-group
-        = f.collection_radio_buttons :sink_rating, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b|
-          = b.radio_button + b.label {''}
-    %h4 Cleanliness Rating
-    %fieldset
-      .star-cb-group
-        = f.collection_radio_buttons :cleanliness_rating, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b|
-          = b.radio_button + b.label {''}
-    %h4 Smell Rating
-    %fieldset
-      .star-cb-group
-        = f.collection_radio_buttons :smell_rating, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b|
-          = b.radio_button + b.label {''}
-    %h4 Privacy Rating
-    %fieldset
-      .star-cb-group
-        = f.collection_radio_buttons :privacy_rating, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b|
-          = b.radio_button + b.label {''}
+    - @rating_symbols.each do |rating_symbol|
+      %h4= rating_symbol.to_s.titleize
+      %fieldset
+        .star-cb-group
+          = f.collection_radio_buttons rating_symbol, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b|
+            = b.radio_button + b.label {''}
     %br
     = f.button :submit, :class => 'btn btn-primary'
