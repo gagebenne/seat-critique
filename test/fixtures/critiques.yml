@@ -4,6 +4,34 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
+high:
+  overall_rating: 6
+  toilet_rating: 60
+  sink_rating: 1337
+  cleanliness_rating: 80
+  smell_rating: 100
+  privacy_rating: 8.888
+
+low:
+  overall_rating: 0
+  toilet_rating: -30
+  sink_rating: -1.5
+  cleanliness_rating: -5
+  smell_rating: -100
+  privacy_rating: -1337
+
+edgecase:
+  overall_rating: 3.14159
+  toilet_rating: 1
+  sink_rating: 5
+  cleanliness_rating: 'asdf'
+  smell_rating: '3'
+  privacy_rating: 4.0
+
+valid:
+    overall_rating: 4
+    toilet_rating: 5
+    sink_rating: 4
+    cleanliness_rating: 3
+    smell_rating: 2
+    privacy_rating: 5

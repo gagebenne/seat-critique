@@ -16,13 +16,7 @@ class CritiqueTest < ActiveSupport::TestCase
   end
 
   test 'numericality validators work when value is too high' do
-    critique = Critique.new
-    critique.overall_rating = 6
-    critique.toilet_rating = 60
-    critique.sink_rating = 1337
-    critique.cleanliness_rating = 80
-    critique.smell_rating = 100
-    critique.privacy_rating = 8.888
+    critique = critiques(:high)
     assert_not critique.valid?
     assert_equal [:user, :bathroom, :overall_rating, :toilet_rating,
       :sink_rating, :cleanliness_rating, :smell_rating,
@@ -30,18 +24,23 @@ class CritiqueTest < ActiveSupport::TestCase
   end
 
   test 'numericality validators work when value is too low' do
-    critique = Critique.new
-    critique.overall_rating = 0
-    critique.toilet_rating = -30
-    critique.sink_rating = -1.5
-    critique.cleanliness_rating = -5
-    critique.smell_rating = -100
-    critique.privacy_rating = -1337
+    critique = critiques(:low)
     assert_not critique.valid?
     assert_equal [:user, :bathroom, :overall_rating, :toilet_rating,
       :sink_rating, :cleanliness_rating, :smell_rating,
       :privacy_rating], critique.errors.keys
-    end
+  end
+
+  test 'edge cases work as intended' do
+    critique = critiques(:edgecase)
+    assert_not critique.valid?
+    assert_equal [:user, :bathroom, :cleanliness_rating], critique.errors.keys
+  end
+
+  test 'valid critique has no errors' do
+    critique = critiques(:valid)
+    assert_equal [], critique.errors.keys
+  end
 
 
 end
