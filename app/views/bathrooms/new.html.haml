@@ -10,9 +10,9 @@
         %li= msg
   .col-xs-12.col-sm-5
     = simple_form_for @bathroom, url: building_bathrooms_path(@building), html: {class: 'form-horizontal'} do |f|
-      = f.association :tags, collection: @tags, :error => false
       = f.input :gender, collection: @genders, :error => false
       = f.input :floor, :error => false
       = f.input :location, :error => false
+      = f.association :tags, collection: @tags, :error => false, as: :check_boxes
 
       = f.button :submit, :class => 'btn btn-primary'
