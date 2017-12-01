@@ -76,7 +76,7 @@ class BathroomsController < ApplicationController
     params.require(:bathroom).permit(:floor, :location, :gender)
   end
 
-
+  # Returns form tags from params as an array of hashes
   def tags_hash
     unless params[:bathroom][:tag_ids].nil?
       params[:bathroom][:tag_ids].reject{ |t| t.empty? }.map{ |t| {name: t} }
@@ -85,7 +85,7 @@ class BathroomsController < ApplicationController
     end
   end
 
-  #An array of tags. These will be boolean options that the bathroom has or does not
+  # An array of tags. These will be boolean options that the bathroom has or does not
   def tag_options
     [ 'Only Blow-Driers',
       'Automatic Toilets',
