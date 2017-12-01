@@ -157,10 +157,10 @@ Building.create([
 
 @leep2 = Building.find_by name: 'LEEP2'
 @leep2.bathrooms.create([
-  { floor: 'G', location: 'Near Elevator', gender: 'Unisex'},
+  { floor: 'G', location: 'Near Elevator', gender: 'Gender-Neutral'},
   { floor: 'G', location: 'Near Staircase', gender: 'Male'},
   { floor: 'G', location: 'Near Staircase', gender: 'Female'},
-  { floor: '1', location: 'Near Jaybreak', gender: 'Unisex'},
+  { floor: '1', location: 'Near Jaybreak', gender: 'Gender-Neutral'},
   { floor: '1', location: 'Near Jaybreak', gender: 'Male'},
   { floor: '1', location: 'Near Jaybreak', gender: 'Female'},
   { floor: '2', location: 'Above Jaybreak', gender: 'Male'},
