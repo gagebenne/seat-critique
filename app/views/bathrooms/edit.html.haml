@@ -9,7 +9,7 @@
       - @bathroom.errors.full_messages.each do |msg|
         %li= msg
   .col-xs-12.col-sm-5
-    = simple_form_for @bathroom, html: {class: 'form-horizontal'} url: building_bathroom_path(@building,@bathroom) do |f|
+    = simple_form_for @bathroom, html: {class: 'form-horizontal'}, url: building_bathroom_path(@building,@bathroom) do |f|
       = f.input :gender, collection: @genders
       = f.input :floor
       = f.input :location
