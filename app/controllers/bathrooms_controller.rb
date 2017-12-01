@@ -68,7 +68,7 @@ class BathroomsController < ApplicationController
   # PRE: None
   # POST: None
   def bathroom_params
-    params.require(:bathroom).permit(:floor, :location, :gender)
+    params.require(:bathroom).permit(:floor, :location, :gender, :tags)
   end
 
   # Finds the specific building with the id
