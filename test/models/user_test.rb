@@ -6,5 +6,11 @@ class UserTest < ActiveSupport::TestCase
     user = User.new
     assert_not user.save
   end
+
+  test 'should validate presence of gender' do
+    user = User.new
+    assert_not user.valid?
+    assert user.errors.keys.include?(:gender)
+  end
   
 end
