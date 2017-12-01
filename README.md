@@ -17,7 +17,7 @@ To set up Docker with Rails, follow [this guide](https://docs.docker.com/compose
 
 ### Configuration
 
-Once your Rails environment is set up, run `git clone https://github.com/GitGud-KU/seat-critique.git`<br>
+Once your Rails environment is set up, clone this repository by typing `git clone https://github.com/GitGud-KU/seat-critique.git` into your terminal.<br>
 
 Then, add your database settings into the config/database.yml file.
 
