@@ -2,6 +2,8 @@ require 'test_helper'
 
 class BathroomTest < ActiveSupport::TestCase
 
+  #All private methods get coverage through the validation tests
+
   test 'should have the necessary required validators' do
     bathroom = Bathroom.new
     assert_not bathroom.valid?
