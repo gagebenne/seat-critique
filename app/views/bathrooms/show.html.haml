@@ -7,20 +7,20 @@
   .col-xs-12.col-sm-8
     .bathroom-text
       %p{:style => 'font-size:40px;'}= @building.name
-      %p{:style => 'font-size:40px;'}= 'Floor ' + @bathroom.floor
-      %p{:style => 'font-size:40px;'}= @bathroom.location
-      %p{:style => 'font-size:20px;'}Tags:
-      - @bathroom.tags.each do |tag|
-        %p{:style => 'font-size:15px;'}= tag.name
-
-.container
-  %h3 Ratings
+      %p{:style => 'font-size:20px;'}= 'Floor ' + @bathroom.floor
+      %p{:style => 'font-size:20px;'}= @bathroom.location
+      %p
+        - @bathroom.tags.each do |tag|
+          %div{class:"badge badge-pill badge-success"}
+            =tag.name
+%br
+.container-fluid
   - if @bathroom.critiques.empty?
     .panel.panel-warning
       .panel-heading
         This bathroom has not been rated.
   - else
-    %h3 Overall: #{@bathroom.average_overall_rating}
+    %h3 Overall Rating: #{@bathroom.average_overall_rating}
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
@@ -52,7 +52,7 @@
         .panel-body
           = @bathroom.average_privacy_rating
 
-    %br
+  %br
   = link_to "Rate Me", building_bathroom_critiques_path(@building,@bathroom), :class => 'btn btn-primary'
   %br
 
