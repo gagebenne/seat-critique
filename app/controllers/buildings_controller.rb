@@ -91,9 +91,9 @@ class BuildingsController < ApplicationController
   # PRE: Current building exists
   # POST: The window pops up on the map
   def info_window_html(building)
-    building.name+"\r"+
+    "<h4>"+building.name+"</h4>"+
     "<br>\r"+
-    building.address+"\r"+
+    building.bathrooms.count.to_s+"\r"+
     "<a class=\"btn btn-default\" href=\"/buildings/#{building.id}\">Show</a>"
   end
 end
