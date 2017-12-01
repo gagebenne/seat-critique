@@ -9,6 +9,10 @@
       %p{:style => 'font-size:40px;'}= @building.name
       %p{:style => 'font-size:40px;'}= 'Floor ' + @bathroom.floor
       %p{:style => 'font-size:40px;'}= @bathroom.location
+      %p{:style => 'font-size:20px;'}Tags:
+      - @bathroom.tags.each do |tag|
+        %p{:style => 'font-size:15px;'}= tag.name
+      %p= link_to "Edit Tags", 
 
 .container
   %h3 Ratings
