@@ -19,6 +19,7 @@ class BathroomsController < ApplicationController
   def new
     @bathroom = @building.bathrooms.new(params[:id])
     @genders = ['Male','Female','Unisex']
+    @tags = ['one','two']
   end
 
   # Creates and stores a new bathroom in the database
@@ -27,6 +28,7 @@ class BathroomsController < ApplicationController
   def create
     @bathroom = @building.bathrooms.new(bathroom_params)
     if @bathroom.save
+      @bathroom.tags.create(tags_hash)
       redirect_to(building_path(@building))
     else
       render :new
@@ -39,6 +41,7 @@ class BathroomsController < ApplicationController
   def edit
     @bathroom = @building.bathrooms.find(params[:id])
     @genders = ['Male','Female','Unisex']
+    @tags = ['one','two']
   end
 
   # Updates a given bathroom
@@ -47,6 +50,7 @@ class BathroomsController < ApplicationController
   def update
     @bathroom = @building.bathrooms.find(params[:id])
     if @bathroom.update(bathroom_params)
+      @bathroom.tags.update(tags_hash)
       redirect_to(building_bathrooms_path(@building))
     else
       render :edit
@@ -69,6 +73,10 @@ class BathroomsController < ApplicationController
   # POST: None
   def bathroom_params
     params.require(:bathroom).permit(:floor, :location, :gender)
+  end
+
+  def tags_hash
+    params[:bathroom][:tag_ids].reject{ |t| t.empty? }.map{ |t| {name: t} }
   end
 
   # Finds the specific building with the id
