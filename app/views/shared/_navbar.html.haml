@@ -21,8 +21,9 @@
               Account
               %span.caret
             %ul.dropdown-menu{:role => "menu"}
-              %p
-                Logged in as: #{current_user.email}
+              %li
+                %p
+                  Logged in as: #{current_user.email}
               %li.divider
               %li= link_to('Edit registration', edit_user_registration_path)
               %li.divider
