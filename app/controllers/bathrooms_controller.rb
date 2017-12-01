@@ -50,7 +50,8 @@ class BathroomsController < ApplicationController
   def update
     @bathroom = @building.bathrooms.find(params[:id])
     if @bathroom.update(bathroom_params)
-      @bathroom.tags.update(tags_hash)
+      @bathroom.tags.destroy_all
+      @bathroom.tags.create(tags_hash)
       redirect_to(building_path(@building))
     else
       render :edit

@@ -21,6 +21,7 @@ class CritiquesController < ApplicationController
   # POST: None
   def new
     @critique = @bathroom.critiques.new
+    @rating_symbols = rating_symbols
   end
 
   # Creates and stores a new critique in the database
@@ -30,7 +31,7 @@ class CritiquesController < ApplicationController
     @critique = @bathroom.critiques.new(critique_params)
     @critique.user_id = current_user.id
     if @critique.save
-      redirect_to(building_bathroom_critiques_path(@building,@bathroom))
+      redirect_to(building_bathroom_path(@building,@bathroom))
     else
       render :new
     end
@@ -41,6 +42,7 @@ class CritiquesController < ApplicationController
   # POST: None
   def edit
     @critique = @bathroom.critiques.find(params[:id])
+    @rating_symbols = rating_symbols
   end
 
   # Updates a given critique
@@ -49,7 +51,7 @@ class CritiquesController < ApplicationController
   def update
     @critique = @bathroom.critiques.find(params[:id])
     if @critique.update(critique_params)
-      redirect_to(building_bathroom_critiques_path(@building,@bathroom))
+      redirect_to(building_bathroom_path(@building,@bathroom))
     else
       render :new
     end
@@ -71,6 +73,10 @@ class CritiquesController < ApplicationController
   # POST: None
   def critique_params
     params.require(:critique).permit(:overall_rating,:toilet_rating,:sink_rating,:cleanliness_rating,:smell_rating,:privacy_rating)
+  end
+
+  def rating_symbols
+    [:overall_rating,:toilet_rating,:sink_rating,:cleanliness_rating,:smell_rating,:privacy_rating]
   end
 
   # Finds the building/bathroom with the specified id
