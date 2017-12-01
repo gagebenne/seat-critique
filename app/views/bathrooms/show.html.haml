@@ -20,41 +20,41 @@
       .panel-heading
         This bathroom has not been rated.
   - else
-    %h3 Overall Rating: #{'★' * @bathroom.average_overall_rating.to_i}
+    %h3 Overall Rating: #{'★' * @bathroom.average_overall_rating.round}
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
           Toilet
         .panel-body
-          - @bathroom.average_toilet_rating.to_i.times do
+          - @bathroom.average_toilet_rating.round.times do
             ★
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
           Sink
         .panel-body
-          - @bathroom.average_sink_rating.to_i.times do
+          - @bathroom.average_sink_rating.round.times do
             ★
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
           Cleanliness
         .panel-body
-          - @bathroom.average_cleanliness_rating.to_i.times do
+          - @bathroom.average_cleanliness_rating.round.times do
             ★
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
           Smell
         .panel-body
-          - @bathroom.average_smell_rating.to_i.times do
+          - @bathroom.average_smell_rating.round.times do
             ★
     .col-xs-4.col-md-2
       .panel.panel-primary
         .panel-heading
           Privacy
         .panel-body
-          - @bathroom.average_privacy_rating.to_i.times do
+          - @bathroom.average_privacy_rating.round.times do
             ★
 
 %br

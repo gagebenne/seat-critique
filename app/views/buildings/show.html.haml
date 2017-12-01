@@ -33,7 +33,7 @@
                   - if bathroom.average_overall_rating.nan?
                     No Critiques
                   -else
-                    - bathroom.average_overall_rating.to_i.times do
+                    - bathroom.average_overall_rating.round.times do
                       ★
                 %div
                   = link_to "Show", building_bathroom_path(@building,bathroom), :class => 'btn btn-default'
