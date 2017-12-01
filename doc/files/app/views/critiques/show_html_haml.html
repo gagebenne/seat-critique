@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>show.html.haml</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            show.html.haml
+        </h1>
+        <ul class="files">
+            <li>app/views/critiques/show.html.haml</li>
+            <li>Last modified: 2017-12-01 12:19:39 -0600</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>.container</p>
+
+<pre><code>%h1 Critiques#show
+%h2 Building: #{@building.name}
+%h3 Bathroom: Floor #{@bathroom.floor} at #{@bathroom.location}
+
+%table{:style =&gt; &#39;width:100%;&#39;}
+  %thead
+    %tr
+      %th Category
+      %th Rating
+  %tbody
+    %tr
+      %td Overall
+      %td #{@critique.overall_rating}
+    %tr
+      %td Toilet
+      %td #{@critique.toilet_rating}
+    %tr
+      %td Sink
+      %td #{@critique.sink_rating}
+    %tr
+      %td Cleanliness
+      %td #{@critique.cleanliness_rating}
+    %tr
+      %td Smell
+      %td #{@critique.smell_rating}
+    %tr
+      %td Privacy
+      %td #{@critique.privacy_rating}
+
+= link_to &quot;Go Back&quot;, building_bathroom_critiques_path(@building,@bathroom), :class =&gt; &#39;btn&#39;</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

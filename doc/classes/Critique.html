@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Critique</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            Critique
+            
+                <span class="parent">&lt;
+                    
+                    <a href="ApplicationRecord.html">ApplicationRecord</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/critique_rb.html">app/models/critique.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-in_range">in_range</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-in_range">
+            
+              <b>in_range</b>()
+            
+            <a href="../classes/Critique.html#method-i-in_range" name="method-i-in_range" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Simple forms will validate that only integers are accepted We do not need
+to check for that.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-in_range_source')" id="l_method-i-in_range_source">show</a>
+                
+              </p>
+              <div id="method-i-in_range_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/critique.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">in_range</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">overall_rating</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Must give an overall rating&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">overall_rating</span> <span class="ruby-operator">&lt;</span> <span class="ruby-number">1</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">overall_rating</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">10</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Overall rating must be between 1 and 10&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">toilet_rating</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Must give a toilet rating&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">toilet_rating</span> <span class="ruby-operator">&lt;</span> <span class="ruby-number">1</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">toilet_rating</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">10</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Toilet rating must be between 1 and 10&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sink_rating</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Must give a sink rating&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sink_rating</span> <span class="ruby-operator">&lt;</span> <span class="ruby-number">1</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sink_rating</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">10</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Sink rating must be between 1 and 10&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cleanliness_rating</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Must give a cleanliness rating&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cleanliness_rating</span> <span class="ruby-operator">&lt;</span> <span class="ruby-number">1</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cleanliness_rating</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">10</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Cleanliness rating must be between 1 and 10&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">smell_rating</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Must give a smell rating&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">smell_rating</span> <span class="ruby-operator">&lt;</span> <span class="ruby-number">1</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">smell_rating</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">10</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Smell rating must be between 1 and 10&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">privacy_rating</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Must give a privacy rating&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">privacy_rating</span> <span class="ruby-operator">&lt;</span> <span class="ruby-number">1</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">privacy_rating</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">10</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">errors</span>[<span class="ruby-value">:base</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Privacy rating must be between 1 and 10&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>
