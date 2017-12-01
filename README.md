@@ -38,6 +38,7 @@ With the database set up, docker running, Seat Critique should be ready to run! 
 [Simple Form](https://github.com/plataformatec/simple_form)<br>
 [Simple Form Star Styling](https://codepen.io/lsirivong/pen/ekBxI)<br>
 [Gmaps4rails](https://apneadiving.github.io/)<br>
+[Geocoder](https://github.com/alexreisner/geocoder)<br>
 [Gemfile Gems](https://github.com/GitGud-KU/seat-critique/blob/master/Gemfile)<br>
 
 ### Testing
