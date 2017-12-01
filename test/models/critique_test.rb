@@ -41,7 +41,7 @@ class CritiqueTest < ActiveSupport::TestCase
     assert_equal [:user, :bathroom, :overall_rating, :toilet_rating,
       :sink_rating, :cleanliness_rating, :smell_rating,
       :privacy_rating], critique.errors.keys
-    end
+  end
 
 
 end

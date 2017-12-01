@@ -1,6 +1,6 @@
 class TagController < ApplicationController
   def new
-    @tags = ['Handicap Accessible', 'No Paper Towels']
+    @tags = ['Handicap Accessible', 'No Paper Towels', 'Automatic Toilets']
   end
 
   def create
