@@ -76,7 +76,7 @@ class BathroomsController < ApplicationController
   end
 
   def tags_hash
-    params[:bathroom][:tag_ids].reject{ |t| t.empty? }.map{ |t| {name: t} }
+    params[:bathroom][:tag_ids].to_a.reject{ |t| t.empty? }.map{ |t| {name: t} }
   end
 
   def tag_options
