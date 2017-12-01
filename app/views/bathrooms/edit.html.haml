@@ -13,5 +13,6 @@
       = f.input :gender, collection: @genders
       = f.input :floor
       = f.input :location
+      = f.association :tags, collection: @tags, :error => false, as: :check_boxes
 
       = f.button :submit, :class => 'btn btn-primary'
