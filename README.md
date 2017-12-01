@@ -36,6 +36,7 @@ With the database set up, docker running, Seat Critique should be ready to run! 
 [Bootswatch](https://bootswatch.com/)<br>
 [Devise](https://github.com/plataformatec/devise)<br>
 [Simple Form](https://github.com/plataformatec/simple_form)<br>
+[Simple Form Star Styling](https://codepen.io/lsirivong/pen/ekBxI)<br>
 [Gmaps4rails](https://apneadiving.github.io/)<br>
 [Gemfile Gems](https://github.com/GitGud-KU/seat-critique/blob/master/Gemfile)<br>
 

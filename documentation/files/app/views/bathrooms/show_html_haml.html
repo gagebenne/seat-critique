@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>show.html.haml</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            show.html.haml
+        </h1>
+        <ul class="files">
+            <li>app/views/bathrooms/show.html.haml</li>
+            <li>Last modified: 2017-11-30 22:49:51 -0600</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>.container-fluid{:style =&gt; &#39;padding-top:20px;&#39;}</p>
+
+<pre><code>.col-xs-12.col-sm-4
+  .gender-image
+    = render partial: &#39;shared/gender_picture&#39;, locals: { bathroom: @bathroom }
+.brnodisplay
+  %br
+.col-xs-12.col-sm-8
+  .bathroom-text
+    %p{:style =&gt; &#39;font-size:40px;&#39;}= @building.name
+    %p{:style =&gt; &#39;font-size:20px;&#39;}= &#39;Floor &#39; + @bathroom.floor
+    %p{:style =&gt; &#39;font-size:20px;&#39;}= @bathroom.location
+    %p
+      - @bathroom.tags.each do |tag|
+        %div{class:&quot;badge badge-pill badge-success&quot;}
+          =tag.name</code></pre>
+
+<p>%br .container-fluid</p>
+
+<pre><code>- if @bathroom.critiques.empty?
+  .panel.panel-warning
+    .panel-heading
+      This bathroom has not been rated.
+- else
+  %h3 Overall Rating: #{&#39;★&#39; * @bathroom.average_overall_rating.round}
+  .col-xs-4.col-md-2
+    .panel.panel-primary
+      .panel-heading
+        Toilet
+      .panel-body
+        - @bathroom.average_toilet_rating.round.times do
+          ★
+  .col-xs-4.col-md-2
+    .panel.panel-primary
+      .panel-heading
+        Sink
+      .panel-body
+        - @bathroom.average_sink_rating.round.times do
+          ★
+  .col-xs-4.col-md-2
+    .panel.panel-primary
+      .panel-heading
+        Cleanliness
+      .panel-body
+        - @bathroom.average_cleanliness_rating.round.times do
+          ★
+  .col-xs-4.col-md-2
+    .panel.panel-primary
+      .panel-heading
+        Smell
+      .panel-body
+        - @bathroom.average_smell_rating.round.times do
+          ★
+  .col-xs-4.col-md-2
+    .panel.panel-primary
+      .panel-heading
+        Privacy
+      .panel-body
+        - @bathroom.average_privacy_rating.round.times do
+          ★</code></pre>
+
+<p>%br</p>
+<ul><li>
+<p>if user_signed_in?</p>
+<ul><li>
+<p>if critique = current_user.critiques.find_by(bathroom_id: @bathroom.id)</p>
+
+<h1 id="label-link_to+-22Edit+Critique-22-2C+edit_building_bathroom_critique_path-28-40building-2C-40bathroom-2Ccritique-29-2C+-3Aclass+-3D-3E+-27btn+btn-primary-27">link_to “Edit Critique”, edit_building_bathroom_critique_path(@building,@bathroom,critique), :class =&gt; &#39;btn btn-primary&#39;</h1>
+</li><li>
+<p>else</p>
+
+<h1 id="label-link_to+-22New+Critique-22-2C+new_building_bathroom_critique_path-28-40building-2C-40bathroom-2Ccritique-29-2C+-3Aclass+-3D-3E+-27btn+btn-primary-27">link_to “New Critique”, new_building_bathroom_critique_path(@building,@bathroom,critique), :class =&gt; &#39;btn btn-primary&#39;</h1>
+</li></ul>
+</li><li>
+<p>else</p>
+
+<h1 id="label-link_to+-22New+Critique-22-2C+new_building_bathroom_critique_path-28-40building-2C-40bathroom-2Ccritique-29-2C+-3Aclass+-3D-3E+-27btn+btn-primary-27">link_to “New Critique”, new_building_bathroom_critique_path(@building,@bathroom,critique), :class =&gt; &#39;btn btn-primary&#39;</h1>
+</li></ul>
+
+<p>%br</p>
+
+<h1 id="label-link_to+-22Go+Back-22-2C+building_path-28-40building-29-2C+-3Aclass+-3D-3E+-27btn-27">link_to “Go Back”, building_path(@building), :class =&gt; &#39;btn&#39;</h1>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>
