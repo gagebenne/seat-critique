@@ -75,6 +75,7 @@ class BathroomsController < ApplicationController
     params.require(:bathroom).permit(:floor, :location, :gender)
   end
 
+
   def tags_hash
     params[:bathroom][:tag_ids].reject{ |t| t.empty? }.map{ |t| {name: t} }
   end
@@ -86,6 +87,10 @@ class BathroomsController < ApplicationController
       'Push-Button Sinks']
   end
 
+  #An array of restroom options.
+  #Users registered as male only see Male and Gender-Neutral restrooms
+  #Users registered as female only see Female and Gender-Neutral restrooms
+  #Users registered as gender-neutral only see Gender-Neutral restrooms
   def gender_options
     ['Male','Female','Gender-Neutral']
   end

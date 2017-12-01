@@ -83,6 +83,9 @@ class BuildingsController < ApplicationController
     params.require(:building).permit(:name, :address)
   end
 
+  # Generates the info window to use with Google Maps
+  # PRE: Current building exists
+  # POST: The window pops up on the map
   def info_window_html(building)
     building.name+"\r"+
     "<br>\r"+
