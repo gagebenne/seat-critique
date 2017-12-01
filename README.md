@@ -4,25 +4,20 @@ Seat Critique is an all-in-one restroom app which lets users find and critique r
 
 ### Team Members
 
-[Gage Benne](https://github.com/gagebenne)
-
-[Zachary Bruennig](https://github.com/zbruennig)
-
-[Andy Monroe](https://github.com/andrew-monroe)
-
+[Gage Benne](https://github.com/gagebenne)<br>
+[Zachary Bruennig](https://github.com/zbruennig)<br>
+[Andy Monroe](https://github.com/andrew-monroe)<br>
 [Mason Wilde](https://github.com/masonwilde)
 
 ### Prerequisites
 
-Seat Critique was built with Ruby 2.4.1, Rails 5.1.4, Postgres 9.6.5, and Docker 17.09.0-ce.
-
-To set up Rails with Postgres, follow [this guide](https://www.digitalocean.com/community/tutorials/how-to-setup-ruby-on-rails-with-postgres).
-
+Seat Critique was built with Ruby 2.4.1, Rails 5.1.4, Postgres 9.6.5, and Docker 17.09.0-ce.<br>
+To set up Rails with Postgres, follow [this guide](https://www.digitalocean.com/community/tutorials/how-to-setup-ruby-on-rails-with-postgres).<br>
 To set up Docker with Rails, follow [this guide](https://docs.docker.com/compose/rails/)
 
 ### Configuration
 
-Once your Rails environment is set up, run `git clone https://github.com/GitGud-KU/seat-critique.git`
+Once your Rails environment is set up, run `git clone https://github.com/GitGud-KU/seat-critique.git`<br>
 
 Then, add your database settings into the config/database.yml file.
 
@@ -36,14 +31,17 @@ With the database set up, docker running, Seat Critique should be ready to run! 
 
 ### Works Cited/Libraries Used:
 
-[Rails](http://rubyonrails.org/)
+[Rails](http://rubyonrails.org/)<br>
+[Bootstrap](http://getbootstrap.com/)<br>
+[Bootswatch](https://bootswatch.com/)<br>
+[Gemfile Gems](https://github.com/GitGud-KU/seat-critique/blob/master/Gemfile)<br>
+[Devise](https://github.com/plataformatec/devise)<br>
+[Simple Form](https://github.com/plataformatec/simple_form)<br>
+[Gmaps4rails](https://apneadiving.github.io/)
 
-[Bootstrap](http://getbootstrap.com/)
+### Testing
 
-[Bootswatch](https://bootswatch.com/)
-
-[Gemfile Gems](https://github.com/GitGud-KU/seat-critique/blob/master/Gemfile)
-
-[Devise](https://github.com/plataformatec/devise)
-
-[Simple Form](https://github.com/plataformatec/simple_form)
+All of our tests are located within the **test** folder.<br>
+Our tests can be run through terminal. Within the project directory, run<br>
+`docker-compose run web rake test`.<br>
+Successful tests will show up as green dots, while failed tests show up as a red F with the error message underneath it.
