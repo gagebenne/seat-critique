@@ -10,11 +10,6 @@ class BathroomTest < ActiveSupport::TestCase
     assert_equal [:building, :base, :gender, :floor, :location], bathroom.errors.keys
   end
 
-  test "cannot save empty bathroom" do
-    bathroom = Bathroom.new
-    assert_not bathroom.save
-  end
-
   test 'normal men\'s bathroom has no errors' do
     b = bathrooms(:mens)
     assert_equal [], b.errors.keys

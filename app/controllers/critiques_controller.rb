@@ -75,6 +75,7 @@ class CritiquesController < ApplicationController
     params.require(:critique).permit(:overall_rating,:toilet_rating,:sink_rating,:cleanliness_rating,:smell_rating,:privacy_rating)
   end
 
+  # Just an array of the ratings as symbols
   def rating_symbols
     [:overall_rating,:toilet_rating,:sink_rating,:cleanliness_rating,:smell_rating,:privacy_rating]
   end

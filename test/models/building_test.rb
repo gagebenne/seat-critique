@@ -8,11 +8,6 @@ class BuildingTest < ActiveSupport::TestCase
     assert_equal [:name, :address], building.errors.keys
   end
 
-  test 'cannot save empty building' do
-    building = Building.new
-    assert_not building.valid?
-  end
-
   test 'normal building has no errors' do
     building = buildings(:normal)
     assert_equal [], building.errors.keys
