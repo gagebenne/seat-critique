@@ -25,7 +25,7 @@ Be sure that Docker is running then run '`docker-compose build` to build the pro
 
 Next, to setup the database: `docker-compose run web rake db:create`.
 
-Finally, run `rake db:create`, `rake db:seed`, then `rake db:migrate`, all with `docker-compose run web` preceeding the command.
+Finally, run `rake db:create`, `rake db:seed`, then `rake db:migrate`, all with `docker-compose run web` preceeding the command. Alternatively, try running `rake db:fix`, which should run all three of them at once.
 
 With the database set up, docker running, Seat Critique should be ready to run! Type `docker-compose up` to launch the app.  Also, try running the application detached `docker-compose up -d` to avoid server.pid issues.
 
@@ -34,10 +34,10 @@ With the database set up, docker running, Seat Critique should be ready to run! 
 [Rails](http://rubyonrails.org/)<br>
 [Bootstrap](http://getbootstrap.com/)<br>
 [Bootswatch](https://bootswatch.com/)<br>
-[Gemfile Gems](https://github.com/GitGud-KU/seat-critique/blob/master/Gemfile)<br>
 [Devise](https://github.com/plataformatec/devise)<br>
 [Simple Form](https://github.com/plataformatec/simple_form)<br>
-[Gmaps4rails](https://apneadiving.github.io/)
+[Gmaps4rails](https://apneadiving.github.io/)<br>
+[Gemfile Gems](https://github.com/GitGud-KU/seat-critique/blob/master/Gemfile)<br>
 
 ### Testing
 
