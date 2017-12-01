@@ -27,7 +27,7 @@ class BathroomsController < ApplicationController
   # POST: A new bathroom is saved in the database
   def create
     @bathroom = @building.bathrooms.new(bathroom_params)
-    @tag = Tag.new(params[:tags])
+    @tag = Tag.new(name: "hello")
     @bathroom.tags << @tag
     if @bathroom.save
       redirect_to(building_path(@building))
