@@ -2,11 +2,6 @@ require 'test_helper'
 
 class CritiqueTest < ActiveSupport::TestCase
 
-  test "cannot save empty critique" do
-    critique = Critique.new
-    assert_not critique.save
-  end
-
   test 'should have the necessary validators' do
     critique = Critique.new
     assert_not critique.valid?
