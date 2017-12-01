@@ -13,7 +13,9 @@
   %h3 Bathrooms
 
   .separator
-
+  
+  = link_to "Create New Bathroom", new_building_bathroom_path(@building), :class => 'btn btn-primary'
+  
   - if @bathrooms.empty?
     %div{:class => "panel panel-warning"}
       .panel-heading{ :style => "text-align:center;"}
@@ -27,6 +29,8 @@
               .card-block
                 = render partial: 'gender_picture', locals: { bathroom: bathroom }
                 %h3.card-title
+                  - bathroom.tags.each do |tag|
+                    = tag.name
                   = bathroom.floor
                   = bathroom.location
                 %p.card-text
