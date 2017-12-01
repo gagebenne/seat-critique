@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>test.log</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            test.log
+        </h1>
+        <ul class="files">
+            <li>log/test.log</li>
+            <li>Last modified: 2017-11-30 23:13:50 -0600</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<pre><code>[1m[35m (117.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS &quot;seatcritique_test&quot;[0m
+[1m[35m (334.2ms)[0m  [1m[35mCREATE DATABASE &quot;seatcritique_test&quot; ENCODING = &#39;unicode&#39;[0m
+[1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS &quot;plpgsql&quot;[0m
+[1m[35m (20.5ms)[0m  [1m[35mCREATE TABLE &quot;bathrooms&quot; (&quot;id&quot; serial primary key, &quot;floor&quot; character varying, &quot;location&quot; character varying, &quot;gender&quot; character varying, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL, &quot;building_id&quot; integer)[0m
+[1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE &quot;buildings&quot; (&quot;id&quot; serial primary key, &quot;name&quot; character varying, &quot;address&quot; text, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL, &quot;latitude&quot; float, &quot;longitude&quot; float)[0m
+[1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE &quot;critiques&quot; (&quot;id&quot; serial primary key, &quot;overall_rating&quot; integer, &quot;toilet_rating&quot; integer, &quot;sink_rating&quot; integer, &quot;cleanliness_rating&quot; integer, &quot;smell_rating&quot; integer, &quot;privacy_rating&quot; integer, &quot;user_id&quot; integer, &quot;bathroom_id&quot; integer, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL)[0m
+[1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE &quot;tags&quot; (&quot;id&quot; serial primary key, &quot;name&quot; character varying, &quot;bathroom_id&quot; integer, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL)[0m
+[1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE &quot;users&quot; (&quot;id&quot; serial primary key, &quot;email&quot; character varying DEFAULT &#39;&#39; NOT NULL, &quot;encrypted_password&quot; character varying DEFAULT &#39;&#39; NOT NULL, &quot;reset_password_token&quot; character varying, &quot;reset_password_sent_at&quot; timestamp, &quot;remember_created_at&quot; timestamp, &quot;sign_in_count&quot; integer DEFAULT 0 NOT NULL, &quot;current_sign_in_at&quot; timestamp, &quot;last_sign_in_at&quot; timestamp, &quot;current_sign_in_ip&quot; inet, &quot;last_sign_in_ip&quot; inet, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL, &quot;gender&quot; character varying)[0m
+[1m[35m (5.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  &quot;index_users_on_email&quot; ON &quot;users&quot; USING btree (&quot;email&quot;)[0m
+[1m[35m (5.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  &quot;index_users_on_reset_password_token&quot; ON &quot;users&quot; USING btree (&quot;reset_password_token&quot;)[0m
+[1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE &quot;schema_migrations&quot; (&quot;version&quot; character varying PRIMARY KEY)[0m
+[1m[35m (0.6ms)[0m  [1m[34mSELECT version FROM &quot;schema_migrations&quot;[0m
+[1m[35m (2.1ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (version) VALUES (20171129043701)[0m
+[1m[35m (1.6ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (version) VALUES</code></pre>
+
+<p>(20171101014245), (20171025152533), (20171101000226), (20171129035557),
+(20171127014314), (20171101031858), (20171101003226);</p>
+
+<p>[0m</p>
+
+<pre><code>[1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE &quot;ar_internal_metadata&quot; (&quot;key&quot; character varying PRIMARY KEY, &quot;value&quot; character varying, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL)[0m
+[1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  &quot;ar_internal_metadata&quot;.* FROM &quot;ar_internal_metadata&quot; WHERE &quot;ar_internal_metadata&quot;.&quot;key&quot; = $1 LIMIT $2[0m  [[&quot;key&quot;, &quot;environment&quot;], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO &quot;ar_internal_metadata&quot; (&quot;key&quot;, &quot;value&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;key&quot;[0m  [[&quot;key&quot;, &quot;environment&quot;], [&quot;value&quot;, &quot;test&quot;], [&quot;created_at&quot;, &quot;2017-11-30 04:34:56.407110&quot;], [&quot;updated_at&quot;, &quot;2017-11-30 04:34:56.407110&quot;]]
+[1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+[1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  &quot;ar_internal_metadata&quot;.* FROM &quot;ar_internal_metadata&quot; WHERE &quot;ar_internal_metadata&quot;.&quot;key&quot; = $1 LIMIT $2[0m  [[&quot;key&quot;, &quot;environment&quot;], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.9ms)[0m  [1m[35mALTER TABLE &quot;bathrooms&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;buildings&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;critiques&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;tags&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;users&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM &quot;users&quot;[0m
+[1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;2017-11-30 04:34:56.872590&#39;, &#39;2017-11-30 04:34:56.872590&#39;, 980190962)[0m
+[1m[35m (0.7ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;users&quot;[0m
+[1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM &quot;tags&quot;[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;tags&quot; (&quot;name&quot;, &quot;bathroom_id&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;MyString&#39;, 1, &#39;2017-11-30 04:34:56.891498&#39;, &#39;2017-11-30 04:34:56.891498&#39;, 980190962)[0m
+[1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO &quot;tags&quot; (&quot;name&quot;, &quot;bathroom_id&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;MyString&#39;, 1, &#39;2017-11-30 04:34:56.891498&#39;, &#39;2017-11-30 04:34:56.891498&#39;, 298486374)[0m
+[1m[35m (0.4ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;tags&quot;[0m
+[1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM &quot;critiques&quot;[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;critiques&quot; (&quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;2017-11-30 04:34:56.903580&#39;, &#39;2017-11-30 04:34:56.903580&#39;, 980190962)[0m
+[1m[35m (0.4ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;critiques&quot;[0m
+[1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM &quot;bathrooms&quot;[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;bathrooms&quot; (&quot;floor&quot;, &quot;location&quot;, &quot;gender&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;1&#39;, &#39;Over there&#39;, &#39;Male&#39;, &#39;2017-11-30 04:34:56.914058&#39;, &#39;2017-11-30 04:34:56.914058&#39;, 342269864)[0m
+[1m[35m (0.4ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;bathrooms&quot;[0m
+[1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM &quot;buildings&quot;[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;Cool Building&#39;, &#39;123 Main St&#39;, &#39;2017-11-30 04:34:56.924421&#39;, &#39;2017-11-30 04:34:56.924421&#39;, 562391268)[0m
+[1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;Cool Building&#39;, &#39;123 Main St&#39;, &#39;2017-11-30 04:34:56.924421&#39;, &#39;2017-11-30 04:34:56.924421&#39;, 1033051398)[0m
+[1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;&#39;, &#39;123 Main St&#39;, &#39;2017-11-30 04:34:56.924421&#39;, &#39;2017-11-30 04:34:56.924421&#39;, 449349069)[0m
+[1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;Cool Building&#39;, &#39;&#39;, &#39;2017-11-30 04:34:56.924421&#39;, &#39;2017-11-30 04:34:56.924421&#39;, 362010541)[0m
+[1m[35m (0.5ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;buildings&quot;[0m
+[1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[35mALTER TABLE &quot;bathrooms&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;buildings&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;critiques&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;tags&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;users&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_can&#39;t_save_two_buildings_with_the_same_name</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (0.4ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 562391268], [&quot;LIMIT&quot;, 1]]
+[1m[36mBuilding Load (0.4ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 1033051398], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mBuilding Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; = $1 AND (&quot;buildings&quot;.&quot;id&quot; != $2) LIMIT $3[0m  [[&quot;name&quot;, &quot;Cool Building&quot;], [&quot;id&quot;, 562391268], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mBuilding Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; = $1 AND (&quot;buildings&quot;.&quot;id&quot; != $2) LIMIT $3[0m  [[&quot;name&quot;, &quot;Cool Building&quot;], [&quot;id&quot;, 1033051398], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_can&#39;t_save_building_without_address</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (0.8ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 362010541], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mBuilding Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; = $1 AND (&quot;buildings&quot;.&quot;id&quot; != $2) LIMIT $3[0m  [[&quot;name&quot;, &quot;Cool Building&quot;], [&quot;id&quot;, 362010541], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_can_save_normal_building</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (1.0ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 562391268], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mBuilding Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; = $1 AND (&quot;buildings&quot;.&quot;id&quot; != $2) LIMIT $3[0m  [[&quot;name&quot;, &quot;Cool Building&quot;], [&quot;id&quot;, 562391268], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_can&#39;t_save_building_without_name</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (0.8ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 449349069], [&quot;LIMIT&quot;, 1]]
+[1m[35m (1.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mBuilding Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; = $1 AND (&quot;buildings&quot;.&quot;id&quot; != $2) LIMIT $3[0m  [[&quot;name&quot;, &quot;&quot;], [&quot;id&quot;, 449349069], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_cannot_save_empty_building</p>
+<hr>
+
+<pre><code>[1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mBuilding Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; IS NULL LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BathroomTest: test_can_save_normal_men&#39;s_bathroom</p>
+<hr>
+
+<pre><code>[1m[36mBathroom Load (0.6ms)[0m  [1m[34mSELECT  &quot;bathrooms&quot;.* FROM &quot;bathrooms&quot; WHERE &quot;bathrooms&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 342269864], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BathroomTest: test_cannot_save_empty_bathroom</p>
+<hr>
+
+<pre><code>[1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>UserTest: test_cannot_save_empty_user</p>
+<hr>
+
+<pre><code>[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>CritiqueTest: test_cannot_save_empty_critique</p>
+<hr>
+
+<pre><code>[1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (137.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS &quot;seatcritique_test&quot;[0m
+[1m[35m (349.4ms)[0m  [1m[35mCREATE DATABASE &quot;seatcritique_test&quot; ENCODING = &#39;unicode&#39;[0m
+[1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS &quot;plpgsql&quot;[0m
+[1m[35m (19.1ms)[0m  [1m[35mCREATE TABLE &quot;bathrooms&quot; (&quot;id&quot; serial primary key, &quot;floor&quot; character varying, &quot;location&quot; character varying, &quot;gender&quot; character varying, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL, &quot;building_id&quot; integer)[0m
+[1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE &quot;buildings&quot; (&quot;id&quot; serial primary key, &quot;name&quot; character varying, &quot;address&quot; text, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL, &quot;latitude&quot; float, &quot;longitude&quot; float)[0m
+[1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE &quot;critiques&quot; (&quot;id&quot; serial primary key, &quot;overall_rating&quot; integer, &quot;toilet_rating&quot; integer, &quot;sink_rating&quot; integer, &quot;cleanliness_rating&quot; integer, &quot;smell_rating&quot; integer, &quot;privacy_rating&quot; integer, &quot;user_id&quot; integer, &quot;bathroom_id&quot; integer, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL)[0m
+[1m[35m (9.8ms)[0m  [1m[35mCREATE TABLE &quot;tags&quot; (&quot;id&quot; serial primary key, &quot;name&quot; character varying, &quot;bathroom_id&quot; integer, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL)[0m
+[1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE &quot;users&quot; (&quot;id&quot; serial primary key, &quot;email&quot; character varying DEFAULT &#39;&#39; NOT NULL, &quot;encrypted_password&quot; character varying DEFAULT &#39;&#39; NOT NULL, &quot;reset_password_token&quot; character varying, &quot;reset_password_sent_at&quot; timestamp, &quot;remember_created_at&quot; timestamp, &quot;sign_in_count&quot; integer DEFAULT 0 NOT NULL, &quot;current_sign_in_at&quot; timestamp, &quot;last_sign_in_at&quot; timestamp, &quot;current_sign_in_ip&quot; inet, &quot;last_sign_in_ip&quot; inet, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL, &quot;gender&quot; character varying)[0m
+[1m[35m (5.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  &quot;index_users_on_email&quot; ON &quot;users&quot; USING btree (&quot;email&quot;)[0m
+[1m[35m (4.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  &quot;index_users_on_reset_password_token&quot; ON &quot;users&quot; USING btree (&quot;reset_password_token&quot;)[0m
+[1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE &quot;schema_migrations&quot; (&quot;version&quot; character varying PRIMARY KEY)[0m
+[1m[35m (0.6ms)[0m  [1m[34mSELECT version FROM &quot;schema_migrations&quot;[0m
+[1m[35m (2.0ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (version) VALUES (20171129043701)[0m
+[1m[35m (1.6ms)[0m  [1m[32mINSERT INTO &quot;schema_migrations&quot; (version) VALUES</code></pre>
+
+<p>(20171101014245), (20171025152533), (20171101000226), (20171129035557),
+(20171127014314), (20171101031858), (20171101003226);</p>
+
+<p>[0m</p>
+
+<pre><code>[1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE &quot;ar_internal_metadata&quot; (&quot;key&quot; character varying PRIMARY KEY, &quot;value&quot; character varying, &quot;created_at&quot; timestamp NOT NULL, &quot;updated_at&quot; timestamp NOT NULL)[0m
+[1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  &quot;ar_internal_metadata&quot;.* FROM &quot;ar_internal_metadata&quot; WHERE &quot;ar_internal_metadata&quot;.&quot;key&quot; = $1 LIMIT $2[0m  [[&quot;key&quot;, &quot;environment&quot;], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+[1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO &quot;ar_internal_metadata&quot; (&quot;key&quot;, &quot;value&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES ($1, $2, $3, $4) RETURNING &quot;key&quot;[0m  [[&quot;key&quot;, &quot;environment&quot;], [&quot;value&quot;, &quot;test&quot;], [&quot;created_at&quot;, &quot;2017-12-01 04:11:50.417993&quot;], [&quot;updated_at&quot;, &quot;2017-12-01 04:11:50.417993&quot;]]
+[1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+[1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  &quot;ar_internal_metadata&quot;.* FROM &quot;ar_internal_metadata&quot; WHERE &quot;ar_internal_metadata&quot;.&quot;key&quot; = $1 LIMIT $2[0m  [[&quot;key&quot;, &quot;environment&quot;], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.7ms)[0m  [1m[35mALTER TABLE &quot;bathrooms&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;buildings&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;critiques&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;tags&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;users&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM &quot;users&quot;[0m
+[1m[36mFixture Insert (0.9ms)[0m  [1m[32mINSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;2017-12-01 04:11:50.806894&#39;, &#39;2017-12-01 04:11:50.806894&#39;, 980190962)[0m
+[1m[35m (0.6ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;users&quot;[0m
+[1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM &quot;tags&quot;[0m
+[1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO &quot;tags&quot; (&quot;name&quot;, &quot;bathroom_id&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;MyString&#39;, 1, &#39;2017-12-01 04:11:50.821772&#39;, &#39;2017-12-01 04:11:50.821772&#39;, 980190962)[0m
+[1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO &quot;tags&quot; (&quot;name&quot;, &quot;bathroom_id&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;MyString&#39;, 1, &#39;2017-12-01 04:11:50.821772&#39;, &#39;2017-12-01 04:11:50.821772&#39;, 298486374)[0m
+[1m[35m (0.3ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;tags&quot;[0m
+[1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM &quot;critiques&quot;[0m
+[1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO &quot;critiques&quot; (&quot;overall_rating&quot;, &quot;toilet_rating&quot;, &quot;sink_rating&quot;, &quot;cleanliness_rating&quot;, &quot;smell_rating&quot;, &quot;privacy_rating&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (6, 60, 1337, 80, 100, 8, &#39;2017-12-01 04:11:50.833004&#39;, &#39;2017-12-01 04:11:50.833004&#39;, 822469720)[0m
+[1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO &quot;critiques&quot; (&quot;overall_rating&quot;, &quot;toilet_rating&quot;, &quot;sink_rating&quot;, &quot;cleanliness_rating&quot;, &quot;smell_rating&quot;, &quot;privacy_rating&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (0, -30, -1, -5, -100, -1337, &#39;2017-12-01 04:11:50.833004&#39;, &#39;2017-12-01 04:11:50.833004&#39;, 310933667)[0m
+[1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO &quot;critiques&quot; (&quot;overall_rating&quot;, &quot;toilet_rating&quot;, &quot;sink_rating&quot;, &quot;cleanliness_rating&quot;, &quot;smell_rating&quot;, &quot;privacy_rating&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (3, 1, 5, 0, 3, 4, &#39;2017-12-01 04:11:50.833004&#39;, &#39;2017-12-01 04:11:50.833004&#39;, 532650121)[0m
+[1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO &quot;critiques&quot; (&quot;overall_rating&quot;, &quot;toilet_rating&quot;, &quot;sink_rating&quot;, &quot;cleanliness_rating&quot;, &quot;smell_rating&quot;, &quot;privacy_rating&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (4, 5, 4, 3, 2, 5, &#39;2017-12-01 04:11:50.833004&#39;, &#39;2017-12-01 04:11:50.833004&#39;, 201799169)[0m
+[1m[35m (0.4ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;critiques&quot;[0m
+[1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM &quot;bathrooms&quot;[0m
+[1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO &quot;bathrooms&quot; (&quot;floor&quot;, &quot;location&quot;, &quot;gender&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;1&#39;, &#39;Over there&#39;, &#39;Male&#39;, &#39;2017-12-01 04:11:50.849485&#39;, &#39;2017-12-01 04:11:50.849485&#39;, 342269864)[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;bathrooms&quot; (&quot;floor&quot;, &quot;location&quot;, &quot;gender&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;Jay Leno&#39;, &#39;Hollywood&#39;, &#39;Female&#39;, &#39;2017-12-01 04:11:50.849485&#39;, &#39;2017-12-01 04:11:50.849485&#39;, 825185153)[0m
+[1m[35m (0.3ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;bathrooms&quot;[0m
+[1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM &quot;buildings&quot;[0m
+[1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;Cool Building&#39;, &#39;123 Main St&#39;, &#39;2017-12-01 04:11:50.860694&#39;, &#39;2017-12-01 04:11:50.860694&#39;, 562391268)[0m
+[1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;Cool Building&#39;, &#39;123 Main St&#39;, &#39;2017-12-01 04:11:50.860694&#39;, &#39;2017-12-01 04:11:50.860694&#39;, 1033051398)[0m
+[1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;&#39;, &#39;123 Main St&#39;, &#39;2017-12-01 04:11:50.860694&#39;, &#39;2017-12-01 04:11:50.860694&#39;, 449349069)[0m
+[1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;Cool Building&#39;, &#39;&#39;, &#39;2017-12-01 04:11:50.860694&#39;, &#39;2017-12-01 04:11:50.860694&#39;, 362010541)[0m
+[1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;   Cooler Building    &#39;, &#39;  123 Fake Street  &#39;, &#39;2017-12-01 04:11:50.860694&#39;, &#39;2017-12-01 04:11:50.860694&#39;, 489383035)[0m
+[1m[35m (0.4ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;buildings&quot;[0m
+[1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.3ms)[0m  [1m[35mALTER TABLE &quot;bathrooms&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;buildings&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;critiques&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;tags&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;users&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>UserTest: test_cannot_save_empty_user</p>
+<hr>
+
+<pre><code>[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BathroomTest: test_cannot_save_empty_bathroom</p>
+<hr>
+
+<pre><code>[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BathroomTest: test_should_have_the_necessary_required_validators</p>
+<hr>
+
+<pre><code>[1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BathroomTest: test_average_ratings_work_with_no_critiques</p>
+<hr>
+
+<pre><code>[1m[36mBathroom Load (0.3ms)[0m  [1m[34mSELECT  &quot;bathrooms&quot;.* FROM &quot;bathrooms&quot; WHERE &quot;bathrooms&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 342269864], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[36mCritique Load (0.2ms)[0m  [1m[34mSELECT &quot;critiques&quot;.* FROM &quot;critiques&quot; WHERE &quot;critiques&quot;.&quot;bathroom_id&quot; = $1[0m  [[&quot;bathroom_id&quot;, 342269864]]
+[1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BathroomTest: test_normal_men&#39;s_bathroom_has_no_errors</p>
+<hr>
+
+<pre><code>[1m[36mBathroom Load (0.5ms)[0m  [1m[34mSELECT  &quot;bathrooms&quot;.* FROM &quot;bathrooms&quot; WHERE &quot;bathrooms&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 342269864], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BathroomTest: test_can&#39;t_save_invalid_floor</p>
+<hr>
+
+<pre><code>[1m[36mBathroom Load (0.5ms)[0m  [1m[34mSELECT  &quot;bathrooms&quot;.* FROM &quot;bathrooms&quot; WHERE &quot;bathrooms&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 825185153], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_can&#39;t_save_building_without_address</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (0.3ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 362010541], [&quot;LIMIT&quot;, 1]]
+[1m[36mBuilding Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; = $1 AND (&quot;buildings&quot;.&quot;id&quot; != $2) LIMIT $3[0m  [[&quot;name&quot;, &quot;Cool Building&quot;], [&quot;id&quot;, 362010541], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest:
+test_strip_input_does_nothing_to_a_properly_formatted_building</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (0.4ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 562391268], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_can&#39;t_save_building_without_name</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (0.4ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 449349069], [&quot;LIMIT&quot;, 1]]
+[1m[36mBuilding Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; = $1 AND (&quot;buildings&quot;.&quot;id&quot; != $2) LIMIT $3[0m  [[&quot;name&quot;, &quot;&quot;], [&quot;id&quot;, 449349069], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_normal_building_has_no_errors</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (0.4ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 562391268], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_should_have_the_necessary_required_validators</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; IS NULL LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_can&#39;t_save_two_buildings_with_the_same_name</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (0.4ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 562391268], [&quot;LIMIT&quot;, 1]]
+[1m[36mBuilding Load (0.3ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 1033051398], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mBuilding Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; = $1 AND (&quot;buildings&quot;.&quot;id&quot; != $2) LIMIT $3[0m  [[&quot;name&quot;, &quot;Cool Building&quot;], [&quot;id&quot;, 562391268], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mBuilding Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; = $1 AND (&quot;buildings&quot;.&quot;id&quot; != $2) LIMIT $3[0m  [[&quot;name&quot;, &quot;Cool Building&quot;], [&quot;id&quot;, 1033051398], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_cannot_save_empty_building</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; IS NULL LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_strip_input_works_as_expected</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (0.3ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 489383035], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>CritiqueTest: test_should_have_the_necessary_validators</p>
+<hr>
+
+<pre><code>[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>CritiqueTest: test_numericality_validators_work_when_value_is_too_high</p>
+<hr>
+
+<pre><code>[1m[36mCritique Load (0.4ms)[0m  [1m[34mSELECT  &quot;critiques&quot;.* FROM &quot;critiques&quot; WHERE &quot;critiques&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 822469720], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>CritiqueTest: test_cannot_save_empty_critique</p>
+<hr>
+
+<pre><code>[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>CritiqueTest: test_valid_critique_has_no_errors</p>
+<hr>
+
+<pre><code>[1m[36mCritique Load (0.5ms)[0m  [1m[34mSELECT  &quot;critiques&quot;.* FROM &quot;critiques&quot; WHERE &quot;critiques&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 201799169], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>CritiqueTest: test_numericality_validators_work_when_value_is_too_low</p>
+<hr>
+
+<pre><code>[1m[36mCritique Load (0.4ms)[0m  [1m[34mSELECT  &quot;critiques&quot;.* FROM &quot;critiques&quot; WHERE &quot;critiques&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 310933667], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>CritiqueTest: test_edge_cases_work_as_intended</p>
+<hr>
+
+<pre><code>[1m[36mCritique Load (0.6ms)[0m  [1m[34mSELECT  &quot;critiques&quot;.* FROM &quot;critiques&quot; WHERE &quot;critiques&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 532650121], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.8ms)[0m  [1m[35mALTER TABLE &quot;bathrooms&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;buildings&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;critiques&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;tags&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;users&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; DISABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; DISABLE TRIGGER ALL[0m
+[1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+[1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM &quot;users&quot;[0m
+[1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;2017-12-01 05:14:06.054207&#39;, &#39;2017-12-01 05:14:06.054207&#39;, 980190962)[0m
+[1m[35m (0.6ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;users&quot;[0m
+[1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM &quot;tags&quot;[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;tags&quot; (&quot;name&quot;, &quot;bathroom_id&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;MyString&#39;, 1, &#39;2017-12-01 05:14:06.067838&#39;, &#39;2017-12-01 05:14:06.067838&#39;, 980190962)[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;tags&quot; (&quot;name&quot;, &quot;bathroom_id&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;MyString&#39;, 1, &#39;2017-12-01 05:14:06.067838&#39;, &#39;2017-12-01 05:14:06.067838&#39;, 298486374)[0m
+[1m[35m (0.4ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;tags&quot;[0m
+[1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM &quot;critiques&quot;[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;critiques&quot; (&quot;overall_rating&quot;, &quot;toilet_rating&quot;, &quot;sink_rating&quot;, &quot;cleanliness_rating&quot;, &quot;smell_rating&quot;, &quot;privacy_rating&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (6, 60, 1337, 80, 100, 8, &#39;2017-12-01 05:14:06.079253&#39;, &#39;2017-12-01 05:14:06.079253&#39;, 822469720)[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;critiques&quot; (&quot;overall_rating&quot;, &quot;toilet_rating&quot;, &quot;sink_rating&quot;, &quot;cleanliness_rating&quot;, &quot;smell_rating&quot;, &quot;privacy_rating&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (0, -30, -1, -5, -100, -1337, &#39;2017-12-01 05:14:06.079253&#39;, &#39;2017-12-01 05:14:06.079253&#39;, 310933667)[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;critiques&quot; (&quot;overall_rating&quot;, &quot;toilet_rating&quot;, &quot;sink_rating&quot;, &quot;cleanliness_rating&quot;, &quot;smell_rating&quot;, &quot;privacy_rating&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (3, 1, 5, 0, 3, 4, &#39;2017-12-01 05:14:06.079253&#39;, &#39;2017-12-01 05:14:06.079253&#39;, 532650121)[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;critiques&quot; (&quot;overall_rating&quot;, &quot;toilet_rating&quot;, &quot;sink_rating&quot;, &quot;cleanliness_rating&quot;, &quot;smell_rating&quot;, &quot;privacy_rating&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (4, 5, 4, 3, 2, 5, &#39;2017-12-01 05:14:06.079253&#39;, &#39;2017-12-01 05:14:06.079253&#39;, 201799169)[0m
+[1m[35m (0.5ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;critiques&quot;[0m
+[1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM &quot;bathrooms&quot;[0m
+[1m[36mFixture Insert (2.0ms)[0m  [1m[32mINSERT INTO &quot;bathrooms&quot; (&quot;floor&quot;, &quot;location&quot;, &quot;gender&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;1&#39;, &#39;Over there&#39;, &#39;Male&#39;, &#39;2017-12-01 05:14:06.093359&#39;, &#39;2017-12-01 05:14:06.093359&#39;, 342269864)[0m
+[1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO &quot;bathrooms&quot; (&quot;floor&quot;, &quot;location&quot;, &quot;gender&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;Jay Leno&#39;, &#39;Hollywood&#39;, &#39;Female&#39;, &#39;2017-12-01 05:14:06.093359&#39;, &#39;2017-12-01 05:14:06.093359&#39;, 825185153)[0m
+[1m[35m (0.6ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;bathrooms&quot;[0m
+[1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM &quot;buildings&quot;[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;Cool Building&#39;, &#39;123 Main St&#39;, &#39;2017-12-01 05:14:06.107890&#39;, &#39;2017-12-01 05:14:06.107890&#39;, 562391268)[0m
+[1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;Cool Building&#39;, &#39;123 Main St&#39;, &#39;2017-12-01 05:14:06.107890&#39;, &#39;2017-12-01 05:14:06.107890&#39;, 1033051398)[0m
+[1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;&#39;, &#39;123 Main St&#39;, &#39;2017-12-01 05:14:06.107890&#39;, &#39;2017-12-01 05:14:06.107890&#39;, 449349069)[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;Cool Building&#39;, &#39;&#39;, &#39;2017-12-01 05:14:06.107890&#39;, &#39;2017-12-01 05:14:06.107890&#39;, 362010541)[0m
+[1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO &quot;buildings&quot; (&quot;name&quot;, &quot;address&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;   Cooler Building    &#39;, &#39;  123 Fake Street  &#39;, &#39;2017-12-01 05:14:06.107890&#39;, &#39;2017-12-01 05:14:06.107890&#39;, 489383035)[0m
+[1m[35m (0.5ms)[0m  [1m[34mselect MAX(&quot;id&quot;) from &quot;buildings&quot;[0m
+[1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[1m[35m (0.4ms)[0m  [1m[35mALTER TABLE &quot;bathrooms&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;buildings&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;critiques&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;tags&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;users&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;schema_migrations&quot; ENABLE TRIGGER ALL;ALTER TABLE &quot;ar_internal_metadata&quot; ENABLE TRIGGER ALL[0m
+[1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>CritiqueTest: test_numericality_validators_work_when_value_is_too_high</p>
+<hr>
+
+<pre><code>[1m[36mCritique Load (0.4ms)[0m  [1m[34mSELECT  &quot;critiques&quot;.* FROM &quot;critiques&quot; WHERE &quot;critiques&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 822469720], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>CritiqueTest: test_should_have_the_necessary_validators</p>
+<hr>
+
+<pre><code>[1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>CritiqueTest: test_valid_critique_has_no_errors</p>
+<hr>
+
+<pre><code>[1m[36mCritique Load (0.7ms)[0m  [1m[34mSELECT  &quot;critiques&quot;.* FROM &quot;critiques&quot; WHERE &quot;critiques&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 201799169], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>CritiqueTest: test_edge_cases_work_as_intended</p>
+<hr>
+
+<pre><code>[1m[36mCritique Load (0.4ms)[0m  [1m[34mSELECT  &quot;critiques&quot;.* FROM &quot;critiques&quot; WHERE &quot;critiques&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 532650121], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>CritiqueTest: test_numericality_validators_work_when_value_is_too_low</p>
+<hr>
+
+<pre><code>[1m[36mCritique Load (0.5ms)[0m  [1m[34mSELECT  &quot;critiques&quot;.* FROM &quot;critiques&quot; WHERE &quot;critiques&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 310933667], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>TagTest: test_should_have_the_necessary_required_validators</p>
+<hr>
+
+<pre><code>[1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_can&#39;t_save_building_without_name</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (1.2ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 449349069], [&quot;LIMIT&quot;, 1]]
+[1m[36mBuilding Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; = $1 AND (&quot;buildings&quot;.&quot;id&quot; != $2) LIMIT $3[0m  [[&quot;name&quot;, &quot;&quot;], [&quot;id&quot;, 449349069], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest:
+test_strip_input_does_nothing_to_a_properly_formatted_building</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (1.2ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 562391268], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_strip_input_works_as_expected</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (0.6ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 489383035], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_normal_building_has_no_errors</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (0.5ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 562391268], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_should_have_the_necessary_required_validators</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; IS NULL LIMIT $1[0m  [[&quot;LIMIT&quot;, 1]]
+[1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_can&#39;t_save_building_without_address</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (0.8ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 362010541], [&quot;LIMIT&quot;, 1]]
+[1m[36mBuilding Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; = $1 AND (&quot;buildings&quot;.&quot;id&quot; != $2) LIMIT $3[0m  [[&quot;name&quot;, &quot;Cool Building&quot;], [&quot;id&quot;, 362010541], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BuildingTest: test_can&#39;t_save_two_buildings_with_the_same_name</p>
+<hr>
+
+<pre><code>[1m[36mBuilding Load (1.3ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 562391268], [&quot;LIMIT&quot;, 1]]
+[1m[36mBuilding Load (0.7ms)[0m  [1m[34mSELECT  &quot;buildings&quot;.* FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 1033051398], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mBuilding Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; = $1 AND (&quot;buildings&quot;.&quot;id&quot; != $2) LIMIT $3[0m  [[&quot;name&quot;, &quot;Cool Building&quot;], [&quot;id&quot;, 562391268], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[36mBuilding Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM &quot;buildings&quot; WHERE &quot;buildings&quot;.&quot;name&quot; = $1 AND (&quot;buildings&quot;.&quot;id&quot; != $2) LIMIT $3[0m  [[&quot;name&quot;, &quot;Cool Building&quot;], [&quot;id&quot;, 1033051398], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.6ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>UserTest: test_cannot_save_empty_user</p>
+<hr>
+
+<pre><code>[1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.9ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>UserTest: test_should_validate_presence_of_gender</p>
+<hr>
+
+<pre><code>[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BathroomTest: test_normal_men&#39;s_bathroom_has_no_errors</p>
+<hr>
+
+<pre><code>[1m[36mBathroom Load (0.4ms)[0m  [1m[34mSELECT  &quot;bathrooms&quot;.* FROM &quot;bathrooms&quot; WHERE &quot;bathrooms&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 342269864], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BathroomTest: test_should_have_the_necessary_required_validators</p>
+<hr>
+
+<pre><code>[1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BathroomTest: test_average_ratings_work_with_no_critiques</p>
+<hr>
+
+<pre><code>[1m[36mBathroom Load (0.4ms)[0m  [1m[34mSELECT  &quot;bathrooms&quot;.* FROM &quot;bathrooms&quot; WHERE &quot;bathrooms&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 342269864], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[36mCritique Load (0.3ms)[0m  [1m[34mSELECT &quot;critiques&quot;.* FROM &quot;critiques&quot; WHERE &quot;critiques&quot;.&quot;bathroom_id&quot; = $1[0m  [[&quot;bathroom_id&quot;, 342269864]]
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m</code></pre>
+<hr>
+
+<p>BathroomTest: test_can&#39;t_save_invalid_floor</p>
+<hr>
+
+<pre><code>[1m[36mBathroom Load (0.4ms)[0m  [1m[34mSELECT  &quot;bathrooms&quot;.* FROM &quot;bathrooms&quot; WHERE &quot;bathrooms&quot;.&quot;id&quot; = $1 LIMIT $2[0m  [[&quot;id&quot;, 825185153], [&quot;LIMIT&quot;, 1]]
+[1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>
