@@ -42,5 +42,4 @@ class CritiqueTest < ActiveSupport::TestCase
     assert_equal [], critique.errors.keys
   end
 
-
 end
