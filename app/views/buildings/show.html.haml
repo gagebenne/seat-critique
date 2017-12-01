@@ -6,10 +6,7 @@
   = @building.address
 
   .separator
-  /%br
-  /= link_to "Bathrooms", building_bathrooms_path(@building), :class => 'btn btn-default'
-  /%br
-  /Begin Bathroom Module
+
   %h3 Bathrooms
 
   .separator
@@ -28,14 +25,11 @@
             .card
               .card-block
                 = render partial: 'gender_picture', locals: { bathroom: bathroom }
-                %h3.card-title
-                  - bathroom.tags.each do |tag|
-                    = tag.name
-                  = bathroom.floor
+                %h5{:style => 'margin-bottom:5px;'}
+                  = 'Floor ' + bathroom.floor.to_s
+                %h3.card-title{:style => 'margin-top:0px;margin-bottom:5px;'}
                   = bathroom.location
                 %p.card-text
-                  = bathroom.gender
-                  %br
                   - if bathroom.average_overall_rating.nan?
                     No Critiques
                   -else
@@ -43,5 +37,4 @@
                       ★
                 %div
                   = link_to "Show", building_bathroom_path(@building,bathroom), :class => 'btn btn-default'
-/End Bathroom module
 .separator
