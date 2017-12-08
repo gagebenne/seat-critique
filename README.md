@@ -47,3 +47,5 @@ All of our tests are located within the **test** folder.<br>
 Our tests can be run through terminal. Within the project directory, run<br>
 `docker-compose run web rake test`.<br>
 Successful tests will show up as green dots, while failed tests show up as a red F with the error message underneath it.
+
+### [Bug List](documentation/buglist.md)
