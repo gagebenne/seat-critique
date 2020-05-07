@@ -1,14 +1,15 @@
 # Seat Critique
+*EECS 448*
 
 Seat Critique is an all-in-one restroom app which lets users find and critique restrooms near them.
 
 ### Team Members
 
-[Gage Benne](https://github.com/gagebenne) 
+[Gage Benne](https://www.gagebenne.com) 
 
 [Zachary Bruennig](https://github.com/zbruennig)
 
-[Andy Monroe](https://github.com/andrew-monroe)
+[Andy Monroe](https://www.andymonroe.dev)
 
 [Mason Wilde](https://github.com/masonwilde)
 
